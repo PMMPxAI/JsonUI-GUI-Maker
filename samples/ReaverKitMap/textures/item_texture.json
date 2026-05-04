@@ -1,0 +1,168 @@
+{
+  "resource_pack_name": "reaver",
+  "texture_data": {
+    "reaver:ascarreau": {
+      "textures": "assets/items/cards/ASCARREAU"
+    },
+    "reaver:ascoeur": {
+      "textures": "assets/items/cards/ASCOEUR"
+    },
+    "reaver:aspique": {
+      "textures": "assets/items/cards/ASPIQUE"
+    },
+    "reaver:astrefle": {
+      "textures": "assets/items/cards/ASTREFLE"
+    },
+    "reaver:back": {
+      "textures": "assets/items/cards/BACK"
+    },
+    "reaver:chest": {
+      "textures": "assets/items/chest"
+    },
+    "reaver:eightcarreau": {
+      "textures": "assets/items/cards/EIGHTCARREAU"
+    },
+    "reaver:eightcoeur": {
+      "textures": "assets/items/cards/EIGHTCOEUR"
+    },
+    "reaver:eightpique": {
+      "textures": "assets/items/cards/EIGHTPIQUE"
+    },
+    "reaver:eighttrefle": {
+      "textures": "assets/items/cards/EIGHTTREFLE"
+    },
+    "reaver:fivecarreau": {
+      "textures": "assets/items/cards/FIVECARREAU"
+    },
+    "reaver:fivecoeur": {
+      "textures": "assets/items/cards/FIVECOEUR"
+    },
+    "reaver:fivepique": {
+      "textures": "assets/items/cards/FIVEPIQUE"
+    },
+    "reaver:fivetrefle": {
+      "textures": "assets/items/cards/FIVETREFLE"
+    },
+    "reaver:fourcarreau": {
+      "textures": "assets/items/cards/FOURCARREAU"
+    },
+    "reaver:fourcoeur": {
+      "textures": "assets/items/cards/FOURCOEUR"
+    },
+    "reaver:fourpique": {
+      "textures": "assets/items/cards/FOURPIQUE"
+    },
+    "reaver:fourtrefle": {
+      "textures": "assets/items/cards/FOURTREFLE"
+    },
+    "reaver:jcarreau": {
+      "textures": "assets/items/cards/JCARREAU"
+    },
+    "reaver:jcoeur": {
+      "textures": "assets/items/cards/JCOEUR"
+    },
+    "reaver:jpique": {
+      "textures": "assets/items/cards/JPIQUE"
+    },
+    "reaver:jtrefle": {
+      "textures": "assets/items/cards/JTREFLE"
+    },
+    "reaver:kcarreau": {
+      "textures": "assets/items/cards/KCARREAU"
+    },
+    "reaver:kcoeur": {
+      "textures": "assets/items/cards/KCOEUR"
+    },
+    "reaver:kpique": {
+      "textures": "assets/items/cards/KPIQUE"
+    },
+    "reaver:ktrefle": {
+      "textures": "assets/items/cards/KTREFLE"
+    },
+    "reaver:ninecarreau": {
+      "textures": "assets/items/cards/NINECARREAU"
+    },
+    "reaver:ninecoeur": {
+      "textures": "assets/items/cards/NINECOEUR"
+    },
+    "reaver:ninepique": {
+      "textures": "assets/items/cards/NINEPIQUE"
+    },
+    "reaver:ninetrefle": {
+      "textures": "assets/items/cards/NINETREFLE"
+    },
+    "reaver:qcarreau": {
+      "textures": "assets/items/cards/QCARREAU"
+    },
+    "reaver:qcoeur": {
+      "textures": "assets/items/cards/QCOEUR"
+    },
+    "reaver:qpique": {
+      "textures": "assets/items/cards/QPIQUE"
+    },
+    "reaver:qtrefle": {
+      "textures": "assets/items/cards/QTREFLE"
+    },
+    "reaver:sevencarreau": {
+      "textures": "assets/items/cards/SEVENCARREAU"
+    },
+    "reaver:sevencoeur": {
+      "textures": "assets/items/cards/SEVENCOEUR"
+    },
+    "reaver:sevenpique": {
+      "textures": "assets/items/cards/SEVENPIQUE"
+    },
+    "reaver:seventrefle": {
+      "textures": "assets/items/cards/SEVENTREFLE"
+    },
+    "reaver:sixcarreau": {
+      "textures": "assets/items/cards/SIXCARREAU"
+    },
+    "reaver:sixcoeur": {
+      "textures": "assets/items/cards/SIXCOEUR"
+    },
+    "reaver:sixpique": {
+      "textures": "assets/items/cards/SIXPIQUE"
+    },
+    "reaver:sixtrefle": {
+      "textures": "assets/items/cards/SIXTREFLE"
+    },
+    "reaver:tencarreau": {
+      "textures": "assets/items/cards/TENCARREAU"
+    },
+    "reaver:tencoeur": {
+      "textures": "assets/items/cards/TENCOEUR"
+    },
+    "reaver:tenpique": {
+      "textures": "assets/items/cards/TENPIQUE"
+    },
+    "reaver:tentrefle": {
+      "textures": "assets/items/cards/TENTREFLE"
+    },
+    "reaver:threecarreau": {
+      "textures": "assets/items/cards/THREECARREAU"
+    },
+    "reaver:threecoeur": {
+      "textures": "assets/items/cards/THREECOEUR"
+    },
+    "reaver:threepique": {
+      "textures": "assets/items/cards/THREEPIQUE"
+    },
+    "reaver:threetrefle": {
+      "textures": "assets/items/cards/THREETREFLE"
+    },
+    "reaver:twocarreau": {
+      "textures": "assets/items/cards/TWOCARREAU"
+    },
+    "reaver:twocoeur": {
+      "textures": "assets/items/cards/TWOCOEUR"
+    },
+    "reaver:twopique": {
+      "textures": "assets/items/cards/TWOPIQUE"
+    },
+    "reaver:twotrefle": {
+      "textures": "assets/items/cards/TWOTREFLE"
+    }
+  },
+  "texture_name": "atlas.items"
+}

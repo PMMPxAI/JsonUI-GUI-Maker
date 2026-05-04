@@ -1,0 +1,550 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.cape.Ez4": {
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "Texture.cape.Ez4"
+      ]
+    },
+    "controller.render.cape.anime": {
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "Texture.cape.anime"
+      ]
+    },
+    "controller.render.cape.aye": {
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "Texture.cape.aye"
+      ]
+    },
+    "controller.render.cape.butterfly": {
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "Texture.cape.butterfly"
+      ]
+    },
+    "controller.render.cape.cat": {
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "Texture.cape.cat"
+      ]
+    },
+    "controller.render.cape.clouds": {
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "Texture.cape.clouds"
+      ]
+    },
+    "controller.render.cape.creeper": {
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "Texture.cape.creeper"
+      ]
+    },
+    "controller.render.cape.developer": {
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "Texture.cape.developer"
+      ]
+    },
+    "controller.render.cape.dog": {
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "Texture.cape.dog"
+      ]
+    },
+    "controller.render.cape.easy": {
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "Texture.cape.easy"
+      ]
+    },
+    "controller.render.cape.eyes": {
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "Texture.cape.eyes"
+      ]
+    },
+    "controller.render.cape.fiak": {
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "Texture.cape.fiak"
+      ]
+    },
+    "controller.render.cape.forest": {
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "Texture.cape.forest"
+      ]
+    },
+    "controller.render.cape.france": {
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "Texture.cape.france"
+      ]
+    },
+    "controller.render.cape.frog": {
+      "arrays": {
+        "textures": {
+          "array.frames": [
+            "texture.cape.frog_1",
+            "texture.cape.frog_2",
+            "texture.cape.frog_3",
+            "texture.cape.frog_4",
+            "texture.cape.frog_5",
+            "texture.cape.frog_6",
+            "texture.cape.frog_7",
+            "texture.cape.frog_8",
+            "texture.cape.frog_9",
+            "texture.cape.frog_10",
+            "texture.cape.frog_11",
+            "texture.cape.frog_12"
+          ]
+        }
+      },
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "array.frames[(query.anim_time * 7 )]"
+      ]
+    },
+    "controller.render.cape.girl": {
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "Texture.cape.girl"
+      ]
+    },
+    "controller.render.cape.heart": {
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "Texture.cape.heart"
+      ]
+    },
+    "controller.render.cape.heart_anim": {
+      "arrays": {
+        "textures": {
+          "array.frames": [
+            "texture.cape.heart_anim_1",
+            "texture.cape.heart_anim_2",
+            "texture.cape.heart_anim_3",
+            "texture.cape.heart_anim_4",
+            "texture.cape.heart_anim_5",
+            "texture.cape.heart_anim_6",
+            "texture.cape.heart_anim_7"
+          ]
+        }
+      },
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "array.frames[(query.anim_time * 7 )]"
+      ]
+    },
+    "controller.render.cape.hokage": {
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "Texture.cape.hokage"
+      ]
+    },
+    "controller.render.cape.hot_hand": {
+      "arrays": {
+        "textures": {
+          "array.frames": [
+            "texture.cape.hot_hand_1",
+            "texture.cape.hot_hand_2",
+            "texture.cape.hot_hand_3",
+            "texture.cape.hot_hand_4",
+            "texture.cape.hot_hand_5",
+            "texture.cape.hot_hand_6",
+            "texture.cape.hot_hand_7",
+            "texture.cape.hot_hand_8",
+            "texture.cape.hot_hand_9",
+            "texture.cape.hot_hand_10",
+            "texture.cape.hot_hand_11",
+            "texture.cape.hot_hand_12",
+            "texture.cape.hot_hand_13",
+            "texture.cape.hot_hand_14",
+            "texture.cape.hot_hand_15"
+          ]
+        }
+      },
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "array.frames[(query.anim_time * 7 )]"
+      ]
+    },
+    "controller.render.cape.itachi": {
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "Texture.cape.itachi"
+      ]
+    },
+    "controller.render.cape.kiss": {
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "Texture.cape.kiss"
+      ]
+    },
+    "controller.render.cape.luffy": {
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "Texture.cape.luffy"
+      ]
+    },
+    "controller.render.cape.mountain": {
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "Texture.cape.mountain"
+      ]
+    },
+    "controller.render.cape.nami": {
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "Texture.cape.nami"
+      ]
+    },
+    "controller.render.cape.nerverlose": {
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "Texture.cape.nerverlose"
+      ]
+    },
+    "controller.render.cape.neurosis": {
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "Texture.cape.neurosis"
+      ]
+    },
+    "controller.render.cape.night_sky": {
+      "arrays": {
+        "textures": {
+          "array.frames": [
+            "texture.cape.night_sky_1",
+            "texture.cape.night_sky_2",
+            "texture.cape.night_sky_3",
+            "texture.cape.night_sky_4",
+            "texture.cape.night_sky_5",
+            "texture.cape.night_sky_6",
+            "texture.cape.night_sky_7",
+            "texture.cape.night_sky_8",
+            "texture.cape.night_sky_9",
+            "texture.cape.night_sky_10",
+            "texture.cape.night_sky_11",
+            "texture.cape.night_sky_12",
+            "texture.cape.night_sky_13",
+            "texture.cape.night_sky_14"
+          ]
+        }
+      },
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "array.frames[(query.anim_time * 7 )]"
+      ]
+    },
+    "controller.render.cape.obanai": {
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "Texture.cape.obanai"
+      ]
+    },
+    "controller.render.cape.obito": {
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "Texture.cape.obito"
+      ]
+    },
+    "controller.render.cape.one_piece": {
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "Texture.cape.one_piece"
+      ]
+    },
+    "controller.render.cape.panda": {
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "Texture.cape.panda"
+      ]
+    },
+    "controller.render.cape.penguin": {
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "Texture.cape.penguin"
+      ]
+    },
+    "controller.render.cape.rickroll": {
+      "arrays": {
+        "textures": {
+          "array.frames": [
+            "texture.cape.rickroll_1",
+            "texture.cape.rickroll_2",
+            "texture.cape.rickroll_3",
+            "texture.cape.rickroll_4",
+            "texture.cape.rickroll_5",
+            "texture.cape.rickroll_6",
+            "texture.cape.rickroll_7",
+            "texture.cape.rickroll_8",
+            "texture.cape.rickroll_9",
+            "texture.cape.rickroll_10",
+            "texture.cape.rickroll_11",
+            "texture.cape.rickroll_12",
+            "texture.cape.rickroll_13",
+            "texture.cape.rickroll_14",
+            "texture.cape.rickroll_15",
+            "texture.cape.rickroll_16",
+            "texture.cape.rickroll_17"
+          ]
+        }
+      },
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "array.frames[(query.anim_time * 7 )]"
+      ]
+    },
+    "controller.render.cape.sorry_girls_im_gay": {
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "Texture.cape.sorry_girls_im_gay"
+      ]
+    },
+    "controller.render.cape.uchiha": {
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "Texture.cape.uchiha"
+      ]
+    },
+    "controller.render.cape.vapev4": {
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "Texture.cape.vapev4"
+      ]
+    },
+    "controller.render.cape.vers": {
+      "arrays": {
+        "textures": {
+          "array.frames": [
+            "texture.cape.vers_1",
+            "texture.cape.vers_2",
+            "texture.cape.vers_3",
+            "texture.cape.vers_4",
+            "texture.cape.vers_5",
+            "texture.cape.vers_6",
+            "texture.cape.vers_7",
+            "texture.cape.vers_8",
+            "texture.cape.vers_9",
+            "texture.cape.vers_10",
+            "texture.cape.vers_11",
+            "texture.cape.vers_12",
+            "texture.cape.vers_13",
+            "texture.cape.vers_14",
+            "texture.cape.vers_15"
+          ]
+        }
+      },
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "array.frames[(query.anim_time * 7 )]"
+      ]
+    },
+    "controller.render.cape.zero_two": {
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "Texture.cape.zero_two"
+      ]
+    }
+  }
+}

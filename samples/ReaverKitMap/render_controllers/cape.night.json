@@ -1,0 +1,36 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.cape.night": {
+      "arrays": {
+        "textures": {
+          "array.frames": [
+            "texture.cape.night_1",
+            "texture.cape.night_2",
+            "texture.cape.night_3",
+            "texture.cape.night_4",
+            "texture.cape.night_5",
+            "texture.cape.night_6",
+            "texture.cape.night_7",
+            "texture.cape.night_8",
+            "texture.cape.night_9",
+            "texture.cape.night_10",
+            "texture.cape.night_11",
+            "texture.cape.night_12",
+            "texture.cape.night_13",
+            "texture.cape.night_14"
+          ]
+        }
+      },
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "array.frames[(query.anim_time * 7 )]"
+      ]
+    }
+  }
+}

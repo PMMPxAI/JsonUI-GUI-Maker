@@ -1,0 +1,29 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.cape.cheers": {
+      "arrays": {
+        "textures": {
+          "array.frames": [
+            "texture.cape.cheers_1",
+            "texture.cape.cheers_2",
+            "texture.cape.cheers_3",
+            "texture.cape.cheers_4",
+            "texture.cape.cheers_5",
+            "texture.cape.cheers_6",
+            "texture.cape.cheers_7"
+          ]
+        }
+      },
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "array.frames[(query.anim_time * 7 )]"
+      ]
+    }
+  }
+}

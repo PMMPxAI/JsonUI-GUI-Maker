@@ -259,6 +259,48 @@ window.SW = window.SW || {};
         return Object.assign(base, { size: [200, 40] });
       case 'scrolling_panel':
         return Object.assign(base, { size: [240, 200] });
+      case 'grid':
+        return Object.assign(base, {
+          size: [200, 200],
+          grid_dimensions: [4, 4],
+          grid_item_template: 'grid_item'
+        });
+      case 'toggle':
+        return Object.assign(base, {
+          size: [20, 20],
+          toggle_name: '',
+          toggle_default_state: false,
+          toggle_group_forced_index: 0
+        });
+      case 'dropdown':
+        return Object.assign(base, {
+          size: [200, 30],
+          dropdown_name: 'dropdown',
+          dropdown_content_control: 'content',
+          dropdown_area: 'content_area'
+        });
+      case 'slider':
+        return Object.assign(base, {
+          size: [200, 20],
+          slider_track_button: 'track',
+          slider_small_decrease_button: 'less',
+          slider_small_increase_button: 'more',
+          slider_steps: 10,
+          slider_direction: 'horizontal',
+          default_value: 0.5
+        });
+      case 'fill':
+        return Object.assign(base, {
+          size: [200, 20],
+          color: [0.2, 0.8, 0.2, 1],
+          clip_direction: 'left',
+          clip_ratio: 0.7
+        });
+      case 'custom':
+        return Object.assign(base, {
+          size: [200, 200],
+          renderer: 'custom_renderer'
+        });
       default:
         return base;
     }
@@ -278,9 +320,16 @@ window.SW = window.SW || {};
       const order = [
         'orientation', 'size', 'offset', 'anchor_from', 'anchor_to',
         'layer', 'alpha', 'color', 'texture', 'uv', 'uv_size',
+        'nine_slice_buttoned', 'tiled', 'clip_direction', 'clip_ratio', 'clip_pixelperfect',
         'text', 'font_size', 'font_type', 'text_alignment', 'shadow',
         'localize', 'visible', 'enabled',
-        '$pressed_button_name', 'default_control', 'hover_control', 'pressed_control'
+        '$pressed_button_name', 'default_control', 'hover_control', 'pressed_control',
+        'toggle_name', 'toggle_default_state', 'toggle_group_forced_index',
+        'grid_dimensions', 'grid_item_template', 'collection_name',
+        'dropdown_name', 'dropdown_content_control', 'dropdown_area',
+        'slider_track_button', 'slider_small_decrease_button', 'slider_small_increase_button',
+        'slider_steps', 'slider_direction', 'default_value',
+        'renderer', 'property_bag'
       ];
       for (const k of order) {
         if (el.props[k] !== undefined) o[k] = el.props[k];

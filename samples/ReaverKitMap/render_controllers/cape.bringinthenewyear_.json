@@ -1,0 +1,24 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.cape.bringinthenewyear_": {
+      "arrays": {
+        "textures": {
+          "array.frames": [
+            "texture.cape.bringinthenewyear__1",
+            "texture.cape.bringinthenewyear__2"
+          ]
+        }
+      },
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "array.frames[(query.anim_time * 7 )]"
+      ]
+    }
+  }
+}

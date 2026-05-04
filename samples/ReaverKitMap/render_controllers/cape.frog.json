@@ -1,0 +1,34 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.cape.frog": {
+      "arrays": {
+        "textures": {
+          "array.frames": [
+            "texture.cape.frog_1",
+            "texture.cape.frog_2",
+            "texture.cape.frog_3",
+            "texture.cape.frog_4",
+            "texture.cape.frog_5",
+            "texture.cape.frog_6",
+            "texture.cape.frog_7",
+            "texture.cape.frog_8",
+            "texture.cape.frog_9",
+            "texture.cape.frog_10",
+            "texture.cape.frog_11",
+            "texture.cape.frog_12"
+          ]
+        }
+      },
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "array.frames[(query.anim_time * 7 )]"
+      ]
+    }
+  }
+}

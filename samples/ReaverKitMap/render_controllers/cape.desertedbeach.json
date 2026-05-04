@@ -1,0 +1,26 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.cape.desertedbeach": {
+      "arrays": {
+        "textures": {
+          "array.frames": [
+            "texture.cape.desertedbeach_1",
+            "texture.cape.desertedbeach_2",
+            "texture.cape.desertedbeach_3",
+            "texture.cape.desertedbeach_4"
+          ]
+        }
+      },
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "array.frames[(query.anim_time * 7 )]"
+      ]
+    }
+  }
+}

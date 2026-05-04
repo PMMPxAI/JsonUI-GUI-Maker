@@ -12,10 +12,11 @@ window.SW = window.SW || {};
   let _currentFilterType = null;
   let _currentSearch = '';
 
-  const TYPE_LIST = ['panel', 'stack_panel', 'image', 'label', 'button', 'input_panel', 'scrolling_panel'];
+  const TYPE_LIST = ['panel', 'stack_panel', 'image', 'label', 'button', 'input_panel', 'scrolling_panel', 'grid', 'toggle', 'dropdown', 'slider', 'fill', 'custom'];
   const TYPE_LABELS = {
     panel: 'Panel', stack_panel: 'Stack', image: 'Image',
-    label: 'Label', button: 'Button', input_panel: 'Input', scrolling_panel: 'Scroll'
+    label: 'Label', button: 'Button', input_panel: 'Input', scrolling_panel: 'Scroll',
+    grid: 'Grid', toggle: 'Toggle', dropdown: 'Dropdown', slider: 'Slider', fill: 'Fill', custom: 'Custom'
   };
 
   async function ensureLibrary() {

@@ -1,0 +1,138 @@
+{
+  "boss_health_panel": {
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "bindings": [
+      {
+        "binding_collection_name": "boss_bars",
+        "binding_name": "#bar_visible",
+        "binding_name_override": "#visible",
+        "binding_type": "collection"
+      }
+    ],
+    "controls": [
+      {
+        "boss_name@boss_name_panel": {}
+      }
+    ],
+    "size": [
+      182,
+      20
+    ],
+    "type": "panel"
+  },
+  "boss_name_panel": {
+    "$wait_duration|default": 1,
+    "alpha": "@hud.anim_item_name_background_alpha_out",
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "controls": [
+      {
+        "boss_name": {
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "bindings": [
+            {
+              "binding_collection_name": "boss_bars",
+              "binding_name": "#bossName",
+              "binding_type": "collection"
+            }
+          ],
+          "color": "$boss_name_text_color",
+          "layer": 31,
+          "shadow": true,
+          "text": "#bossName",
+          "type": "label"
+        }
+      }
+    ],
+    "offset": [
+      0,
+      90
+    ],
+    "size": [
+      "100%",
+      "100%c"
+    ],
+    "type": "panel"
+  },
+  "hud_title_text": {
+    "alpha": 1,
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "controls": [
+      {
+        "title_frame": {
+          "controls": [
+            {
+              "title": {
+                "bindings": [
+                  {
+                    "binding_name": "#hud_title_text_string",
+                    "binding_name_override": "#text",
+                    "binding_type": "global"
+                  }
+                ],
+                "font_size": "normal",
+                "localize": false,
+                "shadow": true,
+                "text": "#text",
+                "text_alignment": "center",
+                "type": "label"
+              }
+            }
+          ],
+          "size": [
+            "100%",
+            "100%cm"
+          ],
+          "type": "panel"
+        }
+      },
+      {
+        "subtitle_frame": {
+          "controls": [
+            {
+              "subtitle": {
+                "alpha": 1,
+                "anchor_from": "top_right",
+                "anchor_to": "top_right",
+                "bindings": [
+                  {
+                    "binding_name": "#hud_subtitle_text_string",
+                    "binding_name_override": "#text",
+                    "binding_type": "global"
+                  }
+                ],
+                "color": "$title_command_text_color",
+                "layer": 31,
+                "localize": false,
+                "offset": [
+                  0,
+                  0
+                ],
+                "shadow": true,
+                "text": "#text",
+                "text_alignment": "right",
+                "type": "label"
+              }
+            }
+          ],
+          "size": [
+            "100%",
+            "100%cm"
+          ],
+          "type": "panel"
+        }
+      }
+    ],
+    "layer": 1,
+    "offset": [
+      0,
+      0
+    ],
+    "orientation": "vertical",
+    "type": "stack_panel"
+  },
+  "namespace": "hud"
+}

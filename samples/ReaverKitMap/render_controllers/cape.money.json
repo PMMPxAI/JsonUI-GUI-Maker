@@ -1,0 +1,37 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.cape.money": {
+      "arrays": {
+        "textures": {
+          "array.frames": [
+            "texture.cape.money_1",
+            "texture.cape.money_2",
+            "texture.cape.money_3",
+            "texture.cape.money_4",
+            "texture.cape.money_5",
+            "texture.cape.money_6",
+            "texture.cape.money_7",
+            "texture.cape.money_8",
+            "texture.cape.money_9",
+            "texture.cape.money_10",
+            "texture.cape.money_11",
+            "texture.cape.money_12",
+            "texture.cape.money_13",
+            "texture.cape.money_14",
+            "texture.cape.money_15"
+          ]
+        }
+      },
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "array.frames[(query.anim_time * 7 )]"
+      ]
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "format_version": "1.10",
+  "minecraft:item": {
+    "components": {
+      "minecraft:icon": "reaver:chest",
+      "minecraft:render_offsets": "miscellaneous"
+    },
+    "description": {
+      "category": "Items",
+      "identifier": "reaver:chest"
+    }
+  }
+}

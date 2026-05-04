@@ -110,7 +110,7 @@
     if (isDescendant(el, overId)) return;
     const parent = SW.findParent(state.tree, dragId);
     if (parent && parent.children) parent.children = parent.children.filter(c => c.id !== dragId);
-    const containers = ['panel','stack_panel','button','input_panel','scrolling_panel'];
+    const containers = ['panel','stack_panel','button','input_panel','scrolling_panel','grid','custom'];
     if (containers.indexOf(overEl.props.type) >= 0) {
       overEl.children = overEl.children || [];
       overEl.children.push(el);
