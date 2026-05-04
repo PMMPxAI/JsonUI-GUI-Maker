@@ -881,7 +881,8 @@ body.is-playing .preview-canvas::after {
 }
 .ecl-ctx-item:hover .ico { color: inherit; }
 .ecl-ctx-item .ico svg { width: 14px; height: 14px; }
-.ecl-ctx-item .lbl { text-align: left; }
+.ecl-ctx-item .lbl { text-align: left; display: flex; flex-direction: column; gap: 1px; }
+.ecl-ctx-item .ctx-hint { display: block; font-size: 9px; color: #666; font-weight: 400; line-height: 1.2; }
 .ecl-ctx-item .shortcut {
   font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
