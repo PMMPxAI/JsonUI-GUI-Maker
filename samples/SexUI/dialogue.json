@@ -1,0 +1,183 @@
+{
+    "namespace": "dialogue",
+    "$schema": "https://kalmemarq.github.io/Bugrock-JSON-UI-Schemas/ui.schema.json",
+    "ui": {
+        "type": "image",
+        "size": [
+            200,
+            60
+        ],
+        "texture": "textures/interfaces/dialogue/dialogue_background",
+        "alpha": 0.3,
+        "anchor_from": "bottom_middle",
+        "anchor_to": "bottom_middle",
+        "offset": [
+            0,
+            -20
+        ],
+        "controls": [
+            {
+                "button_scroll@common.scrolling_panel": {
+                    "anchor_to": "left_middle",
+                    "anchor_from": "left_middle",
+                    "$show_background": false,
+                    "offset": [
+                        206,
+                        0
+                    ],
+                    "size": [
+                        80,
+                        60
+                    ],
+                    "$scrolling_content": "dialogue.buttons",
+                    "$scroll_size": [
+                        5,
+                        "100% - 4px"
+                    ],
+                    "$scrolling_pane_size": [
+                        "100%+8px",
+                        "100%"
+                    ],
+                    "$scrolling_pane_offset": [
+                        0,
+                        0
+                    ],
+                    "$scroll_bar_right_padding_size": [
+                        0,
+                        0
+                    ]
+                }
+            },
+            {
+                "text": {
+                    "type": "label",
+                    "anchor_from": "center",
+                    "text": "#form_text",
+                    "bindings": [
+                        {
+                            "binding_type": "global",
+                            "binding_name": "#form_text"
+                        }
+                    ],
+                    "max_size": [
+                        180,
+                        50
+                    ],
+                    "text_alignment": "center",
+                    "contained": true,
+                    "anchor_to": "center"
+                }
+            },
+            {
+                "name": {
+                    "type": "label",
+                    "font_scale_factor": 0.8,
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "offset": [
+                        15,
+                        -3
+                    ],
+                    "text": "#text",
+                    "bindings": [
+                        {
+                            "binding_type": "global",
+                            "binding_name": "#title_text",
+                            "binding_name_override": "#text"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "buttons": {
+        "type": "stack_panel",
+        "size": [
+            "100%",
+            "100%c"
+        ],
+        "offset": [
+            0,
+            0
+        ],
+        "orientation": "vertical",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "factory": {
+            "name": "buttons",
+            "control_name": "dialogue.button"
+        },
+        "collection_name": "form_buttons",
+        "bindings": [
+            {
+                "binding_name": "#form_button_length",
+                "binding_name_override": "#collection_length"
+            }
+        ]
+    },
+    "button": {
+        "type": "button",
+        "focus_magnet_enabled": true,
+        "focus_enabled": true,
+        "size": [
+            80,
+            20
+        ],
+        "button_mappings": [
+            {
+                "from_button_id": "button.menu_select",
+                "to_button_id": "button.form_button_click",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.menu_ok",
+                "to_button_id": "button.form_button_click",
+                "mapping_type": "focused"
+            }
+        ],
+        "bindings": [
+            {
+                "binding_type": "collection_details",
+                "binding_collection_name": "form_buttons"
+            }
+        ],
+        "hover_control": "hover",
+        "controls": [
+            {
+                "background": {
+                    "type": "image",
+                    "size": [
+                        80,
+                        18
+                    ],
+                    "texture": "textures/interfaces/dialogue/dialogue_button",
+                    "alpha": 0.3
+                }
+            },
+            {
+                "text": {
+                    "type": "label",
+                    "text": "#text",
+                    "bindings": [
+                        {
+                            "binding_name": "#form_button_text",
+                            "binding_name_override": "#text",
+                            "binding_type": "collection",
+                            "binding_collection_name": "form_buttons"
+                        }
+                    ]
+                }
+            },
+            {
+                "hover": {
+                    "type": "image",
+                    "size": [
+                        80,
+                        18
+                    ],
+                    "texture": "textures/interfaces/dialogue/dialogue_outline"
+                }
+            }
+        ]
+    }
+}

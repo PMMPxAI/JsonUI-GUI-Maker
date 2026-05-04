@@ -1,0 +1,16 @@
+{
+    "chat_label": {
+        "type": "label",
+        "line_padding": "($chat_line_spacing / 4)"
+    },
+    "hud_screen@common.base_screen": {
+        "$screen_content": "hud.hud_content"
+    },
+    "hud_tip_text": {
+        "offset": [
+            0,
+            -56
+        ],
+        "texture": "textures/ui/cps"
+    }
+}

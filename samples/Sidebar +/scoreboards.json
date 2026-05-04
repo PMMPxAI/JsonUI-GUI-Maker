@@ -1,0 +1,185 @@
+{
+    "namespace": "scoreboard",
+    "scoreboard_sidebar@sidebar_ui.component_texture_sidebar": {
+        "type": "panel",
+        "size": [
+            "100%cm",
+            "100%c"
+        ],
+        "anchor_from": "$anchor_from_bg",
+        "anchor_to": "$anchor_to_bg",
+        "offset": "$bg_position",
+        "bindings": [
+            {
+                "binding_name": "#scoreboard_sidebar_visible",
+                "binding_type": "global",
+                "binding_name_override": "#visible"
+            }
+        ],
+        "controls": [
+            {
+                "main_score": {
+                    "type": "image",
+                    "alpha": "$bg_alpha",
+                    "texture": "$bg_sidebar",
+                    "size": [
+                        "100%cm",
+                        "100%c+3px"
+                    ],
+                    "controls": [
+                        {
+                            "displayed_objective": {
+                                "type": "label",
+                                "offset": [
+                                    0,
+                                    2
+                                ],
+                                "size": [
+                                    "default",
+                                    12
+                                ],
+                                "text": "#objective_sidebar_name",
+                                "anchor_from": "top_middle",
+                                "anchor_to": "top_middle",
+                                "text_alignment": "center",
+                                "inherit_max_sibling_width": true,
+                                "locked_alpha": 1.0,
+                                "layer": 1,
+                                "color": "$objective_title_color",
+                                "bindings": [
+                                    {
+                                        "binding_name": "#objective_sidebar_name",
+                                        "binding_type": "global"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_control_name": "displayed_objective",
+                                        "resolve_sibling_scope": true,
+                                        "source_property_name": "$text_logo_sidebar",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "scoreboard_animation": {
+                                "type": "image",
+                                "layer": 0,
+                                "size": "$logo_anim_size",
+                                "offset": "$logo_anim_pos",
+                                "uv_size": "$uv_size_anim",
+                                "anchor_from": "top_middle",
+                                "anchor_to": "top_middle",
+                                "uv": "@sidebar_ui.sidebar1",
+                                "texture": "$logo_texture_anim",
+                                "bindings": [
+                                    {
+                                        "binding_name": "#objective_sidebar_name",
+                                        "binding_type": "global"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_control_name": "scoreboard_animation",
+                                        "resolve_sibling_scope": true,
+                                        "source_property_name": "$text_logo_anim",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "scoreboard_logo": {
+                                "type": "image",
+                                "size": "$logo_sidebar_size",
+                                "offset": "$logo_sidebar_pos",
+                                "anchor_from": "top_middle",
+                                "anchor_to": "top_middle",
+                                "texture": "$logo_texture_sidebar",
+                                "bindings": [
+                                    {
+                                        "binding_name": "#objective_sidebar_name",
+                                        "binding_type": "global"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_control_name": "scoreboard_logo",
+                                        "resolve_sibling_scope": true,
+                                        "source_property_name": "$text_logo_base",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "bg_logo_Invisible": {
+                                "type": "image",
+                                "size": [
+                                    0,
+                                    0
+                                ],
+                                "offset": [
+                                    0,
+                                    2
+                                ],
+                                "anchor_from": "top_middle",
+                                "anchor_to": "top_middle",
+                                "texture": "uida/resources/sidebar_ui/bg_invisible",
+                                "bindings": [
+                                    {
+                                        "binding_name": "#objective_sidebar_name",
+                                        "binding_type": "global"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_control_name": "bg_logo_Invisible",
+                                        "resolve_sibling_scope": true,
+                                        "source_property_name": "(#objective_sidebar_name = 'da.logo.inv')",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "lists": {
+                                "type": "panel",
+                                "anchor_from": "bottom_left",
+                                "anchor_to": "bottom_left",
+                                "inherit_max_sibling_width": true,
+                                "offset": [
+                                    2,
+                                    -1
+                                ],
+                                "size": [
+                                    "100%c",
+                                    "100%cm"
+                                ],
+                                "controls": [
+                                    {
+                                        "title": {
+                                            "type": "label",
+                                            "text": "#hud_title_text_string",
+                                            "shadow": "$text_shadow",
+                                            "anchor_from": "center",
+                                            "anchor_to": "center",
+                                            "color": "$tool_tip_text",
+                                            "text_alignment": "left",
+                                            "layer": 2,
+                                            "localize": false,
+                                            "font_scale_factor": 1,
+                                            "bindings": [
+                                                {
+                                                    "binding_name": "#hud_title_text_string",
+                                                    "binding_type": "global"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

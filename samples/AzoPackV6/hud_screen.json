@@ -1,0 +1,6 @@
+{
+    "chat_label": {
+        "type": "label",
+        "line_padding": "($chat_line_spacing / 4)"
+    }
+}

@@ -1,0 +1,185 @@
+{
+    "namespace": "scoreboard",
+    "scoreboard_sidebar_score": {
+        "type": "label",
+        "layer": 2,
+        "size": [
+            "default",
+            10
+        ],
+        "text": "",
+        "text_alignment": "right",
+        "anchor_from": "top_right",
+        "anchor_to": "top_right",
+        "inherit_max_sibling_width": true,
+        "locked_alpha": 1.0,
+        "visible": false,
+        "color": [
+            1.0,
+            1.0,
+            1.0,
+            0.0
+        ],
+        "bindings": [
+            {
+                "binding_name": "#player_score_sidebar",
+                "binding_type": "collection",
+                "binding_collection_name": "scoreboard_scores"
+            }
+        ]
+    },
+    "scoreboard_sidebar": {
+        "type": "panel",
+        "size": [
+            "100%cm",
+            "100%c"
+        ],
+        "anchor_from": "right_middle",
+        "anchor_to": "right_middle",
+        "controls": [
+            {
+                "main": {
+                    "type": "image",
+                    "texture": "live/textures/ui/sb/Black_sb",
+                    "alpha": 0.35,
+                    "size": [
+                        "100%cm+3px",
+                        "100%c+5px"
+                    ],
+                    "controls": [
+                        {
+                            "displayed_objective": {
+                                "type": "label",
+                                "size": [
+                                    "default",
+                                    10
+                                ],
+                                "text": "#objective_sidebar_name",
+                                "anchor_from": "top_middle",
+                                "anchor_to": "top_middle",
+                                "text_alignment": "center",
+                                "inherit_max_sibling_width": true,
+                                "locked_alpha": 1.0,
+                                "layer": 1,
+                                "color": [
+                                    1.0,
+                                    1.0,
+                                    1.0,
+                                    0.0
+                                ],
+                                "bindings": [
+                                    {
+                                        "binding_name": "#objective_sidebar_name",
+                                        "binding_type": "global"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "lists": {
+                                "type": "panel",
+                                "anchor_from": "top_left",
+                                "anchor_to": "top_left",
+                                "offset": [
+                                    0,
+                                    10
+                                ],
+                                "size": [
+                                    "100%c",
+                                    "100%cm"
+                                ],
+                                "controls": [
+                                    {
+                                        "players": {
+                                            "type": "stack_panel",
+                                            "anchor_from": "top_left",
+                                            "anchor_to": "top_left",
+                                            "size": [
+                                                "100%cm",
+                                                "100%c"
+                                            ],
+                                            "orientation": "vertical",
+                                            "collection_name": "scoreboard_players",
+                                            "factory": {
+                                                "name": "player_list_factory",
+                                                "control_name": "scoreboard.antralia_scoreboard_entry_final"
+                                            },
+                                            "bindings": [
+                                                {
+                                                    "binding_name": "#scoreboard_sidebar_size",
+                                                    "binding_type": "global",
+                                                    "binding_name_override": "#collection_length"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "scores": {
+                                            "type": "stack_panel",
+                                            "anchor_from": "top_right",
+                                            "anchor_to": "top_right",
+                                            "size": [
+                                                "100%cm",
+                                                "100%c"
+                                            ],
+                                            "orientation": "vertical",
+                                            "use_child_anchors": true,
+                                            "collection_name": "scoreboard_scores",
+                                            "factory": {
+                                                "name": "player_score_factory",
+                                                "control_name": "scoreboard.scoreboard_sidebar_score"
+                                            },
+                                            "bindings": [
+                                                {
+                                                    "binding_name": "#scoreboard_sidebar_size",
+                                                    "binding_type": "global",
+                                                    "binding_name_override": "#collection_length"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "bindings": [
+            {
+                "binding_name": "#scoreboard_sidebar_visible",
+                "binding_type": "global",
+                "binding_name_override": "#visible"
+            }
+        ]
+    },
+    "antralia_scoreboard_entry_final": {
+        "type": "panel",
+        "size": [
+            "100%cm + 3px",
+            "100%cm"
+        ],
+        "controls": [
+            {
+                "text": {
+                    "type": "label",
+                    "text": "#player_name_sidebar",
+                    "layer": 2,
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "offset": [
+                        1,
+                        3
+                    ],
+                    "bindings": [
+                        {
+                            "binding_name": "#player_name_sidebar",
+                            "binding_type": "collection",
+                            "binding_collection_name": "scoreboard_players"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

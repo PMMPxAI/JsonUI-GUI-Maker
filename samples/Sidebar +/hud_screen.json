@@ -1,0 +1,63 @@
+{
+    "namespace": "hud",
+    "hud_title_text": {
+        "type": "stack_panel",
+        "size": [
+            "100%cm",
+            "100%c"
+        ],
+        "anchor_from": "right_middle",
+        "anchor_to": "right_middle",
+        "alpha": 1,
+        "offset": [
+            -5,
+            0
+        ],
+        "controls": [
+            {
+                "sidebar@sidebar_ui.component_texture_sidebar": {
+                    "type": "panel",
+                    "size": [
+                        "100%c",
+                        "100%c"
+                    ],
+                    "offset": [
+                        0,
+                        25
+                    ],
+                    "controls": [
+                        {
+                            "sidebar_text": {
+                                "type": "image",
+                                "size": [
+                                    "100%cm+5px",
+                                    "100%c+5px"
+                                ],
+                                "anchor_from": "top_right",
+                                "anchor_to": "top_right",
+                                "offset": "$bg_position",
+                                "alpha": "$bg_alpha",
+                                "layer": 0,
+                                "controls": [
+                                    {
+                                        "title": {
+                                            "type": "label",
+                                            "text": "",
+                                            "anchor_from": "center",
+                                            "anchor_to": "center",
+                                            "color": "$tool_tip_text",
+                                            "text_alignment": "left",
+                                            "layer": 2,
+                                            "localize": false,
+                                            "font_scale_factor": 1
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

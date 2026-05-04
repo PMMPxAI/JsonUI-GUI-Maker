@@ -1,0 +1,142 @@
+{
+  "namespace": "death",
+
+  // Base button //
+
+
+
+  "you_died_panel": {
+    "type": "panel",
+    "size": [ "100%", "10%" ],
+    "controls": [
+      {
+        "you_died_label": {
+          "type": "label",
+          "color": "$death_text_color",
+          "text": "deathScreen.message",
+          "shadow": true,
+          "font_size": "large",
+          "font_scale_factor": 1.25
+        }
+      }
+    ]
+  },
+  "pause_screen_content":{
+    "type": "stack_panel",
+    "size" : ["100%","100%"],
+    "controls":[
+      {
+        "main_panel" : {
+          "type" : "panel",
+          "controls" : [
+            {
+              "you_died@death.you_died_panel": {
+                "offset" : [0 , -50],
+                "layer": 2,
+                  "anchor_from": "middle",
+                  "anchor_to": "middle"
+              }
+            },
+            {
+              "quit_button@common.button": {
+                  "size": [ 65, 65 ],
+                  "layer": 3,
+                  "offset" : [-87 , 63],
+                  "anchor_from": "middle",
+                  "anchor_to": "middle",
+              
+                  "$default_texture|default": "textures/ui/quit_normal",
+                  "$hover_texture|default": "textures/ui/quit_hover",
+                  "$pressed_texture|default": "textures/ui/quit_pressed",
+              
+                  "$pressed_button_name": "button.main_menu_button",
+              
+                  "controls": [
+                    {
+                      "default": {
+                        "type": "image",
+                        "texture": "$default_texture"
+                      }
+                    },
+                    {
+                      "hover": {
+                        "type": "image",
+                        "texture": "$hover_texture"
+                      }
+                    },
+                    {
+                      "pressed": {
+                        "type": "image",
+                        "texture": "$pressed_texture"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+              "respawn@common.button": {
+                  "size": [ 65, 65 ],
+                  "layer": 3,
+                  "offset" : [87 , 63],
+                  "anchor_from": "middle",
+                  "anchor_to": "middle",
+              
+                  "$default_texture|default": "textures/ui/respawn_normal",
+                  "$hover_texture|default": "textures/ui/respawn_hover",
+                  "$pressed_texture|default": "textures/ui/respawn_pressed",
+        
+                  "$pressed_button_name": "button.respawn_button",
+              
+                  "controls": [
+                    {
+                      "default": {
+                        "type": "image",
+                        "texture": "$default_texture"
+                      }
+                    },
+                    {
+                      "hover": {
+                        "type": "image",
+                        "texture": "$hover_texture"
+                      }
+                    },
+                    {
+                      "pressed": {
+                        "type": "image",
+                        "texture": "$pressed_texture"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "background": {
+                  "type": "image",
+                  "offset": [0 , -25],
+                  "size": [ 300,300 ],
+                  "texture": "textures/ui/bg_death.png",
+                  "layer":1
+                }
+              }
+    ]	
+  }}]},
+
+  
+  "background_gradient": {
+    "type": "image",
+    "offset": [0 , 0],
+     "size": [ 1000 ,1000 ],
+    "texture": "textures/ui/death_bg.png",
+    "layer":-1
+  },
+
+
+  // Main Screen //
+
+  "death_screen@common.base_screen": {
+    "$screen_content": "death.pause_screen_content",
+    "$screen_bg_content": "death.background_gradient",
+    "load_screen_immediately": true
+  }
+
+}

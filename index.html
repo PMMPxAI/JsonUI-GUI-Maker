@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Eclipse UI Forge — Bedrock JSON UI Editor</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%230d0d0d'/%3E%3Ccircle cx='50' cy='50' r='24' fill='none' stroke='%23ff6b1a' stroke-width='6'/%3E%3Ccircle cx='62' cy='42' r='20' fill='%230d0d0d'/%3E%3C/svg%3E" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['Poppins', 'sans-serif'],
+        display: ['"Space Grotesk"', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'monospace']
+      },
+      colors: {
+        eclipse: {
+          bg: '#0d0d0d',
+          panel: '#141414',
+          card: '#1a1a1a',
+          border: '#262626',
+          borderLight: '#333333',
+          primary: '#ff6b1a',
+          primaryDark: '#e55a0f',
+          accent: '#ff6b1a',
+          muted: '#8a8a8a',
+          dim: '#5a5a5a'
+        }
+      },
+      boxShadow: {
+        'glow-primary': '0 10px 30px rgba(255, 107, 26, 0.35)',
+        'glow-sm': '0 4px 14px rgba(255, 107, 26, 0.25)'
+      }
+    }
+  }
+}
+</script>
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="bg-eclipse-bg text-white antialiased overflow-hidden">
+
+<!-- TOP BAR — Eclipse style, compact, icon-first -->
+<header class="h-14 bg-eclipse-bg border-b border-eclipse-border flex items-center px-5 gap-2 relative z-30">
+  <!-- Logo -->
+  <div class="flex items-center gap-2.5 shrink-0 pr-2">
+    <div class="ecl-logo"></div>
+    <div class="leading-none hidden md:block">
+      <div class="font-display font-bold text-[15px] text-white">Eclipse <span class="text-eclipse-primary">UI Forge</span></div>
+      <div class="text-[9px] font-semibold uppercase tracking-[0.25em] text-eclipse-muted mt-0.5">Bedrock editor</div>
+    </div>
+  </div>
+
+  <div class="h-7 w-px bg-eclipse-border mx-1"></div>
+
+  <!-- File actions -->
+  <button data-action="new" class="ecl-icon-btn" data-tip="Nouveau projet">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 18v-6M9 15h6"/></svg>
+  </button>
+  <button data-action="open" class="ecl-icon-btn" data-tip="Importer JSON / .mcpack / .zip">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+  </button>
+  <button data-action="templates" class="ecl-icon-btn" data-tip="Templates">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+  </button>
+  <button data-action="library" class="ecl-icon-btn" data-tip="Bibliothèque (158 packs)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+  </button>
+
+  <div class="h-7 w-px bg-eclipse-border mx-1"></div>
+
+  <!-- Undo/Redo -->
+  <button data-action="undo" class="ecl-icon-btn" data-tip="Annuler (Ctrl+Z)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7v6h6"/><path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6.7 3L3 13"/></svg>
+  </button>
+  <button data-action="redo" class="ecl-icon-btn" data-tip="Refaire (Ctrl+Y)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 7v6h-6"/><path d="M3 17a9 9 0 0 1 9-9 9 9 0 0 1 6.7 3L21 13"/></svg>
+  </button>
+
+  <div class="h-7 w-px bg-eclipse-border mx-1"></div>
+
+  <!-- Screen size segmented -->
+  <div class="ecl-seg">
+    <button data-screen="phone" data-tip="Téléphone">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
+    </button>
+    <button data-screen="tablet" data-tip="Tablette">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
+    </button>
+    <button data-screen="pc" class="active" data-tip="PC / Console">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+    </button>
+  </div>
+
+  <!-- Zoom -->
+  <div class="ecl-zoom">
+    <button id="zoom-out" data-tip="Zoom −">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14"/></svg>
+    </button>
+    <span id="zoom-val" class="font-mono text-xs text-eclipse-muted">100%</span>
+    <button id="zoom-in" data-tip="Zoom +">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg>
+    </button>
+    <button id="zoom-fit" data-tip="Ajuster" class="border-l border-eclipse-border ml-1 pl-2">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+    </button>
+  </div>
+
+  <!-- Spacer pushes right group -->
+  <div class="flex-1"></div>
+
+  <!-- Right actions -->
+  <button id="unicode-toggle-btn" class="ecl-icon-btn" data-tip="Obfuscation Unicode: désactivée">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+  </button>
+  <button data-action="copy" class="ecl-icon-btn" data-tip="Copier le JSON">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+  </button>
+  <button data-action="code-toggle" class="ecl-icon-btn" data-tip="Voir le code JSON">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+  </button>
+
+  <div class="h-7 w-px bg-eclipse-border mx-1"></div>
+
+  <button data-action="export-json" class="ecl-btn-secondary">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    JSON
+  </button>
+  <button data-action="export-mcpack" class="ecl-btn-primary">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+    Export .mcpack
+  </button>
+</header>
+
+<!-- WORKSPACE -->
+<main class="grid relative" style="grid-template-columns: 260px 1fr 300px; height: calc(100vh - 3.5rem - 1.75rem);">
+
+  <!-- LEFT : Layers + Palette -->
+  <aside class="border-r border-eclipse-border bg-eclipse-panel flex flex-col min-h-0">
+    <!-- Tabs -->
+    <div class="flex border-b border-eclipse-border bg-eclipse-bg/40">
+      <button class="ecl-tab active" data-tab="layers">Calques</button>
+      <button class="ecl-tab" data-tab="palette">Palette</button>
+    </div>
+
+    <!-- Layers panel -->
+    <div id="panel-layers" class="ecl-tab-panel flex-1 flex flex-col min-h-0">
+      <div class="px-4 pt-3 pb-2 flex items-center justify-between">
+        <div>
+          <div class="text-[10px] font-bold uppercase tracking-[0.2em] text-eclipse-muted">Composants</div>
+          <div class="text-[11px] text-eclipse-dim mt-0.5" id="project-name">Neon Sidebar</div>
+        </div>
+        <button id="add-root" class="ecl-icon-btn small" data-tip="Ajouter">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+      </div>
+      <div id="tree" class="flex-1 overflow-auto px-2 pb-3 space-y-0.5"></div>
+    </div>
+
+    <!-- Palette panel -->
+    <div id="panel-palette" class="ecl-tab-panel flex-1 overflow-auto p-3" style="display:none">
+      <div class="text-[10px] font-bold uppercase tracking-[0.2em] text-eclipse-muted mb-2 px-1">Composants de base</div>
+      <div class="grid grid-cols-2 gap-1.5">
+        <button class="ecl-palette-item" data-add="panel">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+          Panel
+        </button>
+        <button class="ecl-palette-item" data-add="stack_panel">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="5" rx="1"/><rect x="3" y="10" width="18" height="5" rx="1"/><rect x="3" y="17" width="18" height="4" rx="1"/></svg>
+          Stack
+        </button>
+        <button class="ecl-palette-item" data-add="image">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          Image
+        </button>
+        <button class="ecl-palette-item" data-add="label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg>
+          Label
+        </button>
+        <button class="ecl-palette-item" data-add="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="8" width="18" height="8" rx="4"/></svg>
+          Button
+        </button>
+        <button class="ecl-palette-item" data-add="input_panel">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="9" width="18" height="6" rx="1"/><line x1="7" y1="12" x2="9" y2="12"/></svg>
+          Input
+        </button>
+      </div>
+
+      <div class="text-[10px] font-bold uppercase tracking-[0.2em] text-eclipse-muted mb-2 mt-5 px-1">Presets</div>
+      <div class="space-y-1.5">
+        <button class="ecl-palette-row" data-preset="neon_sidebar">
+          <span class="ecl-preset-dot" style="background:#ff6b1a"></span>
+          <div class="flex-1 text-left">
+            <div class="font-semibold text-xs">Sidebar HUD</div>
+            <div class="text-[10px] text-eclipse-dim">Panel + 5 labels</div>
+          </div>
+        </button>
+        <button class="ecl-palette-row" data-preset="stats_card">
+          <span class="ecl-preset-dot" style="background:#8b5cf6"></span>
+          <div class="flex-1 text-left">
+            <div class="font-semibold text-xs">Carte stats</div>
+            <div class="text-[10px] text-eclipse-dim">Avec header</div>
+          </div>
+        </button>
+        <button class="ecl-palette-row" data-preset="glass_button">
+          <span class="ecl-preset-dot" style="background:#22d3ee"></span>
+          <div class="flex-1 text-left">
+            <div class="font-semibold text-xs">Bouton menu</div>
+            <div class="text-[10px] text-eclipse-dim">Cliquable</div>
+          </div>
+        </button>
+        <button class="ecl-palette-row" data-preset="toast_notif">
+          <span class="ecl-preset-dot" style="background:#22c55e"></span>
+          <div class="flex-1 text-left">
+            <div class="font-semibold text-xs">Notification</div>
+            <div class="text-[10px] text-eclipse-dim">Toast</div>
+          </div>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- CENTER : Preview -->
+  <section class="relative min-h-0 flex flex-col">
+    <!-- Preview toolbar -->
+    <div class="h-10 border-b border-eclipse-border bg-eclipse-bg/60 flex items-center px-4 gap-3 shrink-0">
+      <div class="text-[10px] font-bold uppercase tracking-[0.2em] text-eclipse-muted">Preview</div>
+      <div class="text-xs font-semibold text-white" id="preview-title">Eclipse Sidebar</div>
+      <span class="ecl-pill" id="sel-info">—</span>
+
+      <!-- Play controls -->
+      <div class="flex items-center gap-1 ml-2">
+        <button id="play-btn" class="play-ctrl primary" data-tip="Lecture (Espace)">
+          <svg viewBox="0 0 24 24" fill="currentColor" class="w-3.5 h-3.5"><path d="M7 5v14l12-7z"/></svg>
+        </button>
+        <button id="reset-btn" class="play-ctrl" data-tip="Reset">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="w-3.5 h-3.5"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><polyline points="3 3 3 8 8 8"/></svg>
+        </button>
+        <div class="play-speed" data-tip="Vitesse">
+          <button data-speed="0.25">0.25×</button>
+          <button data-speed="0.5">0.5×</button>
+          <button data-speed="1" class="active">1×</button>
+          <button data-speed="2">2×</button>
+        </div>
+        <button id="loop-btn" class="play-ctrl active" data-tip="Boucle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="w-3.5 h-3.5"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+        </button>
+      </div>
+
+      <div class="flex-1"></div>
+      <div class="flex items-center gap-1 text-xs">
+        <button id="toggle-rulers" class="ecl-chip" data-tip="Règles">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5"><path d="M21 3H3v18h18z"/><path d="M7 3v4M11 3v2M15 3v4M19 3v2M3 7h4M3 11h2M3 15h4M3 19h2"/></svg>
+        </button>
+        <button id="toggle-bg" class="ecl-chip" data-tip="Fond">BG</button>
+        <button id="toggle-snap" class="ecl-chip active" data-tip="Snap 1px">Snap</button>
+      </div>
+    </div>
+
+    <!-- Stage -->
+    <div class="flex-1 overflow-auto preview-stage" id="stage-wrap">
+      <div class="stage-inner" id="stage-inner">
+        <div id="preview" class="preview-canvas"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RIGHT : Inspector -->
+  <aside class="border-l border-eclipse-border bg-eclipse-panel flex flex-col min-h-0">
+    <div class="px-4 pt-3 pb-2 border-b border-eclipse-border">
+      <div class="text-[10px] font-bold uppercase tracking-[0.2em] text-eclipse-muted">Inspecteur</div>
+      <div id="insp-title" class="text-sm font-semibold text-white mt-0.5 truncate">— aucun élément —</div>
+    </div>
+    <div id="inspector" class="flex-1 overflow-auto p-3 space-y-3"></div>
+    <div class="border-t border-eclipse-border p-2 grid grid-cols-2 gap-1.5">
+      <button id="dup-btn" class="ecl-btn-ghost text-xs">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Dupliquer
+      </button>
+      <button id="del-btn" class="ecl-btn-danger text-xs">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg>
+        Supprimer
+      </button>
+    </div>
+  </aside>
+</main>
+
+<!-- Status bar -->
+<footer class="h-7 border-t border-eclipse-border bg-eclipse-bg flex items-center px-4 text-[11px] text-eclipse-muted gap-4 relative z-30">
+  <div class="flex items-center gap-2">
+    <span class="w-1.5 h-1.5 rounded-full bg-eclipse-primary"></span>
+    <span id="status" class="font-medium">Prêt</span>
+  </div>
+  <div>·</div>
+  <div class="flex items-center gap-1.5">
+    <span class="text-eclipse-dim">Namespace:</span>
+    <input id="namespace" value="custom_ui" class="bg-transparent border-0 outline-0 font-mono text-[11px] text-white w-32" />
+  </div>
+  <div class="flex-1"></div>
+  <div id="counter" class="font-mono">0 contrôle</div>
+  <div>·</div>
+  <div id="cursor-coords" class="font-mono text-eclipse-dim">x: — y: —</div>
+</footer>
+
+<!-- CODE PANEL slide-up -->
+<section id="code-panel" class="ecl-code-panel">
+  <div class="h-11 flex items-center px-5 border-b border-eclipse-border bg-eclipse-bg/80">
+    <div class="text-[10px] font-bold uppercase tracking-[0.2em] text-eclipse-muted">JSON</div>
+    <div class="text-sm font-semibold ml-3">/ui/<span id="code-filename" class="text-eclipse-primary">custom.json</span></div>
+    <div class="ml-auto flex items-center gap-2">
+      <button id="format-json" class="ecl-chip">Formater</button>
+      <button id="apply-json" class="ecl-btn-primary text-xs">Appliquer</button>
+      <button data-action="code-toggle" class="ecl-icon-btn small">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
+  <textarea id="code-area" spellcheck="false" class="ecl-code-area"></textarea>
+</section>
+
+<!-- TEMPLATES MODAL -->
+<div id="modal-templates" class="ecl-modal hidden">
+  <div class="ecl-modal-card">
+    <div class="h-14 flex items-center px-6 border-b border-eclipse-border">
+      <div class="text-xs font-bold uppercase tracking-[0.2em] text-eclipse-muted">Templates</div>
+      <h2 class="font-display font-bold text-xl text-white ml-4">Galerie</h2>
+      <input id="tpl-search" placeholder="Rechercher..." class="ecl-input ml-6 w-64" />
+      <button data-close-modal class="ecl-icon-btn ml-auto">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div id="tpl-grid" class="p-6 overflow-auto flex flex-col" style="max-height: 80vh"></div>
+  </div>
+</div>
+
+<!-- LIBRARY MODAL -->
+<div id="modal-library" class="ecl-modal hidden">
+  <div class="ecl-modal-card">
+    <div class="h-14 flex items-center px-6 border-b border-eclipse-border">
+      <div class="text-xs font-bold uppercase tracking-[0.2em] text-eclipse-muted">Bibliothèque</div>
+      <h2 class="font-display font-bold text-xl text-white ml-4">Packs extraits</h2>
+      <span class="ml-3 text-xs text-eclipse-muted" id="lib-info"></span>
+      <button data-close-modal class="ecl-icon-btn ml-auto">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="p-6">
+      <div id="dropzone" class="ecl-dropzone">
+        <div class="text-center">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-10 h-10 mx-auto mb-3 text-eclipse-primary"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <div class="font-display font-semibold text-white">Importer un fichier</div>
+          <div class="text-xs text-eclipse-muted mt-1">Glissez un .json, .mcpack ou .zip ici</div>
+        </div>
+        <input id="file-input" type="file" accept=".json,.mcpack,.zip" class="hidden" />
+      </div>
+      <div id="lib-list" class="mt-5 max-h-[55vh] overflow-auto"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Global tooltip container -->
+<div id="ecl-tooltip" class="ecl-tooltip"></div>
+
+<!-- Toast -->
+<div id="toast" class="ecl-toast"></div>
+
+<!-- JSZip -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+<!-- App -->
+<script src="js/utils.js"></script>
+<script src="js/templates.js"></script>
+<script src="js/renderer.js"></script>
+<script src="js/inspector.js"></script>
+<script src="js/tree.js"></script>
+<script src="js/codeview.js"></script>
+<script src="js/import.js"></script>
+<script src="js/picker.js"></script>
+<script src="js/contextmenu.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

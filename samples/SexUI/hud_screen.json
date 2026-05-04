@@ -1,0 +1,74 @@
+{
+    "hud_title_text": {
+        "type": "stack_panel",
+        "orientation": "vertical",
+        "size": [
+            "100%c + 3px",
+            "100%c + 10px"
+        ],
+        "anchor_from": "center_middle",
+        "anchor_to": "center_middle",
+        "offset": [
+            0,
+            -10
+        ],
+        "alpha": "@hud.anim_title_text_alpha_stay",
+        "controls": [
+            {
+                "sidebar": {
+                    "type": "panel",
+                    "size": [
+                        "100%c + 12px",
+                        "100%c + 5px"
+                    ],
+                    "offset": [
+                        0,
+                        0
+                    ],
+                    "controls": [
+                        {
+                            "title_background": {
+                                "type": "image",
+                                "alpha": 0,
+                                "size": [
+                                    "100%c + 12px",
+                                    "100%c + 5px"
+                                ],
+                                "texture": "textures/ui/hud_notrans",
+                                "controls": [
+                                    {
+                                        "title": {
+                                            "type": "label",
+                                            "text": "$title_text",
+                                            "anchor_from": "center_middle",
+                                            "anchor_to": "center_middle",
+                                            "color": "$tool_tip_text",
+                                            "text_alignment": "center",
+                                            "layer": 1,
+                                            "localize": false,
+                                            "font_size": "medium",
+                                            "alpha": "@hud.anim_title_text_alpha_stay"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "anim_item_name_text_alpha_stay": {
+        "anim_type": "wait",
+        "duration": 0.7,
+        "next": "@hud.anim_item_name_text_alpha_out"
+    },
+    "anim_item_name_text_alpha_out": {
+        "anim_type": "alpha",
+        "easing": "in_expo",
+        "destroy_at_end": "$destroy_id",
+        "duration": 0.5,
+        "from": 1.0,
+        "to": 0
+    }
+}

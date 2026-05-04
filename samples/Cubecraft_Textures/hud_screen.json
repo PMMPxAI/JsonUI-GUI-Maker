@@ -1,0 +1,72 @@
+{
+    "hud_title_text": {
+        "type": "panel",
+        "size": [
+            "100%cm",
+            "100%c"
+        ],
+        "offset": [
+            0,
+            -55
+        ],
+        "anchor_from": "right_middle",
+        "anchor_to": "right_middle",
+        "alpha": 0.5,
+        "controls": [
+            {
+                "sidebar": {
+                    "type": "panel",
+                    "size": [
+                        "100%c",
+                        "100%c"
+                    ],
+                    "offset": [
+                        0,
+                        25
+                    ],
+                    "controls": [
+                        {
+                            "title_background": {
+                                "type": "image",
+                                "alpha": 1.0,
+                                "size": [
+                                    "100%cm + 4px",
+                                    "100%c + 4px"
+                                ],
+                                "texture": "textures/ui/Black",
+                                "controls": [
+                                    {
+                                        "title": {
+                                            "type": "label",
+                                            "text": "$title_text",
+                                            "anchor_from": "center_middle",
+                                            "anchor_to": "center_middle",
+                                            "color": "$tool_tip_text",
+                                            "text_alignment": "left",
+                                            "layer": 1,
+                                            "localize": true,
+                                            "font_size": "medium",
+                                            "font_scale_factor": 0.7,
+                                            "alpha": 2.0
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "item_lock_cell_image@common.item_lock_cell_image": {
+        "ignored": true
+    },
+    "mob_effects_renderer": {
+        "type": "custom",
+        "renderer": "flying_item_renderer",
+        "layer": 1
+    },
+    "vignette_renderer": {
+        "renderer": "flying_item_renderer"
+    }
+}

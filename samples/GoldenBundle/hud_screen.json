@@ -1,0 +1,303 @@
+{
+    "namespace": "hud",
+    "$schema": "https://kalmemarq.github.io/Bugrock-JSON-UI-Schemas/ui.schema.json",
+    "boss_health_panel": {
+        "type": "panel",
+        "size": [
+            182,
+            20
+        ],
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "$progress_bar_collection": "boss_bars",
+        "controls": [
+            {
+                "boss_name@boss_name_panel": {}
+            },
+            {
+                "default@hud.default_boss_bar": {
+                    "bindings": [
+                        {
+                            "binding_name": "#bossName",
+                            "binding_type": "collection",
+                            "binding_collection_name": "boss_bars",
+                            "binding_name_override": "#text"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(((#text - '§y§r' - '§g§r' - '§v§r') = #text))",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            },
+            {
+                "custom_1@hud.custom_1_boss_bar": {
+                    "bindings": [
+                        {
+                            "binding_name": "#bossName",
+                            "binding_type": "collection",
+                            "binding_collection_name": "boss_bars",
+                            "binding_name_override": "#text"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(not((#text - '§y§r') = #text))",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            },
+            {
+                "custom_2@hud.custom_2_boss_bar": {
+                    "bindings": [
+                        {
+                            "binding_name": "#bossName",
+                            "binding_type": "collection",
+                            "binding_collection_name": "boss_bars",
+                            "binding_name_override": "#text"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(not((#text - '§g§r') = #text))",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            },
+            {
+                "custom_3@hud.custom_3_boss_bar": {
+                    "bindings": [
+                        {
+                            "binding_name": "#bossName",
+                            "binding_type": "collection",
+                            "binding_collection_name": "boss_bars",
+                            "binding_name_override": "#text"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(not((#text - '§v§r') = #text))",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            }
+        ],
+        "bindings": [
+            {
+                "binding_name": "#bar_visible",
+                "binding_type": "collection",
+                "binding_collection_name": "boss_bars",
+                "binding_name_override": "#visible"
+            }
+        ]
+    },
+    "default_boss_bar": {
+        "type": "panel",
+        "offset": [
+            0,
+            4
+        ],
+        "size": [
+            182,
+            5
+        ],
+        "controls": [
+            {
+                "empty_progress_bar@common.empty_progress_bar": {
+                    "layer": 1
+                }
+            },
+            {
+                "filled_progress_bar_for_collections@common.filled_progress_bar_for_collections": {
+                    "layer": 2
+                }
+            }
+        ]
+    },
+    "custom_1_boss_bar": {
+        "type": "panel",
+        "offset": [
+            0,
+            4
+        ],
+        "size": [
+            182,
+            6
+        ],
+        "controls": [
+            {
+                "empty_progress_bar": {
+                    "type": "image",
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/custom_bars",
+                    "uv_size": [
+                        182,
+                        4
+                    ],
+                    "size": [
+                        182,
+                        4
+                    ]
+                }
+            },
+            {
+                "filled_progress_bar": {
+                    "clip_pixelperfect": false,
+                    "type": "image",
+                    "texture": "textures/custom_bars",
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "uv_size": [
+                        182,
+                        5
+                    ],
+                    "uv": [
+                        0,
+                        5
+                    ],
+                    "size": [
+                        182,
+                        5
+                    ],
+                    "clip_direction": "left",
+                    "bindings": [
+                        {
+                            "binding_name": "#progress_percentage",
+                            "binding_name_override": "#clip_ratio",
+                            "binding_type": "collection",
+                            "binding_collection_name": "$progress_bar_collection"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "custom_2_boss_bar": {
+        "type": "panel",
+        "offset": [
+            0,
+            4
+        ],
+        "size": [
+            184,
+            6
+        ],
+        "controls": [
+            {
+                "empty_progress_bar": {
+                    "type": "image",
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/custom_bars",
+                    "uv_size": [
+                        184,
+                        6
+                    ],
+                    "uv": [
+                        0,
+                        13
+                    ],
+                    "size": [
+                        184,
+                        6
+                    ]
+                }
+            },
+            {
+                "filled_progress_bar": {
+                    "clip_pixelperfect": false,
+                    "type": "image",
+                    "texture": "textures/custom_bars",
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "uv_size": [
+                        184,
+                        6
+                    ],
+                    "uv": [
+                        0,
+                        20
+                    ],
+                    "size": [
+                        184,
+                        6
+                    ],
+                    "clip_direction": "left",
+                    "bindings": [
+                        {
+                            "binding_name": "#progress_percentage",
+                            "binding_name_override": "#clip_ratio",
+                            "binding_type": "collection",
+                            "binding_collection_name": "$progress_bar_collection"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "custom_3_boss_bar": {
+        "type": "panel",
+        "offset": [
+            0,
+            4
+        ],
+        "size": [
+            184,
+            4
+        ],
+        "controls": [
+            {
+                "empty_progress_bar": {
+                    "type": "image",
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/custom_bars",
+                    "uv_size": [
+                        184,
+                        4
+                    ],
+                    "uv": [
+                        0,
+                        28
+                    ],
+                    "size": [
+                        184,
+                        4
+                    ]
+                }
+            },
+            {
+                "filled_progress_bar": {
+                    "clip_pixelperfect": false,
+                    "type": "image",
+                    "texture": "textures/custom_bars",
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "uv_size": [
+                        184,
+                        6
+                    ],
+                    "uv": [
+                        0,
+                        34
+                    ],
+                    "size": [
+                        184,
+                        6
+                    ],
+                    "clip_direction": "left",
+                    "bindings": [
+                        {
+                            "binding_name": "#progress_percentage",
+                            "binding_name_override": "#clip_ratio",
+                            "binding_type": "collection",
+                            "binding_collection_name": "$progress_bar_collection"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

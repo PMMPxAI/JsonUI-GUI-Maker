@@ -1,0 +1,725 @@
+{
+    "namespace": "pause_screen",
+    "player_grid_item_content": {
+        "type": "panel",
+        "controls": [
+            {
+                "player_button_panel": {
+                    "type": "stack_panel",
+                    "orientation": "horizontal",
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "size": [
+                        "100%",
+                        "100% + 1px"
+                    ],
+                    "controls": [
+                        {
+                            "player_button_banner": {
+                                "type": "panel",
+                                "size": [
+                                    "fill",
+                                    "100%"
+                                ],
+                                "controls": [
+                                    {
+                                        "player_button@pause.player_button": {}
+                                    },
+                                    {
+                                        "player_banner@pause.player_banner": {}
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "unchecked_control": {
+        "type": "image",
+        "texture": "textures/ui/players_normal"
+    },
+    "checked_control": {
+        "type": "image",
+        "texture": "textures/ui/players_hover"
+    },
+    "unchecked_control2": {
+        "type": "image",
+        "texture": "textures/ui/perms_normal"
+    },
+    "checked_control2": {
+        "type": "image",
+        "texture": "textures/ui/perms_hover"
+    },
+    "toggle_panel": {
+        "type": "panel",
+        "$tab_size|default": [
+            "100%",
+            "100%"
+        ],
+        "$sound_name|default": "random.click",
+        "$sound_volume|default": 1.0,
+        "$sound_pitch|default": 1.0,
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "$radio_toggle_group": true,
+        "$toggle_focus_enabled": true,
+        "$is_back_button|default": false,
+        "$has_double_click_function|default": true,
+        "$binding_type": "global",
+        "$binding_condition": "t",
+        "$is_custom_button|default": true,
+        "$custom_from_button_id|default": "",
+        "$custom_to_button_id|default": "",
+        "$custom_mapping_type|default": "global",
+        "$custom_scope|default": "",
+        "$unchecked_control": "common.empty_panel",
+        "$checked_control": "common.empty_panel",
+        "$unchecked_hover_control": "common.empty_panel",
+        "$checked_hover_control": "common.empty_panel",
+        "$unchecked_locked_control": "common.empty_panel",
+        "$unchecked_locked_hover_control": "common.empty_panel",
+        "$checked_locked_control": "common.empty_panel",
+        "$checked_locked_hover_control": "common.empty_panel",
+        "controls": [
+            {
+                "$tab_view_binding_name@common.toggle": {
+                    "sound_name": "$sound_name",
+                    "sound_volume": "$sound_volume",
+                    "sound_pitch": "$sound_pitch",
+                    "size": "$tab_size",
+                    "button_mappings": [
+                        {
+                            "from_button_id": "button.menu_select",
+                            "to_button_id": "button.menu_select",
+                            "mapping_type": "pressed"
+                        },
+                        {
+                            "from_button_id": "button.menu_ok",
+                            "to_button_id": "button.menu_ok",
+                            "mapping_type": "focused"
+                        },
+                        {
+                            "ignored": "(not $is_back_button)",
+                            "from_button_id": "button.menu_cancel",
+                            "to_button_id": "button.menu_select",
+                            "mapping_type": "global"
+                        },
+                        {
+                            "ignored": "(not $is_custom_button)",
+                            "from_button_id": "$custom_from_button_id",
+                            "to_button_id": "$custom_to_button_id",
+                            "mapping_type": "$custom_mapping_type",
+                            "scope": "$custom_scope"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "main_button_toggle@toggle_panel": {
+        "$toggle_tts_name": "",
+        "$toggle_tts_header": "",
+        "$toggle_tts_toggle_on_text": "accessibility.button.tts.title",
+        "$toggle_tts_toggle_off_text": "accessibility.button.tts.title"
+    },
+    "uncheck_player": {
+        "type": "image",
+        "texture": "textures/ui/players_normal"
+    },
+    "check_player": {
+        "type": "image",
+        "texture": "textures/ui/players_hover"
+    },
+    "skin_viewer_panel": {
+        "type": "input_panel",
+        "anchor_from": "bottom_middle",
+        "anchor_to": "bottom_middle",
+        "size": [
+            "100%",
+            "100% - 24px"
+        ],
+        "offset": [
+            0,
+            -16
+        ],
+        "gesture_tracking_button": "button.turn_doll",
+        "tts_ignore_count": true,
+        "button_mappings": [
+            {
+                "from_button_id": "button.menu_select",
+                "to_button_id": "button.turn_doll",
+                "mapping_type": "pressed",
+                "button_up_right_of_first_refusal": true
+            }
+        ],
+        "controls": [
+            {
+                "paper_doll_panel": {
+                    "type": "panel",
+                    "size": [
+                        "100%",
+                        "100% - 10px"
+                    ],
+                    "controls": [
+                        {
+                            "paper_doll": {
+                                "type": "custom",
+                                "renderer": "paper_doll_renderer",
+                                "camera_tilt_degrees": -10,
+                                "starting_rotation": 30,
+                                "layer": 2,
+                                "anchor_from": "bottom_middle",
+                                "anchor_to": "bottom_middle",
+                                "rotation": "gesture_x",
+                                "size": [
+                                    "100%",
+                                    "100%"
+                                ],
+                                "offset": [
+                                    0,
+                                    -22
+                                ],
+                                "animation_reset_name": "screen_animation_reset",
+                                "anims": [
+                                    "@common.screen_exit_size_animation_push",
+                                    "@common.screen_exit_size_animation_pop",
+                                    "@common.screen_entrance_size_animation_push",
+                                    "@common.screen_entrance_size_animation_pop"
+                                ],
+                                "bindings": [
+                                    {
+                                        "binding_type": "view",
+                                        "source_control_name": "viewer_panel",
+                                        "source_property_name": "#gesture_delta_source",
+                                        "target_property_name": "#gesture_delta_source"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_control_name": "viewer_panel",
+                                        "source_property_name": "#gesture_mouse_delta_x",
+                                        "target_property_name": "#gesture_mouse_delta_x"
+                                    },
+                                    {
+                                        "binding_name": "#is_appearance_visible",
+                                        "binding_name_override": "#visible",
+                                        "binding_condition": "always"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "appearacne_loading_panel@common_store.progress_loading": {
+                                "$hide_failure_text": true,
+                                "$hide_progress_loading_outline": true,
+                                "$source_control_name": "paper_doll",
+                                "$source_property_name": "(not #visible)"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "paper_doll_name_tag": {
+                    "type": "custom",
+                    "renderer": "name_tag_renderer",
+                    "layer": 2,
+                    "anchor_from": "top_middle",
+                    "anchor_to": "bottom_middle",
+                    "size": [
+                        8,
+                        8
+                    ],
+                    "bindings": [
+                        {
+                            "binding_name": "#playername"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "skin_panel": {
+        "type": "panel",
+        "anchor_to": "bottom_right",
+        "anchor_from": "bottom_right",
+        "size": [
+            "50% - 75px",
+            124
+        ],
+        "offset": [
+            0,
+            "-10% - 4px"
+        ],
+        "controls": [
+            {
+                "skins_panels@pause.skin_viewer_panel": {}
+            },
+            {
+                "play@common.button": {
+                    "size": [
+                        30,
+                        30
+                    ],
+                    "layer": 3,
+                    "offset": [
+                        0,
+                        70
+                    ],
+                    "$default_texture|default": "textures/ui/skins_normal",
+                    "$hover_texture|default": "textures/ui/skins_hover",
+                    "$pressed_texture|default": "textures/ui/skins_pressed",
+                    "$pressed_button_name": "button.to_profile_or_skins_screen",
+                    "controls": [
+                        {
+                            "default": {
+                                "type": "image",
+                                "texture": "$default_texture"
+                            }
+                        },
+                        {
+                            "hover": {
+                                "type": "image",
+                                "texture": "$hover_texture"
+                            }
+                        },
+                        {
+                            "pressed": {
+                                "type": "image",
+                                "texture": "$pressed_texture"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "pause_screen_content": {
+        "type": "stack_panel",
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "controls": [
+            {
+                "main_panel": {
+                    "type": "panel",
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "players_panel_show",
+                            "source_property_name": "(not #toggle_state)",
+                            "target_property_name": "#visible"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "perms_panel_show",
+                            "source_property_name": "(not #toggle_state)",
+                            "target_property_name": "#visible"
+                        }
+                    ],
+                    "controls": [
+                        {
+                            "quit_button@common.button": {
+                                "size": [
+                                    40,
+                                    40
+                                ],
+                                "layer": 3,
+                                "offset": [
+                                    55,
+                                    80
+                                ],
+                                "$default_texture|default": "textures/ui/quit_normal",
+                                "$hover_texture|default": "textures/ui/quit_hover",
+                                "$pressed_texture|default": "textures/ui/quit_pressed",
+                                "$pressed_button_name": "button.menu_quit",
+                                "controls": [
+                                    {
+                                        "default": {
+                                            "type": "image",
+                                            "texture": "$default_texture"
+                                        }
+                                    },
+                                    {
+                                        "hover": {
+                                            "type": "image",
+                                            "texture": "$hover_texture"
+                                        }
+                                    },
+                                    {
+                                        "pressed": {
+                                            "type": "image",
+                                            "texture": "$pressed_texture"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "play@common.button": {
+                                "size": [
+                                    40,
+                                    40
+                                ],
+                                "layer": 3,
+                                "offset": [
+                                    55,
+                                    -30
+                                ],
+                                "$default_texture|default": "textures/ui/play_normal",
+                                "$hover_texture|default": "textures/ui/play_hover",
+                                "$pressed_texture|default": "textures/ui/play_pressed",
+                                "$pressed_button_name": "button.menu_continue",
+                                "controls": [
+                                    {
+                                        "default": {
+                                            "type": "image",
+                                            "texture": "$default_texture"
+                                        }
+                                    },
+                                    {
+                                        "hover": {
+                                            "type": "image",
+                                            "texture": "$hover_texture"
+                                        }
+                                    },
+                                    {
+                                        "pressed": {
+                                            "type": "image",
+                                            "texture": "$pressed_texture"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "market@common.button": {
+                                "size": [
+                                    40,
+                                    40
+                                ],
+                                "layer": 3,
+                                "offset": [
+                                    -55,
+                                    80
+                                ],
+                                "$default_texture|default": "textures/ui/market_normal",
+                                "$hover_texture|default": "textures/ui/market_hover",
+                                "$pressed_texture|default": "textures/ui/market_pressed",
+                                "$pressed_button_name": "button.menu_store",
+                                "controls": [
+                                    {
+                                        "default": {
+                                            "type": "image",
+                                            "texture": "$default_texture"
+                                        }
+                                    },
+                                    {
+                                        "hover": {
+                                            "type": "image",
+                                            "texture": "$hover_texture"
+                                        }
+                                    },
+                                    {
+                                        "pressed": {
+                                            "type": "image",
+                                            "texture": "$pressed_texture"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "settings@common.button": {
+                                "size": [
+                                    40,
+                                    40
+                                ],
+                                "layer": 3,
+                                "offset": [
+                                    -55,
+                                    -30
+                                ],
+                                "$default_texture|default": "textures/ui/settings_normal",
+                                "$hover_texture|default": "textures/ui/settings_hover",
+                                "$pressed_texture|default": "textures/ui/settings_pressed",
+                                "$pressed_button_name": "button.menu_settings",
+                                "controls": [
+                                    {
+                                        "default": {
+                                            "type": "image",
+                                            "texture": "$default_texture"
+                                        }
+                                    },
+                                    {
+                                        "hover": {
+                                            "type": "image",
+                                            "texture": "$hover_texture"
+                                        }
+                                    },
+                                    {
+                                        "pressed": {
+                                            "type": "image",
+                                            "texture": "$pressed_texture"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "title_panel_content@common_art.title_panel_content": {
+                                "$splash_text_visible": false,
+                                "layer": -2,
+                                "offset": [
+                                    0,
+                                    -20
+                                ]
+                            }
+                        },
+                        {
+                            "skins@skin_panel": {
+                                "offset": [
+                                    0,
+                                    30
+                                ],
+                                "size": [
+                                    "40%",
+                                    "40%"
+                                ],
+                                "anchor_to": "middle",
+                                "anchor_from": "middle"
+                            }
+                        },
+                        {
+                            "background": {
+                                "type": "image",
+                                "offset": [
+                                    0,
+                                    25
+                                ],
+                                "size": [
+                                    163,
+                                    163
+                                ],
+                                "texture": "textures/ui/bg_pause.png",
+                                "layer": -1
+                            }
+                        },
+                        {
+                            "perms@pause.player_permission_button": {
+                                "size": [
+                                    30,
+                                    30
+                                ],
+                                "layer": 3,
+                                "offset": [
+                                    0,
+                                    -50
+                                ],
+                                "anchor_to": "middle",
+                                "anchor_from": "middle",
+                                "$default_texture|default": "textures/ui/perms_normal",
+                                "$hover_texture|default": "textures/ui/perms_hover",
+                                "$pressed_texture|default": "textures/ui/perms_pressed",
+                                "controls": [
+                                    {
+                                        "default": {
+                                            "type": "image",
+                                            "texture": "$default_texture"
+                                        }
+                                    },
+                                    {
+                                        "hover": {
+                                            "type": "image",
+                                            "texture": "$hover_texture"
+                                        }
+                                    },
+                                    {
+                                        "pressed": {
+                                            "type": "image",
+                                            "texture": "$pressed_texture"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "succes@common.button": {
+                                "size": [
+                                    30,
+                                    30
+                                ],
+                                "layer": 3,
+                                "offset": [
+                                    75,
+                                    25
+                                ],
+                                "$default_texture|default": "textures/ui/succes_normal",
+                                "$hover_texture|default": "textures/ui/succes_hover",
+                                "$pressed_texture|default": "textures/ui/succes_pressed",
+                                "$pressed_button_name": "button.menu_achievements",
+                                "controls": [
+                                    {
+                                        "default": {
+                                            "type": "image",
+                                            "texture": "$default_texture"
+                                        }
+                                    },
+                                    {
+                                        "hover": {
+                                            "type": "image",
+                                            "texture": "$hover_texture"
+                                        }
+                                    },
+                                    {
+                                        "pressed": {
+                                            "type": "image",
+                                            "texture": "$pressed_texture"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "toggle_players@main_button_toggle": {
+                                "$tab_view_binding_name": "players_panel_show",
+                                "size": [
+                                    30,
+                                    30
+                                ],
+                                "layer": 3,
+                                "offset": [
+                                    -75,
+                                    25
+                                ],
+                                "$unchecked_control": "pause.unchecked_control",
+                                "$checked_control": "pause.checked_control",
+                                "$unchecked_hover_control": "pause.checked_control",
+                                "$checked_hover_control": "pause.checked_control",
+                                "$toggle_name": "show_panel_button",
+                                "bindings": [
+                                    {
+                                        "binding_type": "view",
+                                        "source_control_name": "players_panel_show",
+                                        "source_property_name": "(not #toggle_state)",
+                                        "target_property_name": "#visible"
+                                    }
+                                ],
+                                "anchor_from": "middle",
+                                "anchor_to": "middle",
+                                "$toggle_group_forced_index": 2
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "players_panel": {
+                    "type": "panel",
+                    "controls": [
+                        {
+                            "player_list": {
+                                "type": "stack_panel",
+                                "anchor_from": "middle",
+                                "anchor_to": "middle",
+                                "size": [
+                                    "80%",
+                                    "90%"
+                                ],
+                                "focus_container": true,
+                                "use_last_focus": true,
+                                "focus_navigation_mode_right": "contained",
+                                "controls": [
+                                    {
+                                        "players_grid_panel@pause.players_grid": {}
+                                    },
+                                    {
+                                        "vertical_padding_3@pause.vertical_padding": {
+                                            "size": [
+                                                0,
+                                                3
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "invite_players_button_panel@pause.invite_players_button_panel": {}
+                                    },
+                                    {
+                                        "vertical_padding_4@pause.vertical_padding": {
+                                            "size": [
+                                                0,
+                                                3
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "disconnected_from_multiplayer_label_panel@pause.disconnected_from_multiplayer_label_panel": {}
+                                    },
+                                    {
+                                        "vertical_padding_5@pause.vertical_padding": {
+                                            "size": [
+                                                0,
+                                                1
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "exit@common.button": {
+                                "size": [
+                                    15,
+                                    15
+                                ],
+                                "layer": 3,
+                                "offset": [
+                                    0,
+                                    0
+                                ],
+                                "anchor_from": "top_left",
+                                "anchor_to": "top_left",
+                                "$default_texture|default": "textures/ui/close_button_default",
+                                "$hover_texture|default": "textures/ui/close_button_hover",
+                                "$pressed_texture|default": "textures/ui/close_button_pressed",
+                                "$pressed_button_name": "button.menu_exit",
+                                "controls": [
+                                    {
+                                        "default": {
+                                            "type": "image",
+                                            "texture": "$default_texture"
+                                        }
+                                    },
+                                    {
+                                        "hover": {
+                                            "type": "image",
+                                            "texture": "$hover_texture"
+                                        }
+                                    },
+                                    {
+                                        "pressed": {
+                                            "type": "image",
+                                            "texture": "$pressed_texture"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "players_panel_show",
+                            "source_property_name": "#toggle_state",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

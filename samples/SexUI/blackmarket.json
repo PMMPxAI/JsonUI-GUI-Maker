@@ -1,0 +1,308 @@
+{
+    "namespace": "blackmarket",
+    "$schema": "https://kalmemarq.github.io/Bugrock-JSON-UI-Schemas/ui.schema.json",
+    "ui": {
+        "type": "image",
+        "size": [
+            "70%",
+            "65%"
+        ],
+        "texture": "textures/interfaces/blackmarket/form_panel",
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "offset": [
+            0,
+            10
+        ],
+        "controls": [
+            {
+                "title@blackmarket.title": {}
+            },
+            {
+                "text": {
+                    "type": "label",
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "text": "#form_text",
+                    "bindings": [
+                        {
+                            "binding_type": "global",
+                            "binding_name": "#form_text"
+                        }
+                    ],
+                    "offset": [
+                        0,
+                        35
+                    ],
+                    "max_size": [
+                        "80%",
+                        50
+                    ],
+                    "text_alignment": "center",
+                    "contained": true
+                }
+            },
+            {
+                "buttons_wrapper": {
+                    "type": "panel",
+                    "max_size": [
+                        "50%",
+                        "50%"
+                    ],
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "offset": [
+                        3,
+                        70
+                    ],
+                    "controls": [
+                        {
+                            "buttons_panel@blackmarket.buttons_panel": {}
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "title": {
+        "type": "image",
+        "size": [
+            "93%",
+            30
+        ],
+        "layer": 1,
+        "texture": "textures/interfaces/blackmarket/title",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "offset": [
+            0,
+            -5
+        ],
+        "controls": [
+            {
+                "close_button@blackmarket.close_button": {}
+            },
+            {
+                "title": {
+                    "layer": 2,
+                    "type": "label",
+                    "font_scale_factor": 1.5,
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "offset": [
+                        0,
+                        0
+                    ],
+                    "text": "#text",
+                    "bindings": [
+                        {
+                            "binding_type": "global",
+                            "binding_name": "#title_text",
+                            "binding_name_override": "#text"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "buttons_panel": {
+        "type": "stack_panel",
+        "orientation": "horizontal",
+        "offset": [
+            0,
+            0
+        ],
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "factory": {
+            "name": "buttons",
+            "control_name": "blackmarket.dynamic_button"
+        },
+        "collection_name": "form_buttons",
+        "bindings": [
+            {
+                "binding_name": "#form_button_length",
+                "binding_name_override": "#collection_length"
+            }
+        ]
+    },
+    "dynamic_button": {
+        "type": "stack_panel",
+        "size": [
+            100,
+            100
+        ],
+        "offset": [
+            4,
+            0
+        ],
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "orientation": "horizontal",
+        "button_mappings": [
+            {
+                "from_button_id": "button.menu_select",
+                "to_button_id": "button.form_button_click",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.menu_ok",
+                "to_button_id": "button.form_button_click",
+                "mapping_type": "focused"
+            }
+        ],
+        "bindings": [
+            {
+                "binding_type": "collection_details",
+                "binding_collection_name": "form_buttons"
+            }
+        ],
+        "controls": [
+            {
+                "button@common.button": {
+                    "$pressed_button_name": "button.form_button_click",
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "size": [
+                        "80%",
+                        "80%"
+                    ],
+                    "offset": [
+                        -25,
+                        0
+                    ],
+                    "controls": [
+                        {
+                            "default@blackmarket.button_image": {
+                                "$button_texture": "textures/interfaces/blackmarket/button"
+                            }
+                        },
+                        {
+                            "hover@blackmarket.button_image": {
+                                "$button_texture": "textures/interfaces/blackmarket/button_hover"
+                            }
+                        },
+                        {
+                            "pressed@blackmarket.button_image": {
+                                "$button_texture": "textures/interfaces/blackmarket/button_hover"
+                            }
+                        }
+                    ],
+                    "bindings": [
+                        {
+                            "binding_type": "collection_details",
+                            "binding_collection_name": "form_buttons"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "button_image": {
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "layer": 10,
+        "type": "image",
+        "alpha": 0.8,
+        "texture": "$button_texture",
+        "controls": [
+            {
+                "image": {
+                    "type": "image",
+                    "layer": 10,
+                    "size": [
+                        65,
+                        65
+                    ],
+                    "keep_ratio": true,
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "bindings": [
+                        {
+                            "binding_name": "#form_button_texture",
+                            "binding_name_override": "#texture",
+                            "binding_type": "collection",
+                            "binding_collection_name": "form_buttons"
+                        },
+                        {
+                            "binding_name": "#form_button_texture_file_system",
+                            "binding_name_override": "#texture_file_system",
+                            "binding_type": "collection",
+                            "binding_collection_name": "form_buttons"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(not ((#texture = '') or (#texture = 'loading')))",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "close_button": {
+        "type": "button",
+        "size": [
+            21,
+            21
+        ],
+        "layer": 10,
+        "anchor_from": "right_middle",
+        "anchor_to": "right_middle",
+        "offset": [
+            2,
+            0
+        ],
+        "default_control": "default",
+        "hover_control": "hover",
+        "pressed_control": "pressed",
+        "button_mappings": [
+            {
+                "from_button_id": "button.menu_select",
+                "to_button_id": "$close_button_to_button_id",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.menu_ok",
+                "to_button_id": "$close_button_to_button_id",
+                "mapping_type": "focused"
+            }
+        ],
+        "$close_button_panel_size|default": [
+            18,
+            18
+        ],
+        "$close_button_to_button_id|default": "button.menu_exit",
+        "$default_button_alpha|default": 1,
+        "$default_hover_alpha|default": 1,
+        "$default_pressed_alpha|default": 1,
+        "$close_button_visible_binding_name|default": "#close_button_visible",
+        "$close_button_visible_binding_type|default": "none",
+        "$close_button_default_texture|default": "textures/ui/close_button_default",
+        "controls": [
+            {
+                "default@common.close_button_panel": {
+                    "$close_button_texture": "$close_button_default_texture",
+                    "$button_alpha": "$default_button_alpha"
+                }
+            },
+            {
+                "hover@common.close_button_panel": {
+                    "$close_button_texture": "textures/ui/close_button_hover"
+                }
+            },
+            {
+                "pressed@common.close_button_panel": {
+                    "$close_button_texture": "textures/ui/close_button_pressed"
+                }
+            }
+        ],
+        "sound_name": "random.click",
+        "focus_magnet_enabled": true,
+        "focus_enabled": true
+    }
+}
