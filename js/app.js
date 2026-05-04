@@ -457,7 +457,11 @@
       state.expanded = {};
       state.filename = 'custom.json';
       state.history = []; state.historyIdx = -1;
+      const cn = document.getElementById('code-filename'); if (cn) cn.textContent = 'custom.json';
+      const pn = document.getElementById('project-name'); if (pn) pn.textContent = 'Nouveau projet';
+      const pt = document.getElementById('preview-title'); if (pt) pt.textContent = 'Nouveau projet';
       snapshot();
+      try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
       SW.markDirty(false); SW.refresh();
       SW.toast('Nouveau projet');
     };
@@ -588,6 +592,10 @@
     document.getElementById('dup-btn').onclick = () => { if (state.selectedId) SW.duplicateElement(state.selectedId); };
     document.getElementById('del-btn').onclick = () => { if (state.selectedId) SW.deleteElement(state.selectedId); };
 
+    // Shortcuts help
+    const scBtn = document.getElementById('shortcuts-help-btn');
+    if (scBtn) scBtn.onclick = () => SW.openShortcutsModal();
+
     // Templates search
     document.getElementById('tpl-search').oninput = () => SW.openTemplatesModal();
 
@@ -630,6 +638,15 @@
       else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'y') { e.preventDefault(); SW.redo(); }
       else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'd' && state.selectedId) { e.preventDefault(); SW.duplicateElement(state.selectedId); }
       else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') { e.preventDefault(); exportJson(); }
+      else if (e.key === '?' || (e.shiftKey && e.key === '/')) { e.preventDefault(); SW.openShortcutsModal(); }
+      else if (e.key === 'F2' && state.selectedId) {
+        e.preventDefault();
+        const el = SW.findById(state.tree, state.selectedId);
+        if (el) {
+          const name = prompt('Nom du composant:', el.name || '');
+          if (name != null) { el.name = name.trim(); SW.markDirty(true); SW.refresh(); }
+        }
+      }
       else if (e.key === 'Escape') {
         document.querySelectorAll('.ecl-modal').forEach(m => m.classList.add('hidden'));
         document.getElementById('code-panel').classList.remove('open');
@@ -715,16 +732,189 @@
     root.addEventListener('click', (e) => { if (e.target === root) { root.remove(); cb(null); } });
   }
 
+  // ---- AUTO-SAVE / RESTORE ----
+  const STORAGE_KEY = 'ecl_autosave_v1';
+  let autoSaveTimer = null;
+
+  function autoSave() {
+    clearTimeout(autoSaveTimer);
+    autoSaveTimer = setTimeout(() => {
+      try {
+        const payload = {
+          tree: state.tree,
+          namespace: state.namespace,
+          filename: state.filename,
+          screen: state.screen,
+          zoom: state.zoom,
+          bg: state.bg,
+          unicode: state.unicode,
+          expanded: state.expanded,
+          ts: Date.now()
+        };
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+      } catch (e) { /* quota exceeded or private browsing */ }
+    }, 500);
+  }
+
+  function tryRestore() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return false;
+      const data = JSON.parse(raw);
+      if (!data || !data.tree) return false;
+      state.tree = data.tree;
+      state.namespace = data.namespace || 'custom_ui';
+      state.filename = data.filename || 'custom.json';
+      state.screen = data.screen || 'pc';
+      state.zoom = data.zoom || 100;
+      state.bg = data.bg || 'mc';
+      state.unicode = !!data.unicode;
+      state.expanded = data.expanded || {};
+      state.selectedId = null;
+      state.history = [];
+      state.historyIdx = -1;
+      // Restore UI
+      const ns = document.getElementById('namespace'); if (ns) ns.value = state.namespace;
+      const cn = document.getElementById('code-filename'); if (cn) cn.textContent = state.filename;
+      const pn = document.getElementById('project-name'); if (pn) pn.textContent = state.filename;
+      const pt = document.getElementById('preview-title'); if (pt) pt.textContent = state.filename;
+      const zv = document.getElementById('zoom-val'); if (zv) zv.textContent = state.zoom + '%';
+      document.querySelectorAll('[data-screen]').forEach(b => {
+        b.classList.toggle('active', b.dataset.screen === state.screen);
+      });
+      const uniBtn = document.getElementById('unicode-toggle-btn');
+      if (uniBtn) uniBtn.classList.toggle('active', state.unicode);
+      snapshot();
+      SW.refresh();
+      return true;
+    } catch (e) { return false; }
+  }
+
+  // Hook auto-save into markDirty
+  const _origMarkDirty = SW.markDirty;
+  SW.markDirty = function (b) {
+    _origMarkDirty(b);
+    if (b) autoSave();
+  };
+
+  // ---- UNSAVED CHANGES WARNING ----
+  window.addEventListener('beforeunload', (e) => {
+    if (state.dirty) {
+      e.preventDefault();
+      e.returnValue = '';
+    }
+  });
+
+  // ---- KEYBOARD SHORTCUTS HELP ----
+  SW.openShortcutsModal = function () {
+    let modal = document.getElementById('modal-shortcuts');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'modal-shortcuts';
+      modal.className = 'ecl-modal hidden';
+      modal.innerHTML = `
+        <div class="ecl-modal-card" style="max-width:560px">
+          <div class="h-14 flex items-center px-6 border-b border-eclipse-border">
+            <div class="text-xs font-bold uppercase tracking-[0.2em] text-eclipse-muted">Aide</div>
+            <h2 class="font-display font-bold text-xl text-white ml-4">Raccourcis clavier</h2>
+            <button data-close-modal class="ecl-icon-btn ml-auto">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+          </div>
+          <div class="p-6 overflow-auto" style="max-height:70vh">
+            <div class="shortcuts-grid">
+              <div class="sc-group">Fichier</div>
+              <div class="sc-row"><span class="sc-keys"><kbd>Ctrl</kbd>+<kbd>S</kbd></span><span>Exporter JSON</span></div>
+              <div class="sc-row"><span class="sc-keys"><kbd>Ctrl</kbd>+<kbd>Z</kbd></span><span>Annuler</span></div>
+              <div class="sc-row"><span class="sc-keys"><kbd>Ctrl</kbd>+<kbd>Y</kbd></span><span>Refaire</span></div>
+              <div class="sc-row"><span class="sc-keys"><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd></span><span>Refaire</span></div>
+              <div class="sc-group">Éléments</div>
+              <div class="sc-row"><span class="sc-keys"><kbd>Suppr</kbd></span><span>Supprimer l'élément</span></div>
+              <div class="sc-row"><span class="sc-keys"><kbd>Ctrl</kbd>+<kbd>D</kbd></span><span>Dupliquer</span></div>
+              <div class="sc-row"><span class="sc-keys"><kbd>F2</kbd></span><span>Renommer</span></div>
+              <div class="sc-row"><span class="sc-keys"><kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd></span><span>Déplacer (1px)</span></div>
+              <div class="sc-row"><span class="sc-keys"><kbd>Shift</kbd>+<kbd>↑↓←→</kbd></span><span>Déplacer (10px)</span></div>
+              <div class="sc-group">Vue</div>
+              <div class="sc-row"><span class="sc-keys"><kbd>Espace</kbd></span><span>Lecture / Pause</span></div>
+              <div class="sc-row"><span class="sc-keys"><kbd>Échap</kbd></span><span>Fermer panneau/modal</span></div>
+              <div class="sc-row"><span class="sc-keys"><kbd>?</kbd></span><span>Aide raccourcis</span></div>
+            </div>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(modal);
+    }
+    SW.openModal('modal-shortcuts');
+  };
+
   // ---- BOOT ----
   function boot() {
     wire();
-    SW.loadTemplate('neon_sidebar');
+    wireSplitters();
+    const restored = tryRestore();
+    if (!restored) {
+      SW.loadTemplate('neon_sidebar');
+    }
+    autoFitZoom();
     if (!localStorage.getItem('ecl_seen_v1')) {
       setTimeout(() => {
         SW.toast('Bienvenue sur Eclipse UI Forge — clique un élément pour l\'éditer, glisse-le pour le déplacer');
         localStorage.setItem('ecl_seen_v1', '1');
       }, 500);
     }
+  }
+
+  // ---- RESIZABLE PANELS ----
+  function wireSplitters() {
+    const main = document.querySelector('main.grid');
+    if (!main) return;
+    const leftPanel = main.children[0];
+    const centerPanel = main.children[1];
+    const rightPanel = main.children[2];
+
+    // Create left splitter
+    const leftSplitter = document.createElement('div');
+    leftSplitter.className = 'ecl-splitter';
+    main.insertBefore(leftSplitter, centerPanel);
+
+    // Create right splitter
+    const rightSplitter = document.createElement('div');
+    rightSplitter.className = 'ecl-splitter';
+    main.insertBefore(rightSplitter, rightPanel);
+
+    // Update grid template
+    main.style.gridTemplateColumns = '260px 4px 1fr 4px 300px';
+
+    function makeDraggable(splitter, panel, side) {
+      let startX, startW;
+      splitter.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+        startX = e.clientX;
+        startW = panel.getBoundingClientRect().width;
+        document.body.style.cursor = 'col-resize';
+        document.body.style.userSelect = 'none';
+
+        function onMove(ev) {
+          const dx = side === 'left' ? ev.clientX - startX : startX - ev.clientX;
+          const newW = Math.max(180, Math.min(500, startW + dx));
+          const cols = main.style.gridTemplateColumns.split(' ');
+          if (side === 'left') cols[0] = newW + 'px';
+          else cols[4] = newW + 'px';
+          main.style.gridTemplateColumns = cols.join(' ');
+        }
+        function onUp() {
+          document.body.style.cursor = '';
+          document.body.style.userSelect = '';
+          document.removeEventListener('mousemove', onMove);
+          document.removeEventListener('mouseup', onUp);
+          autoFitZoom();
+        }
+        document.addEventListener('mousemove', onMove);
+        document.addEventListener('mouseup', onUp);
+      });
+    }
+    makeDraggable(leftSplitter, leftPanel, 'left');
+    makeDraggable(rightSplitter, rightPanel, 'right');
   }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', boot);
