@@ -525,9 +525,13 @@ h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.02
   box-shadow: 0 -8px 30px -8px rgba(0,0,0,0.8);
 }
 .ecl-code-panel.open { height: 45vh; }
-.ecl-code-area {
+.ecl-code-panel .ecl-code-wrap {
   flex: 1;
+  min-height: 0;
+}
+.ecl-code-area {
   width: 100%;
+  height: 100%;
   background: var(--ecl-bg);
   border: 0; outline: 0;
   color: #eee;
@@ -877,7 +881,8 @@ body.is-playing .preview-canvas::after {
 }
 .ecl-ctx-item:hover .ico { color: inherit; }
 .ecl-ctx-item .ico svg { width: 14px; height: 14px; }
-.ecl-ctx-item .lbl { text-align: left; }
+.ecl-ctx-item .lbl { text-align: left; display: flex; flex-direction: column; gap: 1px; }
+.ecl-ctx-item .ctx-hint { display: block; font-size: 9px; color: #666; font-weight: 400; line-height: 1.2; }
 .ecl-ctx-item .shortcut {
   font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
@@ -1035,6 +1040,146 @@ body.is-playing .preview-canvas::after {
   text-overflow: ellipsis;
   min-width: 0;
   flex: 1;
+}
+
+/* ============== Splitter (resizable panels) ============== */
+.ecl-splitter {
+  width: 4px;
+  cursor: col-resize;
+  background: transparent;
+  position: relative;
+  z-index: 5;
+  flex-shrink: 0;
+  transition: background .15s;
+}
+.ecl-splitter:hover,
+.ecl-splitter:active {
+  background: var(--ecl-primary);
+}
+.ecl-splitter::after {
+  content: '';
+  position: absolute;
+  inset: 0 -3px;
+}
+
+/* ============== Tree search ============== */
+.tree-search-wrap {
+  padding: 6px 8px 4px;
+}
+.tree-search-input {
+  width: 100%;
+  background: var(--ecl-bg);
+  border: 1px solid var(--ecl-border);
+  border-radius: 5px;
+  padding: 5px 8px;
+  font-size: 11px;
+  color: #f0f0f0;
+  font-family: 'Poppins', sans-serif;
+  transition: border-color .15s;
+}
+.tree-search-input:focus {
+  outline: none;
+  border-color: var(--ecl-primary);
+}
+.tree-search-input::placeholder {
+  color: var(--ecl-dim);
+}
+.tree-highlight {
+  background: rgba(255,107,26,0.3);
+  color: var(--ecl-primary);
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+/* ============== Tree drag feedback ============== */
+.tree-row.drop-target {
+  background: rgba(255,107,26,0.15) !important;
+  box-shadow: inset 0 0 0 1px rgba(255,107,26,0.4);
+  border-radius: 5px;
+}
+
+/* ============== JSON Syntax Highlighting ============== */
+.ecl-code-wrap {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+.ecl-code-highlight {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 14px 18px;
+  font-size: 12px;
+  line-height: 1.55;
+  font-family: 'JetBrains Mono', monospace;
+  white-space: pre;
+  overflow: auto;
+  color: #eee;
+  pointer-events: none;
+  tab-size: 2;
+  word-wrap: normal;
+  background: transparent;
+  border: 0;
+}
+.ecl-code-area-transparent {
+  background: transparent !important;
+  color: transparent !important;
+  caret-color: white;
+  position: relative;
+  z-index: 1;
+}
+.jv-key { color: #ff8c42; }
+.jv-string { color: #a5d6a7; }
+.jv-num { color: #82b1ff; }
+.jv-bool { color: #f48fb1; }
+.jv-null { color: #b0bec5; }
+
+/* ============== Shortcuts modal ============== */
+.shortcuts-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.sc-group {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--ecl-primary);
+  margin-top: 12px;
+  margin-bottom: 4px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--ecl-border);
+}
+.sc-group:first-child { margin-top: 0; }
+.sc-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 8px;
+  border-radius: 5px;
+  font-size: 12px;
+  color: #d4d4d4;
+}
+.sc-row:hover { background: rgba(255,255,255,0.03); }
+.sc-keys {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--ecl-muted);
+}
+.sc-keys kbd {
+  display: inline-block;
+  background: var(--ecl-card);
+  border: 1px solid var(--ecl-border);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 10px;
+  color: white;
+  min-width: 20px;
+  text-align: center;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
 
 /* ============== Misc ============== */

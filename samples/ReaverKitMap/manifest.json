@@ -1,0 +1,30 @@
+{
+  "format_version": 2,
+  "header": {
+    "description": "§cDont touch!",
+    "min_engine_version": [
+      1,
+      19,
+      40
+    ],
+    "name": "Reaver Pack",
+    "uuid": "29c21250-8315-4814-96be-6dd775c7da0d",
+    "version": [
+      0,
+      0,
+      1
+    ]
+  },
+  "modules": [
+    {
+      "description": "",
+      "type": "resources",
+      "uuid": "922d64de-34e8-40c6-9a72-1c676133ef68",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ]
+}

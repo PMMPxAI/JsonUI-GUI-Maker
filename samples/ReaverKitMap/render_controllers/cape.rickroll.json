@@ -1,0 +1,39 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.cape.rickroll": {
+      "arrays": {
+        "textures": {
+          "array.frames": [
+            "texture.cape.rickroll_1",
+            "texture.cape.rickroll_2",
+            "texture.cape.rickroll_3",
+            "texture.cape.rickroll_4",
+            "texture.cape.rickroll_5",
+            "texture.cape.rickroll_6",
+            "texture.cape.rickroll_7",
+            "texture.cape.rickroll_8",
+            "texture.cape.rickroll_9",
+            "texture.cape.rickroll_10",
+            "texture.cape.rickroll_11",
+            "texture.cape.rickroll_12",
+            "texture.cape.rickroll_13",
+            "texture.cape.rickroll_14",
+            "texture.cape.rickroll_15",
+            "texture.cape.rickroll_16",
+            "texture.cape.rickroll_17"
+          ]
+        }
+      },
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "array.frames[(query.anim_time * 7 )]"
+      ]
+    }
+  }
+}

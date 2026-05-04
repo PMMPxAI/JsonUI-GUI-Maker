@@ -6,7 +6,7 @@ window.SW = window.SW || {};
 (function (SW) {
   'use strict';
 
-  const TYPES = ['panel','stack_panel','image','label','button','input_panel','scrolling_panel'];
+  const TYPES = ['panel','stack_panel','image','label','button','input_panel','scrolling_panel','grid','toggle','dropdown','slider','fill','custom'];
   const ANCHORS = ['top_left','top_middle','top_right','left_middle','center','right_middle','bottom_left','bottom_middle','bottom_right'];
   const FONT_SIZES = ['small','normal','medium','large','extra_large'];
   const ALIGNS = ['left','center','right'];
@@ -88,6 +88,75 @@ window.SW = window.SW || {};
         row('Pressé',  textInput(sel.props.pressed_control || '', v => { sel.props.pressed_control = v; SW.markDirty(true); }))
       ]));
     }
+
+    if (sel.props.type === 'grid') {
+      const gd = sel.props.grid_dimensions || [4, 4];
+      insp.appendChild(section('Grid', true, [
+        row('Colonnes', numberInput(gd[0] || 4, v => { sel.props.grid_dimensions = [+v || 4, (sel.props.grid_dimensions || [4,4])[1]]; SW.markDirty(true); SW.refresh(); })),
+        row('Lignes', numberInput(gd[1] || 4, v => { sel.props.grid_dimensions = [(sel.props.grid_dimensions || [4,4])[0], +v || 4]; SW.markDirty(true); SW.refresh(); })),
+        row('Template', textInput(sel.props.grid_item_template || '', v => { sel.props.grid_item_template = v; SW.markDirty(true); })),
+        row('Collection', textInput(sel.props.collection_name || '', v => { sel.props.collection_name = v; SW.markDirty(true); }))
+      ]));
+    }
+
+    if (sel.props.type === 'toggle') {
+      insp.appendChild(section('Toggle', true, [
+        row('Nom', textInput(sel.props.toggle_name || '', v => { sel.props.toggle_name = v; SW.markDirty(true); })),
+        row('État', checkInput(!!sel.props.toggle_default_state, v => { sel.props.toggle_default_state = v; SW.markDirty(true); SW.refresh(); })),
+        row('Index', numberInput(sel.props.toggle_group_forced_index || 0, v => { sel.props.toggle_group_forced_index = +v || 0; SW.markDirty(true); }))
+      ]));
+    }
+
+    if (sel.props.type === 'dropdown') {
+      insp.appendChild(section('Dropdown', true, [
+        row('Nom', textInput(sel.props.dropdown_name || '', v => { sel.props.dropdown_name = v; SW.markDirty(true); SW.refresh(); })),
+        row('Content', textInput(sel.props.dropdown_content_control || '', v => { sel.props.dropdown_content_control = v; SW.markDirty(true); })),
+        row('Area', textInput(sel.props.dropdown_area || '', v => { sel.props.dropdown_area = v; SW.markDirty(true); }))
+      ]));
+    }
+
+    if (sel.props.type === 'slider') {
+      insp.appendChild(section('Slider', true, [
+        row('Steps', numberInput(sel.props.slider_steps || 10, v => { sel.props.slider_steps = +v || 10; SW.markDirty(true); })),
+        row('Direction', selectInput(['horizontal', 'vertical'], sel.props.slider_direction || 'horizontal', v => { sel.props.slider_direction = v; SW.markDirty(true); SW.refresh(); })),
+        row('Valeur', rangeInput(sel.props.default_value != null ? sel.props.default_value : 0.5, v => { sel.props.default_value = parseFloat(v); SW.markDirty(true); SW.refresh(); }))
+      ]));
+    }
+
+    if (sel.props.type === 'fill') {
+      const CLIP_DIRS = ['left', 'right', 'up', 'down'];
+      insp.appendChild(section('Fill', true, [
+        row('Couleur', colorRow(sel.props.color || [0.2, 0.8, 0.2, 1], v => { sel.props.color = v; SW.markDirty(true); SW.refresh(); })),
+        row('Direction', selectInput(CLIP_DIRS, sel.props.clip_direction || 'left', v => { sel.props.clip_direction = v; SW.markDirty(true); SW.refresh(); })),
+        row('Ratio', rangeInput(sel.props.clip_ratio != null ? sel.props.clip_ratio : 0.7, v => { sel.props.clip_ratio = parseFloat(v); SW.markDirty(true); SW.refresh(); }))
+      ]));
+    }
+
+    if (sel.props.type === 'custom') {
+      insp.appendChild(section('Custom', true, [
+        row('Renderer', textInput(sel.props.renderer || '', v => { sel.props.renderer = v; SW.markDirty(true); SW.refresh(); }))
+      ]));
+    }
+
+    // Nine-slice section (for image type)
+    if (sel.props.type === 'image') {
+      const ns = sel.props.nine_slice_buttoned || null;
+      insp.appendChild(section('Nine Slice', false, [
+        row('Activé', checkInput(!!ns, v => {
+          if (v) sel.props.nine_slice_buttoned = sel.props.nine_slice_buttoned || [4, 4, 4, 4];
+          else delete sel.props.nine_slice_buttoned;
+          SW.markDirty(true); SW.refresh();
+        })),
+        row('Tiled', checkInput(!!sel.props.tiled, v => { sel.props.tiled = v; SW.markDirty(true); }))
+      ]));
+    }
+
+    // Visibility section for all types
+    insp.appendChild(section('Visibilité', false, [
+      row('Visible', checkInput(sel.props.visible !== false, v => { sel.props.visible = v; SW.markDirty(true); SW.refresh(); })),
+      row('Enabled', checkInput(sel.props.enabled !== false, v => { sel.props.enabled = v; SW.markDirty(true); })),
+      row('Clip', checkInput(!!sel.props.clips_children, v => { sel.props.clips_children = v; SW.markDirty(true); SW.refresh(); }))
+    ]));
 
     // Animation section — only for editable elements
     insp.appendChild(animationSection(sel));

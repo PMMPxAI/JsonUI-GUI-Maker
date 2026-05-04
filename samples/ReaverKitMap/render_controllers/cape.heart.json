@@ -1,0 +1,30 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.cape.heart": {
+      "arrays": {
+        "textures": {
+          "array.frames": [
+            "texture.cape.heart_1",
+            "texture.cape.heart_2",
+            "texture.cape.heart_3",
+            "texture.cape.heart_4",
+            "texture.cape.heart_5",
+            "texture.cape.heart_6",
+            "texture.cape.heart_7",
+            "texture.cape.heart_8"
+          ]
+        }
+      },
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "array.frames[(query.anim_time * 7 )]"
+      ]
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "tools.break.sound": {
+    "category": "block",
+    "sounds": [
+      "sounds/itembreak"
+    ]
+  }
+}

@@ -1262,5 +1262,1485 @@
     "namespace": "server_form",
     "controls": 42,
     "size": 52519
+  },
+  {
+    "pack": "GoldRush-ChestUI",
+    "name": "manifest.json",
+    "path": "GoldRush-ChestUI/manifest.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 427
+  },
+  {
+    "pack": "GoldRush-ChestUI",
+    "name": "blocks.json",
+    "path": "GoldRush-ChestUI/blocks.json",
+    "namespace": "?",
+    "controls": 3,
+    "size": 237
+  },
+  {
+    "pack": "GoldRush-ChestUI",
+    "name": "chest_lock.geo.json",
+    "path": "GoldRush-ChestUI/models/blocks/chest_lock.geo.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 659
+  },
+  {
+    "pack": "GoldRush-ChestUI",
+    "name": "terrain_texture.json",
+    "path": "GoldRush-ChestUI/textures/terrain_texture.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 406
+  },
+  {
+    "pack": "GoldRush-ChestUI",
+    "name": "cell_ore.json",
+    "path": "GoldRush-ChestUI/textures/ore/cell_ore.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 81
+  },
+  {
+    "pack": "GoldRush-ChestUI",
+    "name": "bg.json",
+    "path": "GoldRush-ChestUI/textures/ore/bg.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 75
+  },
+  {
+    "pack": "GoldRush-ChestUI",
+    "name": "voidstone.json",
+    "path": "GoldRush-ChestUI/textures/voidstone/voidstone.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 62
+  },
+  {
+    "pack": "GoldRush-ChestUI",
+    "name": "cell.json",
+    "path": "GoldRush-ChestUI/textures/voidstone/cell.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 81
+  },
+  {
+    "pack": "GoldRush-ChestUI",
+    "name": "bg.json",
+    "path": "GoldRush-ChestUI/textures/voidstone/bg.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 75
+  },
+  {
+    "pack": "GoldRush-ChestUI",
+    "name": "cell_fossil.json",
+    "path": "GoldRush-ChestUI/textures/fossils/cell_fossil.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 81
+  },
+  {
+    "pack": "GoldRush-ChestUI",
+    "name": "bg.json",
+    "path": "GoldRush-ChestUI/textures/fossils/bg.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 75
+  },
+  {
+    "pack": "GoldRush-ChestUI",
+    "name": "backpack_farm.json",
+    "path": "GoldRush-ChestUI/textures/ui/backpack_farm.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 58
+  },
+  {
+    "pack": "GoldRush-ChestUI",
+    "name": "barril.json",
+    "path": "GoldRush-ChestUI/textures/ui/barril.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 58
+  },
+  {
+    "pack": "GoldRush-ChestUI",
+    "name": "hdv_bg.json",
+    "path": "GoldRush-ChestUI/textures/ui/hdv_bg.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 58
+  },
+  {
+    "pack": "GoldRush-ChestUI",
+    "name": "bg_farm.json",
+    "path": "GoldRush-ChestUI/textures/ui/bg_farm.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 75
+  },
+  {
+    "pack": "GoldRush-ChestUI",
+    "name": "bg_ender.json",
+    "path": "GoldRush-ChestUI/textures/ui/bg_ender.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 75
+  },
+  {
+    "pack": "GoldRush-ChestUI",
+    "name": "chest_emerald.json",
+    "path": "GoldRush-ChestUI/textures/ui/chest_emerald.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 62
+  },
+  {
+    "pack": "GoldRush-ChestUI",
+    "name": "barril_cell_image.json",
+    "path": "GoldRush-ChestUI/textures/ui/barril_cell_image.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 60
+  },
+  {
+    "pack": "GoldRush-ChestUI",
+    "name": "ender_cell_image.json",
+    "path": "GoldRush-ChestUI/textures/ui/ender_cell_image.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 60
+  },
+  {
+    "pack": "GoldRush-ChestUI",
+    "name": "cell_farm.json",
+    "path": "GoldRush-ChestUI/textures/ui/cell_farm.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 81
+  },
+  {
+    "pack": "GoldRush-ChestUI",
+    "name": "chest_platinum.json",
+    "path": "GoldRush-ChestUI/textures/ui/chest_platinum.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 62
+  },
+  {
+    "pack": "GoldRush-ChestUI",
+    "name": "enderchest.json",
+    "path": "GoldRush-ChestUI/textures/ui/enderchest.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 62
+  },
+  {
+    "pack": "GoldRush-ChestUI",
+    "name": "chest_amethyst.json",
+    "path": "GoldRush-ChestUI/textures/ui/chest_amethyst.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 62
+  },
+  {
+    "pack": "GoldRush-ChestUI",
+    "name": "bg_keypad.json",
+    "path": "GoldRush-ChestUI/textures/ui/keypad/bg_keypad.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 83
+  },
+  {
+    "pack": "GoldRush-ChestUI",
+    "name": "keypad_cell_image.json",
+    "path": "GoldRush-ChestUI/textures/ui/keypad/keypad_cell_image.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 60
+  },
+  {
+    "pack": "GoldRush-ChestUI",
+    "name": "empty_pipe.json",
+    "path": "GoldRush-ChestUI/textures/ui/alcool/empty_pipe.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 75
+  },
+  {
+    "pack": "GoldRush-ChestUI",
+    "name": "keypad_chest.json",
+    "path": "GoldRush-ChestUI/ui/keypad/keypad_chest.json",
+    "namespace": "keypad",
+    "controls": 4,
+    "size": 8854
+  },
+  {
+    "pack": "GoldRush-ChestUI",
+    "name": "hdv.json",
+    "path": "GoldRush-ChestUI/ui/hdv/hdv.json",
+    "namespace": "hdv",
+    "controls": 5,
+    "size": 13249
+  },
+  {
+    "pack": "GoldRush-ChestUI",
+    "name": "distillerie.json",
+    "path": "GoldRush-ChestUI/ui/alcool/distillerie.json",
+    "namespace": "distillerie",
+    "controls": 4,
+    "size": 9681
+  },
+  {
+    "pack": "GoldRush-ChestUI",
+    "name": "ec.json",
+    "path": "GoldRush-ChestUI/ui/ec/ec.json",
+    "namespace": "ec",
+    "controls": 4,
+    "size": 2037
+  },
+  {
+    "pack": "GoldRush-ChestUI",
+    "name": "fossil.json",
+    "path": "GoldRush-ChestUI/ui/backpack/fossil.json",
+    "namespace": "fossil",
+    "controls": 5,
+    "size": 8429
+  },
+  {
+    "pack": "GoldRush-ChestUI",
+    "name": "voidstone.json",
+    "path": "GoldRush-ChestUI/ui/backpack/voidstone.json",
+    "namespace": "voidstone",
+    "controls": 5,
+    "size": 5854
+  },
+  {
+    "pack": "GoldRush-ChestUI",
+    "name": "farm.json",
+    "path": "GoldRush-ChestUI/ui/backpack/farm.json",
+    "namespace": "farm",
+    "controls": 5,
+    "size": 5186
+  },
+  {
+    "pack": "GoldRush-ChestUI",
+    "name": "ore.json",
+    "path": "GoldRush-ChestUI/ui/backpack/ore.json",
+    "namespace": "ore",
+    "controls": 5,
+    "size": 8780
+  },
+  {
+    "pack": "GoldRush-HUD",
+    "name": "manifest.json",
+    "path": "GoldRush-HUD/manifest.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 423
+  },
+  {
+    "pack": "GoldRush-HUD",
+    "name": "goldrush_scoreboard_entry.json",
+    "path": "GoldRush-HUD/textures/scoreboard/goldrush_scoreboard_entry.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 48
+  },
+  {
+    "pack": "GoldRush-HUD",
+    "name": "discord_entry.json",
+    "path": "GoldRush-HUD/textures/scoreboard/discord_entry.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 48
+  },
+  {
+    "pack": "GoldRush-HUD",
+    "name": "entry_vote_party.json",
+    "path": "GoldRush-HUD/textures/scoreboard/entry_vote_party.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 48
+  },
+  {
+    "pack": "GoldRush-HUD",
+    "name": "bg_cinematic.json",
+    "path": "GoldRush-HUD/textures/ui/bg_cinematic.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 85
+  },
+  {
+    "pack": "GoldRush-HUD",
+    "name": "bg_desc.json",
+    "path": "GoldRush-HUD/textures/ui/bg_desc.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 85
+  },
+  {
+    "pack": "GoldRush-HUD",
+    "name": "bg_desc_hover.json",
+    "path": "GoldRush-HUD/textures/ui/bg_desc_hover.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 85
+  },
+  {
+    "pack": "GoldRush-HUD",
+    "name": "bg_notif.json",
+    "path": "GoldRush-HUD/textures/ui/bg_notif.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 48
+  },
+  {
+    "pack": "GoldRush-HUD",
+    "name": "button_hover.json",
+    "path": "GoldRush-HUD/textures/ui/button_hover.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 85
+  },
+  {
+    "pack": "GoldRush-HUD",
+    "name": "faction_button.json",
+    "path": "GoldRush-HUD/textures/ui/players/faction_button.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 85
+  },
+  {
+    "pack": "GoldRush-HUD",
+    "name": "button_kills.json",
+    "path": "GoldRush-HUD/textures/ui/players/button_kills.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 85
+  },
+  {
+    "pack": "GoldRush-HUD",
+    "name": "button_blocks.json",
+    "path": "GoldRush-HUD/textures/ui/players/button_blocks.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 85
+  },
+  {
+    "pack": "GoldRush-HUD",
+    "name": "button_playing.json",
+    "path": "GoldRush-HUD/textures/ui/players/button_playing.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 85
+  },
+  {
+    "pack": "GoldRush-HUD",
+    "name": "msg_send_button.json",
+    "path": "GoldRush-HUD/textures/ui/players/msg_send_button.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 85
+  },
+  {
+    "pack": "GoldRush-HUD",
+    "name": "rank_button.json",
+    "path": "GoldRush-HUD/textures/ui/players/rank_button.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 85
+  },
+  {
+    "pack": "GoldRush-HUD",
+    "name": "jobs_button.json",
+    "path": "GoldRush-HUD/textures/ui/players/jobs_button.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 85
+  },
+  {
+    "pack": "GoldRush-HUD",
+    "name": "bg_legendary_box.json",
+    "path": "GoldRush-HUD/textures/ui/box/bg_legendary_box.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 85
+  },
+  {
+    "pack": "GoldRush-HUD",
+    "name": "select_item.json",
+    "path": "GoldRush-HUD/textures/ui/box/select_item.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 85
+  },
+  {
+    "pack": "GoldRush-HUD",
+    "name": "bg_mythical_box.json",
+    "path": "GoldRush-HUD/textures/ui/box/bg_mythical_box.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 85
+  },
+  {
+    "pack": "GoldRush-HUD",
+    "name": "bg_fortune_box.json",
+    "path": "GoldRush-HUD/textures/ui/box/bg_fortune_box.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 85
+  },
+  {
+    "pack": "GoldRush-HUD",
+    "name": "bg_boost_box.json",
+    "path": "GoldRush-HUD/textures/ui/box/bg_boost_box.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 85
+  },
+  {
+    "pack": "GoldRush-HUD",
+    "name": "bg_rare_box.json",
+    "path": "GoldRush-HUD/textures/ui/box/bg_rare_box.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 85
+  },
+  {
+    "pack": "GoldRush-HUD",
+    "name": "bg_selected.json",
+    "path": "GoldRush-HUD/textures/ui/box/bg_selected.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 85
+  },
+  {
+    "pack": "GoldRush-HUD",
+    "name": "bg_common_box.json",
+    "path": "GoldRush-HUD/textures/ui/box/bg_common_box.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 85
+  },
+  {
+    "pack": "GoldRush-HUD",
+    "name": "bg_black_gold_box.json",
+    "path": "GoldRush-HUD/textures/ui/box/bg_black_gold_box.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 85
+  },
+  {
+    "pack": "GoldRush-HUD",
+    "name": "bg_selected_middle.json",
+    "path": "GoldRush-HUD/textures/ui/box/bg_selected_middle.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 85
+  },
+  {
+    "pack": "GoldRush-HUD",
+    "name": "announcement.json",
+    "path": "GoldRush-HUD/textures/ui/bg/announcement.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 92
+  },
+  {
+    "pack": "GoldRush-HUD",
+    "name": "button.json",
+    "path": "GoldRush-HUD/textures/ui/enchant/button.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 81
+  },
+  {
+    "pack": "GoldRush-HUD",
+    "name": "bg_desc.json",
+    "path": "GoldRush-HUD/textures/ui/enchant/bg_desc.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 81
+  },
+  {
+    "pack": "GoldRush-HUD",
+    "name": "pink.json",
+    "path": "GoldRush-HUD/textures/ui/enchant/pink.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 60
+  },
+  {
+    "pack": "GoldRush-HUD",
+    "name": "bg_enchant.json",
+    "path": "GoldRush-HUD/textures/ui/enchant/bg_enchant.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 83
+  },
+  {
+    "pack": "GoldRush-HUD",
+    "name": "button_hover.json",
+    "path": "GoldRush-HUD/textures/ui/enchant/button_hover.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 81
+  },
+  {
+    "pack": "GoldRush-HUD",
+    "name": "fogs_brouillard.json",
+    "path": "GoldRush-HUD/fogs/fogs_brouillard.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 442
+  },
+  {
+    "pack": "GoldRush-HUD",
+    "name": "boss_bar_list.json",
+    "path": "GoldRush-HUD/ui/boss_bar_list.json",
+    "namespace": "boss_commons",
+    "controls": 20,
+    "size": 5183
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "manifest.json",
+    "path": "ReaverKitMap/manifest.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 469
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "roulette.geo.json",
+    "path": "ReaverKitMap/models/entity/roulette.geo.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 19016
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "blackjack_table.geo.json",
+    "path": "ReaverKitMap/models/entity/blackjack_table.geo.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 10944
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "chunk.geo.json",
+    "path": "ReaverKitMap/models/entity/chunk.geo.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 119413
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "custom_cape.json",
+    "path": "ReaverKitMap/models/entity/custom_cape.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 24091
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "item_texture.json",
+    "path": "ReaverKitMap/textures/item_texture.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 4487
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "scoreboard_font.json",
+    "path": "ReaverKitMap/textures/ui/scoreboard_font.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 60
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "player.animation_controllers.json",
+    "path": "ReaverKitMap/animation_controllers/player.animation_controllers.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 5338
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "chunk.scale.animation.json",
+    "path": "ReaverKitMap/animations/chunk.scale.animation.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 1234
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "roulette.animation.json",
+    "path": "ReaverKitMap/animations/roulette.animation.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 23939
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.animation.json",
+    "path": "ReaverKitMap/animations/cape.animation.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 4209
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "sound_definitions.json",
+    "path": "ReaverKitMap/sounds/sound_definitions.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 104
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "blackjack.entity.json",
+    "path": "ReaverKitMap/entity/blackjack.entity.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 420
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "player.entity.json",
+    "path": "ReaverKitMap/entity/player.entity.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 26883
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "roulette.entity.json",
+    "path": "ReaverKitMap/entity/roulette.entity.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 417
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "chest.json",
+    "path": "ReaverKitMap/items/chest.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 263
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.animalpenguin.json",
+    "path": "ReaverKitMap/render_controllers/cape.animalpenguin.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 309
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.forest.json",
+    "path": "ReaverKitMap/render_controllers/cape.forest.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 295
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.vapev4.json",
+    "path": "ReaverKitMap/render_controllers/cape.vapev4.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 295
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.animalkitten.json",
+    "path": "ReaverKitMap/render_controllers/cape.animalkitten.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 307
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.easterbunnyears.json",
+    "path": "ReaverKitMap/render_controllers/cape.easterbunnyears.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 313
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.itachi.json",
+    "path": "ReaverKitMap/render_controllers/cape.itachi.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 295
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.dog.json",
+    "path": "ReaverKitMap/render_controllers/cape.dog.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 289
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.reaver.json",
+    "path": "ReaverKitMap/render_controllers/cape.reaver.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 295
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.banana.json",
+    "path": "ReaverKitMap/render_controllers/cape.banana.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 295
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.balahaj.json",
+    "path": "ReaverKitMap/render_controllers/cape.balahaj.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 297
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.hot.json",
+    "path": "ReaverKitMap/render_controllers/cape.hot.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 923
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.cat.json",
+    "path": "ReaverKitMap/render_controllers/cape.cat.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 289
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.obanai.json",
+    "path": "ReaverKitMap/render_controllers/cape.obanai.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 295
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.animalfox.json",
+    "path": "ReaverKitMap/render_controllers/cape.animalfox.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 301
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "chunk.render_controllers.json",
+    "path": "ReaverKitMap/render_controllers/chunk.render_controllers.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 498
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "custom.cape.json",
+    "path": "ReaverKitMap/render_controllers/custom.cape.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 12960
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.night.json",
+    "path": "ReaverKitMap/render_controllers/cape.night.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 918
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.angryemoji.json",
+    "path": "ReaverKitMap/render_controllers/cape.angryemoji.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 303
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.420.json",
+    "path": "ReaverKitMap/render_controllers/cape.420.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 289
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.bringinthenewyear_.json",
+    "path": "ReaverKitMap/render_controllers/cape.bringinthenewyear_.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 520
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.bobwhite.json",
+    "path": "ReaverKitMap/render_controllers/cape.bobwhite.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 299
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.clover.json",
+    "path": "ReaverKitMap/render_controllers/cape.clover.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 295
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.ez4.json",
+    "path": "ReaverKitMap/render_controllers/cape.ez4.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 289
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.christmasmittens.json",
+    "path": "ReaverKitMap/render_controllers/cape.christmasmittens.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 315
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.glitchedpi.json",
+    "path": "ReaverKitMap/render_controllers/cape.glitchedpi.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 825
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.ghostlyflame.json",
+    "path": "ReaverKitMap/render_controllers/cape.ghostlyflame.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 307
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.sorry.json",
+    "path": "ReaverKitMap/render_controllers/cape.sorry.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 293
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.aye.json",
+    "path": "ReaverKitMap/render_controllers/cape.aye.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 289
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.uchiha.json",
+    "path": "ReaverKitMap/render_controllers/cape.uchiha.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 295
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.pyronicredorange.json",
+    "path": "ReaverKitMap/render_controllers/cape.pyronicredorange.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 315
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.clouds.json",
+    "path": "ReaverKitMap/render_controllers/cape.clouds.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 295
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.rickroll.json",
+    "path": "ReaverKitMap/render_controllers/cape.rickroll.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 1083
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.crescent_moon.json",
+    "path": "ReaverKitMap/render_controllers/cape.crescent_moon.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 1038
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.neurosis.json",
+    "path": "ReaverKitMap/render_controllers/cape.neurosis.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 299
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.vers.json",
+    "path": "ReaverKitMap/render_controllers/cape.vers.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 939
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.kiss.json",
+    "path": "ReaverKitMap/render_controllers/cape.kiss.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 291
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.animalpig.json",
+    "path": "ReaverKitMap/render_controllers/cape.animalpig.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 301
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.mountain.json",
+    "path": "ReaverKitMap/render_controllers/cape.mountain.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 299
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.one.json",
+    "path": "ReaverKitMap/render_controllers/cape.one.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 289
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.luffy.json",
+    "path": "ReaverKitMap/render_controllers/cape.luffy.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 293
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.bunny.json",
+    "path": "ReaverKitMap/render_controllers/cape.bunny.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 293
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.fiak.json",
+    "path": "ReaverKitMap/render_controllers/cape.fiak.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 291
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.anime.json",
+    "path": "ReaverKitMap/render_controllers/cape.anime.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 293
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.canada.json",
+    "path": "ReaverKitMap/render_controllers/cape.canada.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 295
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.money.json",
+    "path": "ReaverKitMap/render_controllers/cape.money.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 955
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.blackskeppy.json",
+    "path": "ReaverKitMap/render_controllers/cape.blackskeppy.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 305
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.pyronicred.json",
+    "path": "ReaverKitMap/render_controllers/cape.pyronicred.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 303
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.obito.json",
+    "path": "ReaverKitMap/render_controllers/cape.obito.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 293
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.easy.json",
+    "path": "ReaverKitMap/render_controllers/cape.easy.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 291
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.panda.json",
+    "path": "ReaverKitMap/render_controllers/cape.panda.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 293
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.christmasblue.json",
+    "path": "ReaverKitMap/render_controllers/cape.christmasblue.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 309
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.animallion.json",
+    "path": "ReaverKitMap/render_controllers/cape.animallion.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 303
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.bubby.json",
+    "path": "ReaverKitMap/render_controllers/cape.bubby.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 293
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.easterbasketcloak.json",
+    "path": "ReaverKitMap/render_controllers/cape.easterbasketcloak.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 317
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.awkwardemoji.json",
+    "path": "ReaverKitMap/render_controllers/cape.awkwardemoji.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 307
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.animalpuppy.json",
+    "path": "ReaverKitMap/render_controllers/cape.animalpuppy.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 305
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.cherrypi.json",
+    "path": "ReaverKitMap/render_controllers/cape.cherrypi.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 299
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.eyes.json",
+    "path": "ReaverKitMap/render_controllers/cape.eyes.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 291
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.blackcat.json",
+    "path": "ReaverKitMap/render_controllers/cape.blackcat.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 299
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.hokage.json",
+    "path": "ReaverKitMap/render_controllers/cape.hokage.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 295
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.autumnorangelogo.json",
+    "path": "ReaverKitMap/render_controllers/cape.autumnorangelogo.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 315
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.butterfly.json",
+    "path": "ReaverKitMap/render_controllers/cape.butterfly.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 301
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.animalpanda.json",
+    "path": "ReaverKitMap/render_controllers/cape.animalpanda.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 305
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.clownemoji.json",
+    "path": "ReaverKitMap/render_controllers/cape.clownemoji.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 303
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.winter.json",
+    "path": "ReaverKitMap/render_controllers/cape.winter.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 295
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.quickdropmct.json",
+    "path": "ReaverKitMap/render_controllers/cape.quickdropmct.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 307
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.zero.json",
+    "path": "ReaverKitMap/render_controllers/cape.zero.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 291
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.nerverlose.json",
+    "path": "ReaverKitMap/render_controllers/cape.nerverlose.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 303
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.autumnpumpkin.json",
+    "path": "ReaverKitMap/render_controllers/cape.autumnpumpkin.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 309
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.easterblossom.json",
+    "path": "ReaverKitMap/render_controllers/cape.easterblossom.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 309
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.koalafamily.json",
+    "path": "ReaverKitMap/render_controllers/cape.koalafamily.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 305
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.penguin.json",
+    "path": "ReaverKitMap/render_controllers/cape.penguin.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 297
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.girl.json",
+    "path": "ReaverKitMap/render_controllers/cape.girl.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 291
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.nami.json",
+    "path": "ReaverKitMap/render_controllers/cape.nami.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 291
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.space.json",
+    "path": "ReaverKitMap/render_controllers/cape.space.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 293
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.koala.json",
+    "path": "ReaverKitMap/render_controllers/cape.koala.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 293
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.creeper.json",
+    "path": "ReaverKitMap/render_controllers/cape.creeper.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 297
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.frog.json",
+    "path": "ReaverKitMap/render_controllers/cape.frog.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 831
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.weeds.json",
+    "path": "ReaverKitMap/render_controllers/cape.weeds.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 293
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.hard2.json",
+    "path": "ReaverKitMap/render_controllers/cape.hard2.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 697
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.8bitbee.json",
+    "path": "ReaverKitMap/render_controllers/cape.8bitbee.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 297
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.animalkoala.json",
+    "path": "ReaverKitMap/render_controllers/cape.animalkoala.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 305
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.cheers.json",
+    "path": "ReaverKitMap/render_controllers/cape.cheers.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 669
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.ghost.json",
+    "path": "ReaverKitMap/render_controllers/cape.ghost.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 293
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.hard.json",
+    "path": "ReaverKitMap/render_controllers/cape.hard.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 724
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.bat.json",
+    "path": "ReaverKitMap/render_controllers/cape.bat.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 888
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.heart.json",
+    "path": "ReaverKitMap/render_controllers/cape.heart.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 697
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.developer.json",
+    "path": "ReaverKitMap/render_controllers/cape.developer.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 301
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.cardboardcape.json",
+    "path": "ReaverKitMap/render_controllers/cape.cardboardcape.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 309
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.france.json",
+    "path": "ReaverKitMap/render_controllers/cape.france.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 295
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.desertedbeach.json",
+    "path": "ReaverKitMap/render_controllers/cape.desertedbeach.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 593
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.blackdice.json",
+    "path": "ReaverKitMap/render_controllers/cape.blackdice.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 301
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "cape.dotwavoddball.json",
+    "path": "ReaverKitMap/render_controllers/cape.dotwavoddball.json",
+    "namespace": "?",
+    "controls": 1,
+    "size": 309
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "chest_screen.json",
+    "path": "ReaverKitMap/ui/chest_screen.json",
+    "namespace": "chest",
+    "controls": 17,
+    "size": 28086
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "custom_scroll_screen.json",
+    "path": "ReaverKitMap/ui/custom_scroll_screen.json",
+    "namespace": "custom_scroll_screen",
+    "controls": 3,
+    "size": 3270
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "scoreboards.json",
+    "path": "ReaverKitMap/ui/scoreboards.json",
+    "namespace": "scoreboard",
+    "controls": 3,
+    "size": 5987
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "_ui_defs.json",
+    "path": "ReaverKitMap/ui/_ui_defs.json",
+    "namespace": "?",
+    "controls": 0,
+    "size": 131
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "hud_screen.json",
+    "path": "ReaverKitMap/ui/hud_screen.json",
+    "namespace": "hud",
+    "controls": 3,
+    "size": 3230
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "pause_screen.json",
+    "path": "ReaverKitMap/ui/pause_screen.json",
+    "namespace": "pause",
+    "controls": 3,
+    "size": 2246
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "custom_pocket_containers.json",
+    "path": "ReaverKitMap/ui/custom_pocket_containers.json",
+    "namespace": "custom_pocket_containers",
+    "controls": 4,
+    "size": 2517
+  },
+  {
+    "pack": "ReaverKitMap",
+    "name": "roulette.json",
+    "path": "ReaverKitMap/ui/inventory/roulette.json",
+    "namespace": "roulette",
+    "controls": 11,
+    "size": 31755
   }
 ]

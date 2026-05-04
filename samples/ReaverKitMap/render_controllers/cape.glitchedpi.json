@@ -1,0 +1,32 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.cape.glitchedpi": {
+      "arrays": {
+        "textures": {
+          "array.frames": [
+            "texture.cape.glitchedpi_1",
+            "texture.cape.glitchedpi_2",
+            "texture.cape.glitchedpi_3",
+            "texture.cape.glitchedpi_4",
+            "texture.cape.glitchedpi_5",
+            "texture.cape.glitchedpi_6",
+            "texture.cape.glitchedpi_7",
+            "texture.cape.glitchedpi_8",
+            "texture.cape.glitchedpi_9",
+            "texture.cape.glitchedpi_10"
+          ]
+        }
+      },
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "array.frames[(query.anim_time * 7 )]"
+      ]
+    }
+  }
+}

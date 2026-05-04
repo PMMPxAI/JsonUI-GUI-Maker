@@ -1,0 +1,98 @@
+{
+  "namespace": "pause",
+  "player_button@common_buttons.dark_content_button": {
+    "$button_content": "pause.player_button_content",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "bindings": [
+      {
+        "binding_collection_name": "players_collection",
+        "binding_name": "#button_enabled",
+        "binding_name_override": "#visible",
+        "binding_type": "collection"
+      },
+      {
+        "binding_collection_name": "players_collection",
+        "binding_type": "collection_details"
+      }
+    ],
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_select",
+        "mapping_type": "pressed",
+        "to_button_id": "button.player_button"
+      },
+      {
+        "from_button_id": "button.menu_ok",
+        "mapping_type": "focused",
+        "to_button_id": "button.player_button"
+      }
+    ],
+    "size": [
+      "100%",
+      "100%"
+    ]
+  },
+  "player_button_content": {
+    "anchor_from": "left_middle",
+    "anchor_to": "left_middle",
+    "controls": [
+      {
+        "player_gamertag@pause.gametag_wrapper": {
+          "layer": 1,
+          "size": [
+            "fill",
+            "100%"
+          ]
+        }
+      }
+    ],
+    "layer": 3,
+    "offset": [
+      4,
+      0
+    ],
+    "orientation": "horizontal",
+    "size": [
+      "100% - 4px",
+      "100% - 4px"
+    ],
+    "type": "stack_panel"
+  },
+  "player_grid_item_content": {
+    "controls": [
+      {
+        "player_button_panel": {
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "controls": [
+            {
+              "player_button_banner": {
+                "controls": [
+                  {
+                    "player_button@pause.player_button": {}
+                  },
+                  {
+                    "player_banner@pause.player_banner": {}
+                  }
+                ],
+                "size": [
+                  "fill",
+                  "100%"
+                ],
+                "type": "panel"
+              }
+            }
+          ],
+          "orientation": "horizontal",
+          "size": [
+            "100%",
+            "100% + 1px"
+          ],
+          "type": "stack_panel"
+        }
+      }
+    ],
+    "type": "panel"
+  }
+}

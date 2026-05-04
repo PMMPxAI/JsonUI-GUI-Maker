@@ -1,0 +1,26 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.chunk": {
+      "geometry": "geometry.chunk",
+      "ignore_lighting": true,
+      "is_hurt_color": {},
+      "light_color_multiplier": 1.5,
+      "materials": [
+        {
+          "*": "Material.chunk"
+        }
+      ],
+      "on_fire_color": {},
+      "overlay_color": {
+        "a": "1",
+        "b": "1",
+        "g": "1",
+        "r": "1"
+      },
+      "textures": [
+        "Texture.chunk"
+      ]
+    }
+  }
+}

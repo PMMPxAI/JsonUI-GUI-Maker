@@ -1,0 +1,205 @@
+{
+  "namespace": "scoreboard",
+  "scoreboard_sidebar": {
+    "anchor_from": "right_middle",
+    "anchor_to": "right_middle",
+    "bindings": [
+      {
+        "binding_name": "#scoreboard_sidebar_visible",
+        "binding_name_override": "#visible",
+        "binding_type": "global"
+      }
+    ],
+    "controls": [
+      {
+        "main": {
+          "alpha": 0.5,
+          "controls": [
+            {
+              "ip": {
+                "anchor_from": "bottom_middle",
+                "anchor_to": "bottom_middle",
+                "color": "$player_name_color",
+                "inherit_max_sibling_width": true,
+                "layer": 1,
+                "locked_alpha": 1.0,
+                "offset": [
+                  2,
+                  -2
+                ],
+                "size": [
+                  "default",
+                  12
+                ],
+                "text": "§7§oreaver.club",
+                "text_alignment": "center",
+                "type": "label"
+              }
+            },
+            {
+              "displayed_objective": {
+                "anchor_from": "top_middle",
+                "anchor_to": "top_middle",
+                "bindings": [
+                  {
+                    "binding_name": "#objective_sidebar_name",
+                    "binding_type": "global"
+                  }
+                ],
+                "color": "$objective_title_color",
+                "font_type": "default",
+                "inherit_max_sibling_width": true,
+                "layer": 1,
+                "locked_alpha": 2.0,
+                "shadow": true,
+                "size": [
+                  "default",
+                  10
+                ],
+                "text": "#objective_sidebar_name",
+                "text_alignment": "center",
+                "type": "label"
+              }
+            },
+            {
+              "lists": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "controls": [
+                  {
+                    "players": {
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "bindings": [
+                        {
+                          "binding_name": "#scoreboard_sidebar_size",
+                          "binding_name_override": "#collection_length",
+                          "binding_type": "global"
+                        }
+                      ],
+                      "collection_name": "scoreboard_players",
+                      "factory": {
+                        "control_name": "scoreboard.scoreboard_sidebar_player",
+                        "name": "player_list_factory"
+                      },
+                      "font_type": "default",
+                      "offset": [
+                        5,
+                        0
+                      ],
+                      "orientation": "vertical",
+                      "shadow": true,
+                      "size": [
+                        "100%cm",
+                        "100%c"
+                      ],
+                      "type": "stack_panel"
+                    }
+                  },
+                  {
+                    "scores": {
+                      "anchor_from": "top_right",
+                      "anchor_to": "top_right",
+                      "bindings": [
+                        {
+                          "binding_name": "#scoreboard_sidebar_size",
+                          "binding_name_override": "#collection_length",
+                          "binding_type": "global"
+                        }
+                      ],
+                      "collection_name": "scoreboard_scores",
+                      "factory": {
+                        "control_name": "scoreboard.scoreboard_sidebar_score",
+                        "name": "player_score_factory"
+                      },
+                      "orientation": "vertical",
+                      "shadow": true,
+                      "size": [
+                        "100%cm",
+                        "100%c"
+                      ],
+                      "type": "stack_panel"
+                    }
+                  }
+                ],
+                "inherit_max_sibling_width": true,
+                "offset": [
+                  0,
+                  10
+                ],
+                "size": [
+                  "100%c",
+                  "100%cm"
+                ],
+                "type": "panel"
+              }
+            }
+          ],
+          "size": [
+            "100%cm",
+            "100%c"
+          ],
+          "texture": "textures/ui/scoreboard_font",
+          "type": "image"
+        }
+      }
+    ],
+    "ignored": "$scoreboards_feature_disabled",
+    "size": [
+      "100%cm",
+      "100%c"
+    ],
+    "type": "panel"
+  },
+  "scoreboard_sidebar_player": {
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "bindings": [
+      {
+        "binding_collection_name": "scoreboard_players",
+        "binding_name": "#player_name_sidebar",
+        "binding_type": "collection"
+      }
+    ],
+    "color": "$player_name_color",
+    "font_type": "default",
+    "inherit_max_sibling_width": false,
+    "layer": 2,
+    "locked_alpha": 1.0,
+    "max_size": [
+      "default",
+      "default"
+    ],
+    "shadow": true,
+    "size": [
+      "default",
+      10
+    ],
+    "text": "#player_name_sidebar",
+    "text_alignment": "left",
+    "type": "label"
+  },
+  "scoreboard_sidebar_score": {
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "bindings": [
+      {
+        "binding_collection_name": "scoreboard_scores",
+        "binding_name": "#player_score_sidebar",
+        "binding_type": "collection"
+      }
+    ],
+    "color": "$player_score_color",
+    "inherit_max_sibling_width": true,
+    "layer": 2,
+    "locked_alpha": 0.0,
+    "size": [
+      "default",
+      10
+    ],
+    "text": "",
+    "text_alignment": "right",
+    "type": "label",
+    "visible": false
+  }
+}

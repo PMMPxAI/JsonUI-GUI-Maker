@@ -1,0 +1,36 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.cape.bat": {
+      "arrays": {
+        "textures": {
+          "array.frames": [
+            "texture.cape.bat_1",
+            "texture.cape.bat_2",
+            "texture.cape.bat_3",
+            "texture.cape.bat_4",
+            "texture.cape.bat_5",
+            "texture.cape.bat_6",
+            "texture.cape.bat_7",
+            "texture.cape.bat_8",
+            "texture.cape.bat_9",
+            "texture.cape.bat_10",
+            "texture.cape.bat_11",
+            "texture.cape.bat_12",
+            "texture.cape.bat_13",
+            "texture.cape.bat_14"
+          ]
+        }
+      },
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "array.frames[(query.anim_time * 7 )]"
+      ]
+    }
+  }
+}

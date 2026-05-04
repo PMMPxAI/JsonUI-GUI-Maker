@@ -102,6 +102,31 @@ window.SW = window.SW || {};
         div.style.alignItems = 'center';
         stackMode = true;
         break;
+      case 'grid':
+        renderGrid(div, props);
+        break;
+      case 'toggle':
+        renderToggle(div, props);
+        break;
+      case 'dropdown':
+        renderDropdown(div, props);
+        break;
+      case 'slider':
+        renderSlider(div, props);
+        break;
+      case 'fill':
+        renderFill(div, props);
+        break;
+      case 'custom':
+        renderCustom(div, props);
+        break;
+      case 'scrolling_panel':
+        div.style.overflow = 'auto';
+        div.style.position = stackLayout ? 'relative' : 'absolute';
+        break;
+      case 'input_panel':
+        renderInputPanel(div, props);
+        break;
     }
 
     // Children
@@ -282,6 +307,151 @@ window.SW = window.SW || {};
     }
     if (cur.text) out.push(cur);
     return out;
+  }
+
+  // -------- Grid rendering --------
+  function renderGrid(div, props) {
+    const dims = props.grid_dimensions || [4, 4];
+    const cols = dims[0] || 4;
+    const rows = dims[1] || 4;
+    div.style.display = 'grid';
+    div.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+    div.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
+    div.style.gap = '1px';
+    div.style.background = 'rgba(255,255,255,0.05)';
+    div.style.border = '1px solid rgba(255,255,255,0.1)';
+    div.style.borderRadius = '2px';
+    const total = cols * rows;
+    for (let i = 0; i < total; i++) {
+      const cell = document.createElement('div');
+      cell.style.cssText = 'background:rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;font:600 7px "JetBrains Mono";color:rgba(255,255,255,0.25);min-height:0';
+      cell.textContent = i;
+      div.appendChild(cell);
+    }
+    const tag = document.createElement('div');
+    tag.textContent = `grid ${cols}×${rows}`;
+    tag.style.cssText = 'position:absolute;top:2px;left:3px;font:600 8px "JetBrains Mono";color:rgba(255,255,255,0.6);background:rgba(0,0,0,0.55);padding:1px 4px;border-radius:3px;pointer-events:none;z-index:1';
+    div.appendChild(tag);
+  }
+
+  // -------- Toggle rendering --------
+  function renderToggle(div, props) {
+    div.style.cursor = 'pointer';
+    div.style.display = 'flex';
+    div.style.alignItems = 'center';
+    div.style.justifyContent = 'center';
+    const track = document.createElement('div');
+    const isOn = !!props.toggle_default_state;
+    track.style.cssText = `width:100%;height:100%;border-radius:999px;background:${isOn ? 'rgba(255,107,26,0.8)' : 'rgba(100,100,100,0.5)'};position:relative;transition:background 0.2s`;
+    const thumb = document.createElement('div');
+    thumb.style.cssText = `width:45%;height:80%;border-radius:50%;background:white;position:absolute;top:10%;${isOn ? 'right:4%' : 'left:4%'};box-shadow:0 1px 3px rgba(0,0,0,0.4)`;
+    track.appendChild(thumb);
+    div.appendChild(track);
+  }
+
+  // -------- Dropdown rendering --------
+  function renderDropdown(div, props) {
+    div.style.background = 'rgba(0,0,0,0.4)';
+    div.style.border = '1px solid rgba(255,255,255,0.2)';
+    div.style.borderRadius = '4px';
+    div.style.display = 'flex';
+    div.style.alignItems = 'center';
+    div.style.padding = '0 8px';
+    div.style.cursor = 'pointer';
+    const lbl = document.createElement('span');
+    lbl.style.cssText = 'flex:1;font:500 10px "Space Grotesk";color:rgba(255,255,255,0.7)';
+    lbl.textContent = props.dropdown_name || 'Select...';
+    const arrow = document.createElement('span');
+    arrow.style.cssText = 'font-size:10px;color:rgba(255,255,255,0.5);margin-left:4px';
+    arrow.textContent = '▼';
+    div.appendChild(lbl);
+    div.appendChild(arrow);
+  }
+
+  // -------- Slider rendering --------
+  function renderSlider(div, props) {
+    div.style.display = 'flex';
+    div.style.alignItems = 'center';
+    div.style.padding = '0 4px';
+    const track = document.createElement('div');
+    track.style.cssText = 'flex:1;height:4px;background:rgba(255,255,255,0.15);border-radius:2px;position:relative';
+    const ratio = props.default_value != null ? +props.default_value : 0.5;
+    const fill = document.createElement('div');
+    fill.style.cssText = `width:${ratio * 100}%;height:100%;background:rgba(255,107,26,0.8);border-radius:2px`;
+    const handle = document.createElement('div');
+    handle.style.cssText = `width:10px;height:10px;border-radius:50%;background:white;position:absolute;top:-3px;left:${ratio * 100}%;transform:translateX(-50%);box-shadow:0 1px 3px rgba(0,0,0,0.4)`;
+    track.appendChild(fill);
+    track.appendChild(handle);
+    div.appendChild(track);
+  }
+
+  // -------- Fill / progress bar rendering --------
+  function renderFill(div, props) {
+    div.style.background = 'rgba(0,0,0,0.3)';
+    div.style.borderRadius = '2px';
+    div.style.overflow = 'hidden';
+    div.style.position = div.style.position || 'relative';
+    const ratio = props.clip_ratio != null ? +props.clip_ratio : 0.7;
+    const fillDiv = document.createElement('div');
+    const color = props.color ? SW.rgbaToCss(props.color) : 'rgba(50,200,50,0.8)';
+    const dir = props.clip_direction || 'left';
+    fillDiv.style.cssText = 'position:absolute;top:0;bottom:0;';
+    if (dir === 'left') {
+      fillDiv.style.left = '0';
+      fillDiv.style.width = (ratio * 100) + '%';
+    } else if (dir === 'right') {
+      fillDiv.style.right = '0';
+      fillDiv.style.width = (ratio * 100) + '%';
+    } else if (dir === 'up') {
+      fillDiv.style.bottom = '0';
+      fillDiv.style.left = '0';
+      fillDiv.style.right = '0';
+      fillDiv.style.height = (ratio * 100) + '%';
+      fillDiv.style.width = '100%';
+    } else {
+      fillDiv.style.top = '0';
+      fillDiv.style.left = '0';
+      fillDiv.style.right = '0';
+      fillDiv.style.height = (ratio * 100) + '%';
+      fillDiv.style.width = '100%';
+    }
+    fillDiv.style.background = color;
+    fillDiv.style.borderRadius = '2px';
+    div.appendChild(fillDiv);
+    const tag = document.createElement('div');
+    tag.textContent = Math.round(ratio * 100) + '%';
+    tag.style.cssText = 'position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:600 8px "JetBrains Mono";color:white;text-shadow:0 1px 2px rgba(0,0,0,0.6);pointer-events:none;z-index:1';
+    div.appendChild(tag);
+  }
+
+  // -------- Custom control rendering --------
+  function renderCustom(div, props) {
+    div.style.background = 'rgba(139,92,246,0.1)';
+    div.style.border = '1px dashed rgba(139,92,246,0.4)';
+    div.style.borderRadius = '4px';
+    div.style.display = 'flex';
+    div.style.alignItems = 'center';
+    div.style.justifyContent = 'center';
+    const tag = document.createElement('div');
+    tag.style.cssText = 'font:600 9px "JetBrains Mono";color:rgba(139,92,246,0.7);text-align:center';
+    tag.textContent = props.renderer || 'custom';
+    div.appendChild(tag);
+  }
+
+  // -------- Input panel rendering --------
+  function renderInputPanel(div, props) {
+    div.style.background = 'rgba(0,0,0,0.3)';
+    div.style.border = '1px solid rgba(255,255,255,0.15)';
+    div.style.borderRadius = '4px';
+    div.style.display = 'flex';
+    div.style.alignItems = 'center';
+    div.style.padding = '0 8px';
+    if (!div.querySelector('span')) {
+      const placeholder = document.createElement('span');
+      placeholder.style.cssText = 'font:400 10px "Space Grotesk";color:rgba(255,255,255,0.3);pointer-events:none';
+      placeholder.textContent = props.placeholder_text || 'Input...';
+      div.appendChild(placeholder);
+    }
   }
 
   // -------- Label rendering --------

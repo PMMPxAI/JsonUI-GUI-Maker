@@ -1,0 +1,36 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.cape.crescent_moon": {
+      "arrays": {
+        "textures": {
+          "array.frames": [
+            "texture.cape.crescent_moon_1",
+            "texture.cape.crescent_moon_2",
+            "texture.cape.crescent_moon_3",
+            "texture.cape.crescent_moon_4",
+            "texture.cape.crescent_moon_5",
+            "texture.cape.crescent_moon_6",
+            "texture.cape.crescent_moon_7",
+            "texture.cape.crescent_moon_8",
+            "texture.cape.crescent_moon_9",
+            "texture.cape.crescent_moon_10",
+            "texture.cape.crescent_moon_11",
+            "texture.cape.crescent_moon_12",
+            "texture.cape.crescent_moon_13",
+            "texture.cape.crescent_moon_14"
+          ]
+        }
+      },
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "array.frames[(query.anim_time * 7 )]"
+      ]
+    }
+  }
+}

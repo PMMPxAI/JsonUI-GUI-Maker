@@ -15,18 +15,45 @@ window.SW = window.SW || {};
     const tree = document.getElementById('tree');
     const counter = document.getElementById('counter');
     if (!tree) return;
+
+    // Ensure search bar exists
+    let searchWrap = document.getElementById('tree-search-wrap');
+    if (!searchWrap) {
+      searchWrap = document.createElement('div');
+      searchWrap.id = 'tree-search-wrap';
+      searchWrap.className = 'tree-search-wrap';
+      searchWrap.innerHTML = `<input id="tree-search" placeholder="Filtrer…" class="tree-search-input" />`;
+      tree.parentElement.insertBefore(searchWrap, tree);
+      searchWrap.querySelector('#tree-search').addEventListener('input', () => SW.renderTree(state));
+    }
+
+    const searchInput = document.getElementById('tree-search');
+    const query = (searchInput ? searchInput.value : '').toLowerCase().trim();
+
     tree.innerHTML = '';
     let count = 0;
     if (state.tree && state.tree.children) {
       for (const c of state.tree.children) {
-        tree.appendChild(buildRow(c, state));
+        if (query && !matchesSearch(c, query)) continue;
+        tree.appendChild(buildRow(c, state, query));
         SW.walk(c, () => count++);
       }
     }
     if (counter) counter.textContent = count + ' contrôle' + (count > 1 ? 's' : '');
   };
 
-  function buildRow(el, state) {
+  function matchesSearch(el, query) {
+    if ((el.name || '').toLowerCase().includes(query)) return true;
+    if ((el.props && el.props.type || '').toLowerCase().includes(query)) return true;
+    if (el.children) {
+      for (const c of el.children) {
+        if (matchesSearch(c, query)) return true;
+      }
+    }
+    return false;
+  }
+
+  function buildRow(el, state, query) {
     const wrap = document.createElement('div');
     const row = document.createElement('div');
     row.className = 'tree-row';
@@ -56,7 +83,13 @@ window.SW = window.SW || {};
 
     const name = document.createElement('span');
     name.className = 'name';
-    name.textContent = el.name || el.id;
+    const nameStr = el.name || el.id;
+    if (query && nameStr.toLowerCase().includes(query)) {
+      const idx = nameStr.toLowerCase().indexOf(query);
+      name.innerHTML = escName(nameStr.slice(0, idx)) + '<mark class="tree-highlight">' + escName(nameStr.slice(idx, idx + query.length)) + '</mark>' + escName(nameStr.slice(idx + query.length));
+    } else {
+      name.textContent = nameStr;
+    }
     row.appendChild(name);
 
     // Actions
@@ -90,9 +123,15 @@ window.SW = window.SW || {};
       e.dataTransfer.setData('text/sw-id', el.id);
       e.dataTransfer.effectAllowed = 'move';
     });
-    row.addEventListener('dragover', (e) => { e.preventDefault(); e.dataTransfer.dropEffect = 'move'; });
+    row.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'move';
+      row.classList.add('drop-target');
+    });
+    row.addEventListener('dragleave', () => row.classList.remove('drop-target'));
     row.addEventListener('drop', (e) => {
       e.preventDefault();
+      row.classList.remove('drop-target');
       const dragId = e.dataTransfer.getData('text/sw-id');
       if (!dragId || dragId === el.id) return;
       SW.moveElement(dragId, el.id);
@@ -103,10 +142,17 @@ window.SW = window.SW || {};
     if (el.children && el.children.length && state.expanded[el.id] !== false) {
       const ch = document.createElement('div');
       ch.className = 'tree-children';
-      for (const c of el.children) ch.appendChild(buildRow(c, state));
+      for (const c of el.children) {
+        if (query && !matchesSearch(c, query)) continue;
+        ch.appendChild(buildRow(c, state, query));
+      }
       wrap.appendChild(ch);
     }
     return wrap;
+  }
+
+  function escName(s) {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
 
 })(window.SW);

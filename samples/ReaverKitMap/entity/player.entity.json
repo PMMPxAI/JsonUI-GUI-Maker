@@ -1,0 +1,639 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "animations": {
+        "attack.positions": "animation.player.attack.positions",
+        "attack.rotations": "animation.player.attack.rotations",
+        "base_controller": "controller.animation.player.base",
+        "blink": "controller.animation.persona.blink",
+        "bob": "animation.player.bob",
+        "bow_and_arrow": "animation.humanoid.bow_and_arrow",
+        "brandish_spear": "animation.humanoid.brandish_spear",
+        "cape": "animation.player.cape",
+        "charging": "animation.humanoid.charging",
+        "chunk": "animation.chunk.locate",
+        "crossbow_controller": "controller.animation.player.crossbow",
+        "crossbow_hold": "animation.player.crossbow_hold",
+        "custom.cape": "animation.custom.cape",
+        "damage_nearby_mobs": "animation.humanoid.damage_nearby_mobs",
+        "first_person_attack_controller": "controller.animation.player.first_person_attack",
+        "first_person_attack_rotation": "animation.player.first_person.attack_rotation",
+        "first_person_attack_rotation_item": "animation.player.first_person.attack_rotation_item",
+        "first_person_base_pose": "animation.player.first_person.base_pose",
+        "first_person_breathing_bob": "animation.player.first_person.breathing_bob",
+        "first_person_crossbow_equipped": "animation.player.first_person.crossbow_equipped",
+        "first_person_crossbow_hold": "animation.player.first_person.crossbow_hold",
+        "first_person_empty_hand": "animation.player.first_person.empty_hand",
+        "first_person_map_controller": "controller.animation.player.first_person_map",
+        "first_person_map_hold": "animation.player.first_person.map_hold",
+        "first_person_map_hold_attack": "animation.player.first_person.map_hold_attack",
+        "first_person_map_hold_main_hand": "animation.player.first_person.map_hold_main_hand",
+        "first_person_map_hold_off_hand": "animation.player.first_person.map_hold_off_hand",
+        "first_person_swap_item": "animation.player.first_person.swap_item",
+        "first_person_vr_attack_rotation": "animation.player.first_person.vr_attack_rotation",
+        "first_person_walk": "animation.player.first_person.walk",
+        "holding": "animation.player.holding",
+        "hudplayer": "controller.animation.player.hudplayer",
+        "humanoid_base_pose": "animation.humanoid.base_pose",
+        "look_at_target": "controller.animation.humanoid.look_at_target",
+        "look_at_target_default": "animation.humanoid.look_at_target.default",
+        "look_at_target_gliding": "animation.humanoid.look_at_target.gliding",
+        "look_at_target_inverted": "animation.player.look_at_target.inverted",
+        "look_at_target_swimming": "animation.humanoid.look_at_target.swimming",
+        "look_at_target_ui": "animation.player.look_at_target.ui",
+        "move.arms": "animation.player.move.arms",
+        "move.legs": "animation.player.move.legs",
+        "riding.arms": "animation.player.riding.arms",
+        "riding.legs": "animation.player.riding.legs",
+        "root": "controller.animation.player.root",
+        "shield_block_main_hand": "animation.player.shield_block_main_hand",
+        "shield_block_off_hand": "animation.player.shield_block_off_hand",
+        "skeleton_attack": "animation.skeleton.attack",
+        "sleeping": "animation.player.sleeping",
+        "sneaking": "animation.player.sneaking",
+        "swimming": "animation.player.swim",
+        "swimming.legs": "animation.player.swim.legs",
+        "third_person_bow_equipped": "animation.player.bow_equipped",
+        "third_person_crossbow_equipped": "animation.player.crossbow_equipped",
+        "use_item_progress": "animation.humanoid.use_item_progress"
+      },
+      "enable_attachables": true,
+      "geometry": {
+        "cape": "geometry.cape",
+        "chunk": "geometry.chunk",
+        "custom.cape": "geometry.custom.cape",
+        "default": "geometry.humanoid.custom"
+      },
+      "identifier": "minecraft:player",
+      "materials": {
+        "animated": "player_animated",
+        "cape": "entity_alphatest",
+        "chunk": "entity_alphablend",
+        "custom.cape": "entity_alphatest",
+        "default": "entity_alphatest"
+      },
+      "render_controllers": [
+        {
+          "controller.render.chunk": "!variable.is_first_person && !variable.map_face_icon && !query.is_in_ui && query.is_angry"
+        },
+        {
+          "controller.render.player.first_person": "variable.is_first_person"
+        },
+        {
+          "controller.render.player.third_person": "!variable.is_first_person && !variable.map_face_icon"
+        },
+        {
+          "controller.render.player.map": "variable.map_face_icon"
+        },
+        {
+          "controller.render.cape.420": "query.variant == 1"
+        },
+        {
+          "controller.render.cape.8bitbee": "query.variant == 2"
+        },
+        {
+          "controller.render.cape.angryemoji": "query.variant == 3"
+        },
+        {
+          "controller.render.cape.animalfox": "query.variant == 4"
+        },
+        {
+          "controller.render.cape.animalkitten": "query.variant == 5"
+        },
+        {
+          "controller.render.cape.animalkoala": "query.variant == 6"
+        },
+        {
+          "controller.render.cape.animallion": "query.variant == 7"
+        },
+        {
+          "controller.render.cape.animalpanda": "query.variant == 8"
+        },
+        {
+          "controller.render.cape.animalpenguin": "query.variant == 9"
+        },
+        {
+          "controller.render.cape.animalpig": "query.variant == 10"
+        },
+        {
+          "controller.render.cape.animalpuppy": "query.variant == 11"
+        },
+        {
+          "controller.render.cape.anime": "query.variant == 12"
+        },
+        {
+          "controller.render.cape.autumnorangelogo": "query.variant == 13"
+        },
+        {
+          "controller.render.cape.autumnpumpkin": "query.variant == 14"
+        },
+        {
+          "controller.render.cape.awkwardemoji": "query.variant == 15"
+        },
+        {
+          "controller.render.cape.aye": "query.variant == 16"
+        },
+        {
+          "controller.render.cape.balahaj": "query.variant == 17"
+        },
+        {
+          "controller.render.cape.banana": "query.variant == 18"
+        },
+        {
+          "controller.render.cape.bat": "query.variant == 19"
+        },
+        {
+          "controller.render.cape.blackcat": "query.variant == 20"
+        },
+        {
+          "controller.render.cape.blackdice": "query.variant == 21"
+        },
+        {
+          "controller.render.cape.blackskeppy": "query.variant == 22"
+        },
+        {
+          "controller.render.cape.bobwhite": "query.variant == 23"
+        },
+        {
+          "controller.render.cape.bringinthenewyear_": "query.variant == 24"
+        },
+        {
+          "controller.render.cape.bubby": "query.variant == 25"
+        },
+        {
+          "controller.render.cape.bunny": "query.variant == 26"
+        },
+        {
+          "controller.render.cape.canada": "query.variant == 27"
+        },
+        {
+          "controller.render.cape.cardboardcape": "query.variant == 28"
+        },
+        {
+          "controller.render.cape.cat": "query.variant == 29"
+        },
+        {
+          "controller.render.cape.cheers": "query.variant == 30"
+        },
+        {
+          "controller.render.cape.cherrypi": "query.variant == 31"
+        },
+        {
+          "controller.render.cape.christmasblue": "query.variant == 32"
+        },
+        {
+          "controller.render.cape.christmasmittens": "query.variant == 33"
+        },
+        {
+          "controller.render.cape.clouds": "query.variant == 34"
+        },
+        {
+          "controller.render.cape.clover": "query.variant == 35"
+        },
+        {
+          "controller.render.cape.clownemoji": "query.variant == 36"
+        },
+        {
+          "controller.render.cape.crescent_moon": "query.variant == 37"
+        },
+        {
+          "controller.render.cape.desertedbeach": "query.variant == 38"
+        },
+        {
+          "controller.render.cape.developer": "query.variant == 39"
+        },
+        {
+          "controller.render.cape.dog": "query.variant == 40"
+        },
+        {
+          "controller.render.cape.dotwavoddball": "query.variant == 41"
+        },
+        {
+          "controller.render.cape.easterbasketcloak": "query.variant == 42"
+        },
+        {
+          "controller.render.cape.easterblossom": "query.variant == 43"
+        },
+        {
+          "controller.render.cape.easterbunnyears": "query.variant == 44"
+        },
+        {
+          "controller.render.cape.easy": "query.variant == 45"
+        },
+        {
+          "controller.render.cape.eyes": "query.variant == 46"
+        },
+        {
+          "controller.render.cape.ez4": "query.variant == 47"
+        },
+        {
+          "controller.render.cape.fiak": "query.variant == 48"
+        },
+        {
+          "controller.render.cape.forest": "query.variant == 49"
+        },
+        {
+          "controller.render.cape.france": "query.variant == 50"
+        },
+        {
+          "controller.render.cape.frog": "query.variant == 51"
+        },
+        {
+          "controller.render.cape.ghost": "query.variant == 52"
+        },
+        {
+          "controller.render.cape.ghostlyflame": "query.variant == 53"
+        },
+        {
+          "controller.render.cape.girl": "query.variant == 54"
+        },
+        {
+          "controller.render.cape.glitchedpi": "query.variant == 55"
+        },
+        {
+          "controller.render.cape.heart": "query.variant == 56"
+        },
+        {
+          "controller.render.cape.heart": "query.variant == 57"
+        },
+        {
+          "controller.render.cape.hokage": "query.variant == 58"
+        },
+        {
+          "controller.render.cape.hot": "query.variant == 59"
+        },
+        {
+          "controller.render.cape.itachi": "query.variant == 60"
+        },
+        {
+          "controller.render.cape.kiss": "query.variant == 61"
+        },
+        {
+          "controller.render.cape.koala": "query.variant == 62"
+        },
+        {
+          "controller.render.cape.koalafamily": "query.variant == 63"
+        },
+        {
+          "controller.render.cape.luffy": "query.variant == 64"
+        },
+        {
+          "controller.render.cape.money": "query.variant == 65"
+        },
+        {
+          "controller.render.cape.mountain": "query.variant == 66"
+        },
+        {
+          "controller.render.cape.nami": "query.variant == 67"
+        },
+        {
+          "controller.render.cape.nerverlose": "query.variant == 68"
+        },
+        {
+          "controller.render.cape.neurosis": "query.variant == 69"
+        },
+        {
+          "controller.render.cape.night": "query.variant == 70"
+        },
+        {
+          "controller.render.cape.obanai": "query.variant == 71"
+        },
+        {
+          "controller.render.cape.obito": "query.variant == 72"
+        },
+        {
+          "controller.render.cape.one": "query.variant == 73"
+        },
+        {
+          "controller.render.cape.panda": "query.variant == 74"
+        },
+        {
+          "controller.render.cape.penguin": "query.variant == 75"
+        },
+        {
+          "controller.render.cape.pyronicred": "query.variant == 76"
+        },
+        {
+          "controller.render.cape.pyronicredorange": "query.variant == 77"
+        },
+        {
+          "controller.render.cape.quickdropmct": "query.variant == 78"
+        },
+        {
+          "controller.render.cape.reaver": "query.variant == 79"
+        },
+        {
+          "controller.render.cape.rickroll": "query.variant == 80"
+        },
+        {
+          "controller.render.cape.sorry": "query.variant == 81"
+        },
+        {
+          "controller.render.cape.space": "query.variant == 82"
+        },
+        {
+          "controller.render.cape.uchiha": "query.variant == 83"
+        },
+        {
+          "controller.render.cape.vapev4": "query.variant == 84"
+        },
+        {
+          "controller.render.cape.vers": "query.variant == 85"
+        },
+        {
+          "controller.render.cape.weeds": "query.variant == 86"
+        },
+        {
+          "controller.render.cape.winter": "query.variant == 87"
+        },
+        {
+          "controller.render.cape.zero": "query.variant == 88"
+        },
+        {
+          "controller.render.cape.hard": "query.variant == 89"
+        },
+        {
+          "controller.render.cape.hard2": "query.variant == 90"
+        }
+      ],
+      "scripts": {
+        "animate": [
+          "root",
+          {
+            "chunk": "!variable.is_first_person && !variable.map_face_icon && !query.is_in_ui && query.is_angry"
+          }
+        ],
+        "initialize": [
+          "variable.is_holding_right = 0.0;",
+          "variable.is_blinking = 0.0;",
+          "variable.last_blink_time = 0.0;",
+          "variable.hand_bob = 0.0;",
+          "variable.chunk_x = 0.0;",
+          "variable.chunk_y = 0.0;",
+          "variable.chunk_z = 0.0;"
+        ],
+        "pre_animation": [
+          "variable.chunk_x = math.round((8-math.mod(query.position(0),16) + (query.position(0) <= 0 ? -16))*16);",
+          "variable.chunk_y = math.round((1.6-math.mod(query.position(1),16) + (query.position(1) <= 0 ? -16))*16);",
+          "variable.chunk_z = math.round((-8+math.mod(query.position(2),16) + (query.position(2) <= 0 ? 16))*16);",
+          "variable.helmet_layer_visible = 1.0;",
+          "variable.leg_layer_visible = 1.0;",
+          "variable.boot_layer_visible = 1.0;",
+          "variable.chest_layer_visible = 1.0;",
+          "variable.attack_body_rot_y = Math.sin(360*Math.sqrt(variable.attack_time)) * 5.0;",
+          "variable.tcos0 = (math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;",
+          "variable.first_person_rotation_factor = math.sin((1 - variable.attack_time) * 180.0);",
+          "variable.hand_bob = query.life_time < 0.01 ? 0.0 : variable.hand_bob + ((query.is_on_ground && query.is_alive ? math.clamp(math.sqrt(math.pow(query.position_delta(0), 2.0) + math.pow(query.position_delta(2), 2.0)), 0.0, 0.1) : 0.0) - variable.hand_bob) * 0.02;",
+          "variable.map_angle = math.clamp(1 - variable.player_x_rotation / 45.1, 0.0, 1.0);",
+          "variable.item_use_normalized = query.main_hand_item_use_duration / query.main_hand_item_max_duration;"
+        ],
+        "scale": "0.9375"
+      },
+      "textures": {
+        "cape": "textures/entity/cape_invisible",
+        "cape.420": "assets/capes/420",
+        "cape.8bitbee": "assets/capes/8bitbee",
+        "cape.angryemoji": "assets/capes/angryemoji",
+        "cape.animalfox": "assets/capes/animalfox",
+        "cape.animalkitten": "assets/capes/animalkitten",
+        "cape.animalkoala": "assets/capes/animalkoala",
+        "cape.animallion": "assets/capes/animallion",
+        "cape.animalpanda": "assets/capes/animalpanda",
+        "cape.animalpenguin": "assets/capes/animalpenguin",
+        "cape.animalpig": "assets/capes/animalpig",
+        "cape.animalpuppy": "assets/capes/animalpuppy",
+        "cape.anime": "assets/capes/anime",
+        "cape.autumnorangelogo": "assets/capes/autumnorangelogo",
+        "cape.autumnpumpkin": "assets/capes/autumnpumpkin",
+        "cape.awkwardemoji": "assets/capes/awkwardemoji",
+        "cape.aye": "assets/capes/aye",
+        "cape.balahaj": "assets/capes/balahaj",
+        "cape.banana": "assets/capes/banana",
+        "cape.bat_1": "assets/capes/bat_1",
+        "cape.bat_10": "assets/capes/bat_10",
+        "cape.bat_11": "assets/capes/bat_11",
+        "cape.bat_12": "assets/capes/bat_12",
+        "cape.bat_13": "assets/capes/bat_13",
+        "cape.bat_14": "assets/capes/bat_14",
+        "cape.bat_2": "assets/capes/bat_2",
+        "cape.bat_3": "assets/capes/bat_3",
+        "cape.bat_4": "assets/capes/bat_4",
+        "cape.bat_5": "assets/capes/bat_5",
+        "cape.bat_6": "assets/capes/bat_6",
+        "cape.bat_7": "assets/capes/bat_7",
+        "cape.bat_8": "assets/capes/bat_8",
+        "cape.bat_9": "assets/capes/bat_9",
+        "cape.blackcat": "assets/capes/blackcat",
+        "cape.blackdice": "assets/capes/blackdice",
+        "cape.blackskeppy": "assets/capes/blackskeppy",
+        "cape.bobwhite": "assets/capes/bobwhite",
+        "cape.bringinthenewyear__1": "assets/capes/bringinthenewyear__1",
+        "cape.bringinthenewyear__2": "assets/capes/bringinthenewyear__2",
+        "cape.bubby": "assets/capes/bubby",
+        "cape.bunny": "assets/capes/bunny",
+        "cape.canada": "assets/capes/canada",
+        "cape.cardboardcape": "assets/capes/cardboardcape",
+        "cape.cat": "assets/capes/cat",
+        "cape.cheers_1": "assets/capes/cheers_1",
+        "cape.cheers_2": "assets/capes/cheers_2",
+        "cape.cheers_3": "assets/capes/cheers_3",
+        "cape.cheers_4": "assets/capes/cheers_4",
+        "cape.cheers_5": "assets/capes/cheers_5",
+        "cape.cheers_6": "assets/capes/cheers_6",
+        "cape.cheers_7": "assets/capes/cheers_7",
+        "cape.cherrypi": "assets/capes/cherrypi",
+        "cape.christmasblue": "assets/capes/christmasblue",
+        "cape.christmasmittens": "assets/capes/christmasmittens",
+        "cape.clouds": "assets/capes/clouds",
+        "cape.clover": "assets/capes/clover",
+        "cape.clownemoji": "assets/capes/clownemoji",
+        "cape.crescent_moon_1": "assets/capes/crescent_moon_1",
+        "cape.crescent_moon_10": "assets/capes/crescent_moon_10",
+        "cape.crescent_moon_11": "assets/capes/crescent_moon_11",
+        "cape.crescent_moon_12": "assets/capes/crescent_moon_12",
+        "cape.crescent_moon_13": "assets/capes/crescent_moon_13",
+        "cape.crescent_moon_14": "assets/capes/crescent_moon_14",
+        "cape.crescent_moon_2": "assets/capes/crescent_moon_2",
+        "cape.crescent_moon_3": "assets/capes/crescent_moon_3",
+        "cape.crescent_moon_4": "assets/capes/crescent_moon_4",
+        "cape.crescent_moon_5": "assets/capes/crescent_moon_5",
+        "cape.crescent_moon_6": "assets/capes/crescent_moon_6",
+        "cape.crescent_moon_7": "assets/capes/crescent_moon_7",
+        "cape.crescent_moon_8": "assets/capes/crescent_moon_8",
+        "cape.crescent_moon_9": "assets/capes/crescent_moon_9",
+        "cape.desertedbeach_1": "assets/capes/desertedbeach_1",
+        "cape.desertedbeach_2": "assets/capes/desertedbeach_2",
+        "cape.desertedbeach_3": "assets/capes/desertedbeach_3",
+        "cape.desertedbeach_4": "assets/capes/desertedbeach_4",
+        "cape.developer": "assets/capes/developer",
+        "cape.dog": "assets/capes/dog",
+        "cape.dotwavoddball": "assets/capes/dotwavoddball",
+        "cape.easterbasketcloak": "assets/capes/easterbasketcloak",
+        "cape.easterblossom": "assets/capes/easterblossom",
+        "cape.easterbunnyears": "assets/capes/easterbunnyears",
+        "cape.easy": "assets/capes/easy",
+        "cape.eyes": "assets/capes/eyes",
+        "cape.ez4": "assets/capes/ez4",
+        "cape.fiak": "assets/capes/fiak",
+        "cape.forest": "assets/capes/forest",
+        "cape.france": "assets/capes/france",
+        "cape.frog_1": "assets/capes/frog_1",
+        "cape.frog_10": "assets/capes/frog_10",
+        "cape.frog_11": "assets/capes/frog_11",
+        "cape.frog_12": "assets/capes/frog_12",
+        "cape.frog_2": "assets/capes/frog_2",
+        "cape.frog_3": "assets/capes/frog_3",
+        "cape.frog_4": "assets/capes/frog_4",
+        "cape.frog_5": "assets/capes/frog_5",
+        "cape.frog_6": "assets/capes/frog_6",
+        "cape.frog_7": "assets/capes/frog_7",
+        "cape.frog_8": "assets/capes/frog_8",
+        "cape.frog_9": "assets/capes/frog_9",
+        "cape.ghost": "assets/capes/ghost",
+        "cape.ghostlyflame": "assets/capes/ghostlyflame",
+        "cape.girl": "assets/capes/girl",
+        "cape.glitchedpi_1": "assets/capes/glitchedpi_1",
+        "cape.glitchedpi_10": "assets/capes/glitchedpi_10",
+        "cape.glitchedpi_2": "assets/capes/glitchedpi_2",
+        "cape.glitchedpi_3": "assets/capes/glitchedpi_3",
+        "cape.glitchedpi_4": "assets/capes/glitchedpi_4",
+        "cape.glitchedpi_5": "assets/capes/glitchedpi_5",
+        "cape.glitchedpi_6": "assets/capes/glitchedpi_6",
+        "cape.glitchedpi_7": "assets/capes/glitchedpi_7",
+        "cape.glitchedpi_8": "assets/capes/glitchedpi_8",
+        "cape.glitchedpi_9": "assets/capes/glitchedpi_9",
+        "cape.hard2_1": "assets/capes/hard2_1",
+        "cape.hard2_2": "assets/capes/hard2_2",
+        "cape.hard2_3": "assets/capes/hard2_3",
+        "cape.hard2_4": "assets/capes/hard2_4",
+        "cape.hard2_5": "assets/capes/hard2_5",
+        "cape.hard2_6": "assets/capes/hard2_6",
+        "cape.hard2_7": "assets/capes/hard2_7",
+        "cape.hard2_8": "assets/capes/hard2_8",
+        "cape.hard_1": "assets/capes/hard_1",
+        "cape.hard_2": "assets/capes/hard_2",
+        "cape.hard_3": "assets/capes/hard_3",
+        "cape.hard_4": "assets/capes/hard_4",
+        "cape.hard_5": "assets/capes/hard_5",
+        "cape.hard_6": "assets/capes/hard_6",
+        "cape.hard_7": "assets/capes/hard_7",
+        "cape.hard_8": "assets/capes/hard_8",
+        "cape.hard_9": "assets/capes/hard_9",
+        "cape.heart": "assets/capes/heart",
+        "cape.heart_1": "assets/capes/heart_1",
+        "cape.heart_2": "assets/capes/heart_2",
+        "cape.heart_3": "assets/capes/heart_3",
+        "cape.heart_4": "assets/capes/heart_4",
+        "cape.heart_5": "assets/capes/heart_5",
+        "cape.heart_6": "assets/capes/heart_6",
+        "cape.heart_7": "assets/capes/heart_7",
+        "cape.heart_8": "assets/capes/heart_8",
+        "cape.hokage": "assets/capes/hokage",
+        "cape.hot_1": "assets/capes/hot_1",
+        "cape.hot_10": "assets/capes/hot_10",
+        "cape.hot_11": "assets/capes/hot_11",
+        "cape.hot_12": "assets/capes/hot_12",
+        "cape.hot_13": "assets/capes/hot_13",
+        "cape.hot_14": "assets/capes/hot_14",
+        "cape.hot_15": "assets/capes/hot_15",
+        "cape.hot_2": "assets/capes/hot_2",
+        "cape.hot_3": "assets/capes/hot_3",
+        "cape.hot_4": "assets/capes/hot_4",
+        "cape.hot_5": "assets/capes/hot_5",
+        "cape.hot_6": "assets/capes/hot_6",
+        "cape.hot_7": "assets/capes/hot_7",
+        "cape.hot_8": "assets/capes/hot_8",
+        "cape.hot_9": "assets/capes/hot_9",
+        "cape.itachi": "assets/capes/itachi",
+        "cape.kiss": "assets/capes/kiss",
+        "cape.koala": "assets/capes/koala",
+        "cape.koalafamily": "assets/capes/koalafamily",
+        "cape.luffy": "assets/capes/luffy",
+        "cape.money_1": "assets/capes/money_1",
+        "cape.money_10": "assets/capes/money_10",
+        "cape.money_11": "assets/capes/money_11",
+        "cape.money_12": "assets/capes/money_12",
+        "cape.money_13": "assets/capes/money_13",
+        "cape.money_14": "assets/capes/money_14",
+        "cape.money_15": "assets/capes/money_15",
+        "cape.money_2": "assets/capes/money_2",
+        "cape.money_3": "assets/capes/money_3",
+        "cape.money_4": "assets/capes/money_4",
+        "cape.money_5": "assets/capes/money_5",
+        "cape.money_6": "assets/capes/money_6",
+        "cape.money_7": "assets/capes/money_7",
+        "cape.money_8": "assets/capes/money_8",
+        "cape.money_9": "assets/capes/money_9",
+        "cape.mountain": "assets/capes/mountain",
+        "cape.nami": "assets/capes/nami",
+        "cape.nerverlose": "assets/capes/nerverlose",
+        "cape.neurosis": "assets/capes/neurosis",
+        "cape.night_1": "assets/capes/night_1",
+        "cape.night_10": "assets/capes/night_10",
+        "cape.night_11": "assets/capes/night_11",
+        "cape.night_12": "assets/capes/night_12",
+        "cape.night_13": "assets/capes/night_13",
+        "cape.night_14": "assets/capes/night_14",
+        "cape.night_2": "assets/capes/night_2",
+        "cape.night_3": "assets/capes/night_3",
+        "cape.night_4": "assets/capes/night_4",
+        "cape.night_5": "assets/capes/night_5",
+        "cape.night_6": "assets/capes/night_6",
+        "cape.night_7": "assets/capes/night_7",
+        "cape.night_8": "assets/capes/night_8",
+        "cape.night_9": "assets/capes/night_9",
+        "cape.obanai": "assets/capes/obanai",
+        "cape.obito": "assets/capes/obito",
+        "cape.one": "assets/capes/one",
+        "cape.panda": "assets/capes/panda",
+        "cape.penguin": "assets/capes/penguin",
+        "cape.pyronicred": "assets/capes/pyronicred",
+        "cape.pyronicredorange": "assets/capes/pyronicredorange",
+        "cape.quickdropmct": "assets/capes/quickdropmct",
+        "cape.reaver": "assets/capes/reaver",
+        "cape.rickroll_1": "assets/capes/rickroll_1",
+        "cape.rickroll_10": "assets/capes/rickroll_10",
+        "cape.rickroll_11": "assets/capes/rickroll_11",
+        "cape.rickroll_12": "assets/capes/rickroll_12",
+        "cape.rickroll_13": "assets/capes/rickroll_13",
+        "cape.rickroll_14": "assets/capes/rickroll_14",
+        "cape.rickroll_15": "assets/capes/rickroll_15",
+        "cape.rickroll_16": "assets/capes/rickroll_16",
+        "cape.rickroll_17": "assets/capes/rickroll_17",
+        "cape.rickroll_2": "assets/capes/rickroll_2",
+        "cape.rickroll_3": "assets/capes/rickroll_3",
+        "cape.rickroll_4": "assets/capes/rickroll_4",
+        "cape.rickroll_5": "assets/capes/rickroll_5",
+        "cape.rickroll_6": "assets/capes/rickroll_6",
+        "cape.rickroll_7": "assets/capes/rickroll_7",
+        "cape.rickroll_8": "assets/capes/rickroll_8",
+        "cape.rickroll_9": "assets/capes/rickroll_9",
+        "cape.sorry": "assets/capes/sorry",
+        "cape.space": "assets/capes/space",
+        "cape.uchiha": "assets/capes/uchiha",
+        "cape.vapev4": "assets/capes/vapev4",
+        "cape.vers_1": "assets/capes/vers_1",
+        "cape.vers_10": "assets/capes/vers_10",
+        "cape.vers_11": "assets/capes/vers_11",
+        "cape.vers_12": "assets/capes/vers_12",
+        "cape.vers_13": "assets/capes/vers_13",
+        "cape.vers_14": "assets/capes/vers_14",
+        "cape.vers_15": "assets/capes/vers_15",
+        "cape.vers_2": "assets/capes/vers_2",
+        "cape.vers_3": "assets/capes/vers_3",
+        "cape.vers_4": "assets/capes/vers_4",
+        "cape.vers_5": "assets/capes/vers_5",
+        "cape.vers_6": "assets/capes/vers_6",
+        "cape.vers_7": "assets/capes/vers_7",
+        "cape.vers_8": "assets/capes/vers_8",
+        "cape.vers_9": "assets/capes/vers_9",
+        "cape.weeds": "assets/capes/weeds",
+        "cape.winter": "assets/capes/winter",
+        "cape.zero": "assets/capes/zero",
+        "chunk": "assets/entity/chunk",
+        "default": "textures/entity/steve"
+      }
+    }
+  }
+}

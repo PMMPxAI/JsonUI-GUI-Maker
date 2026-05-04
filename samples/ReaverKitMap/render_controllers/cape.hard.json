@@ -1,0 +1,31 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.cape.hard": {
+      "arrays": {
+        "textures": {
+          "array.frames": [
+            "texture.cape.hard_1",
+            "texture.cape.hard_2",
+            "texture.cape.hard_3",
+            "texture.cape.hard_4",
+            "texture.cape.hard_5",
+            "texture.cape.hard_6",
+            "texture.cape.hard_7",
+            "texture.cape.hard_8",
+            "texture.cape.hard_9"
+          ]
+        }
+      },
+      "geometry": "Geometry.custom.cape",
+      "materials": [
+        {
+          "*": "Material.custom.cape"
+        }
+      ],
+      "textures": [
+        "array.frames[(query.anim_time * 25 )]"
+      ]
+    }
+  }
+}

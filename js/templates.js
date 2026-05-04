@@ -273,7 +273,643 @@ window.SW = window.SW || {};
           el('msg', 'label', { text: '§7First Blood — +50 coins', size: ['default', 10], offset: [34, -8], anchor_from: 'bottom_left', anchor_to: 'bottom_left' })
         ])
       ])
+    },
+    // ==========================================
+    // 9) Shop Grid — Item shop with price tags
+    // ==========================================
+    {
+      id: 'shop_grid',
+      name: 'Shop Grid',
+      tag: 'menu',
+      desc: 'Boutique avec grille d\'items et prix',
+      thumb: tpl_shop_grid,
+      build: () => root([
+        el('shop_panel', 'panel', {
+          size: [400, 300], anchor_from: 'center', anchor_to: 'center'
+        }, [
+          el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.05, 0.05, 0.05, 0.95], anchor_from: 'center', anchor_to: 'center' }),
+          el('border', 'image', { size: ['100%', '100%'], texture: 'textures/ui/White', color: [0.9, 0.65, 0.1, 0.8], anchor_from: 'center', anchor_to: 'center' }),
+          el('inner_bg', 'image', { size: ['98%', '96%'], texture: 'textures/ui/Black', color: [0.05, 0.05, 0.05, 1], anchor_from: 'center', anchor_to: 'center' }),
+          el('title_bar', 'panel', { size: ['100%', 32], anchor_from: 'top_middle', anchor_to: 'top_middle' }, [
+            el('title_bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/White', color: [0.12, 0.12, 0.12, 1], anchor_from: 'center', anchor_to: 'center' }),
+            el('title', 'label', { text: '§l§6SHOP', size: ['default', 14], anchor_from: 'center', anchor_to: 'center', text_alignment: 'center', shadow: true }),
+            el('close_btn', 'button', { size: [20, 20], anchor_from: 'right_middle', anchor_to: 'right_middle', offset: [-8, 0] }, [
+              el('x', 'label', { text: '§fX', size: ['default', 12], anchor_from: 'center', anchor_to: 'center', text_alignment: 'center', shadow: true })
+            ])
+          ]),
+          el('subtitle', 'label', { text: '§7Sélectionnez un item à acheter', size: ['default', 10], offset: [0, 36], anchor_from: 'top_middle', anchor_to: 'top_middle', text_alignment: 'center' }),
+          el('items_grid', 'stack_panel', { orientation: 'vertical', size: ['90%', '100%c'], offset: [0, 52], anchor_from: 'top_middle', anchor_to: 'top_middle' }, [
+            el('row1', 'stack_panel', { orientation: 'horizontal', size: ['100%c', 60] }, [
+              el('item1', 'panel', { size: [80, 56] }, [
+                el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.1, 0.1, 0.1, 1], anchor_from: 'center', anchor_to: 'center' }),
+                el('icon', 'image', { size: [32, 32], texture: 'textures/blocks/stone', anchor_from: 'top_middle', anchor_to: 'top_middle', offset: [0, 2] }),
+                el('name', 'label', { text: '§fStone x64', size: ['default', 8], offset: [0, -12], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center' }),
+                el('price', 'label', { text: '§a$128', size: ['default', 8], offset: [0, -2], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center' })
+              ]),
+              el('item2', 'panel', { size: [80, 56] }, [
+                el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.1, 0.1, 0.1, 1], anchor_from: 'center', anchor_to: 'center' }),
+                el('icon', 'image', { size: [32, 32], texture: 'textures/blocks/iron_block', anchor_from: 'top_middle', anchor_to: 'top_middle', offset: [0, 2] }),
+                el('name', 'label', { text: '§fIron x64', size: ['default', 8], offset: [0, -12], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center' }),
+                el('price', 'label', { text: '§a$256', size: ['default', 8], offset: [0, -2], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center' })
+              ]),
+              el('item3', 'panel', { size: [80, 56] }, [
+                el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.1, 0.1, 0.1, 1], anchor_from: 'center', anchor_to: 'center' }),
+                el('icon', 'image', { size: [32, 32], texture: 'textures/blocks/diamond_block', anchor_from: 'top_middle', anchor_to: 'top_middle', offset: [0, 2] }),
+                el('name', 'label', { text: '§fDiamond x64', size: ['default', 8], offset: [0, -12], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center' }),
+                el('price', 'label', { text: '§a$512', size: ['default', 8], offset: [0, -2], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center' })
+              ]),
+              el('item4', 'panel', { size: [80, 56] }, [
+                el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.1, 0.1, 0.1, 1], anchor_from: 'center', anchor_to: 'center' }),
+                el('icon', 'image', { size: [32, 32], texture: 'textures/blocks/gold_block', anchor_from: 'top_middle', anchor_to: 'top_middle', offset: [0, 2] }),
+                el('name', 'label', { text: '§fGold x64', size: ['default', 8], offset: [0, -12], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center' }),
+                el('price', 'label', { text: '§a$384', size: ['default', 8], offset: [0, -2], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center' })
+              ])
+            ]),
+            el('row2', 'stack_panel', { orientation: 'horizontal', size: ['100%c', 60] }, [
+              el('item5', 'panel', { size: [80, 56] }, [
+                el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.1, 0.1, 0.1, 1], anchor_from: 'center', anchor_to: 'center' }),
+                el('icon', 'image', { size: [32, 32], texture: 'textures/blocks/emerald_block', anchor_from: 'top_middle', anchor_to: 'top_middle', offset: [0, 2] }),
+                el('name', 'label', { text: '§fEmerald x64', size: ['default', 8], offset: [0, -12], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center' }),
+                el('price', 'label', { text: '§a$640', size: ['default', 8], offset: [0, -2], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center' })
+              ]),
+              el('item6', 'panel', { size: [80, 56] }, [
+                el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.1, 0.1, 0.1, 1], anchor_from: 'center', anchor_to: 'center' }),
+                el('icon', 'image', { size: [32, 32], texture: 'textures/blocks/redstone_block', anchor_from: 'top_middle', anchor_to: 'top_middle', offset: [0, 2] }),
+                el('name', 'label', { text: '§fRedstone x64', size: ['default', 8], offset: [0, -12], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center' }),
+                el('price', 'label', { text: '§a$192', size: ['default', 8], offset: [0, -2], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center' })
+              ]),
+              el('item7', 'panel', { size: [80, 56] }, [
+                el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.1, 0.1, 0.1, 1], anchor_from: 'center', anchor_to: 'center' }),
+                el('icon', 'image', { size: [32, 32], texture: 'textures/blocks/lapis_block', anchor_from: 'top_middle', anchor_to: 'top_middle', offset: [0, 2] }),
+                el('name', 'label', { text: '§fLapis x64', size: ['default', 8], offset: [0, -12], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center' }),
+                el('price', 'label', { text: '§a$160', size: ['default', 8], offset: [0, -2], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center' })
+              ]),
+              el('item8', 'panel', { size: [80, 56] }, [
+                el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.1, 0.1, 0.1, 1], anchor_from: 'center', anchor_to: 'center' }),
+                el('icon', 'image', { size: [32, 32], texture: 'textures/blocks/obsidian', anchor_from: 'top_middle', anchor_to: 'top_middle', offset: [0, 2] }),
+                el('name', 'label', { text: '§fObsidian x64', size: ['default', 8], offset: [0, -12], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center' }),
+                el('price', 'label', { text: '§a$480', size: ['default', 8], offset: [0, -2], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center' })
+              ])
+            ])
+          ])
+        ])
+      ])
+    },
+
+    // ==========================================
+    // 10) Leaderboard — Top FFA rankings
+    // ==========================================
+    {
+      id: 'leaderboard',
+      name: 'Leaderboard',
+      tag: 'menu',
+      desc: 'Classement des meilleurs joueurs',
+      thumb: tpl_leaderboard,
+      build: () => root([
+        el('lb_panel', 'panel', {
+          size: [380, 340], anchor_from: 'center', anchor_to: 'center'
+        }, [
+          el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.08, 0.08, 0.08, 0.95], anchor_from: 'center', anchor_to: 'center' }),
+          el('border', 'image', { size: ['100%', '100%'], texture: 'textures/ui/White', color: [0.9, 0.6, 0.1, 0.7], anchor_from: 'center', anchor_to: 'center' }),
+          el('inner', 'image', { size: ['98%', '97%'], texture: 'textures/ui/Black', color: [0.06, 0.06, 0.06, 1], anchor_from: 'center', anchor_to: 'center' }),
+          el('title_bar', 'panel', { size: ['100%', 30], anchor_from: 'top_middle', anchor_to: 'top_middle' }, [
+            el('title_bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/White', color: [0.12, 0.12, 0.12, 1], anchor_from: 'center', anchor_to: 'center' }),
+            el('title', 'label', { text: '§l§6TOP FFA', size: ['default', 14], anchor_from: 'center', anchor_to: 'center', text_alignment: 'center', shadow: true }),
+            el('close', 'button', { size: [20, 20], anchor_from: 'right_middle', anchor_to: 'right_middle', offset: [-6, 0] }, [
+              el('x', 'label', { text: '§fX', size: ['default', 10], anchor_from: 'center', anchor_to: 'center', text_alignment: 'center' })
+            ])
+          ]),
+          el('subtitle', 'label', { text: '§e§lBest Players Season 1', size: ['default', 10], offset: [0, 34], anchor_from: 'top_middle', anchor_to: 'top_middle', text_alignment: 'center' }),
+          el('podium', 'stack_panel', { orientation: 'horizontal', size: ['100%c', 70], offset: [0, 52], anchor_from: 'top_middle', anchor_to: 'top_middle' }, [
+            el('p2', 'panel', { size: [100, 66] }, [
+              el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.12, 0.12, 0.12, 1], anchor_from: 'center', anchor_to: 'center' }),
+              el('medal', 'image', { size: [28, 28], texture: 'textures/items/diamond', anchor_from: 'top_middle', anchor_to: 'top_middle', offset: [0, 4] }),
+              el('name', 'label', { text: '§f#2 Troll face', size: ['default', 8], offset: [0, -16], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center' }),
+              el('stats', 'label', { text: '§7K:9 D:10 KDR: 5', size: ['default', 7], offset: [0, -4], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center' })
+            ]),
+            el('p1', 'panel', { size: [110, 66] }, [
+              el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.12, 0.12, 0.12, 1], anchor_from: 'center', anchor_to: 'center' }),
+              el('medal', 'image', { size: [28, 28], texture: 'textures/items/emerald', anchor_from: 'top_middle', anchor_to: 'top_middle', offset: [0, 4] }),
+              el('name', 'label', { text: '§f#1 Skibidi Sigma', size: ['default', 8], offset: [0, -16], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center' }),
+              el('stats', 'label', { text: '§7K:12 D:10 KDR: 1.2', size: ['default', 7], offset: [0, -4], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center' })
+            ]),
+            el('p3', 'panel', { size: [100, 66] }, [
+              el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.12, 0.12, 0.12, 1], anchor_from: 'center', anchor_to: 'center' }),
+              el('medal', 'image', { size: [28, 28], texture: 'textures/items/gold_ingot', anchor_from: 'top_middle', anchor_to: 'top_middle', offset: [0, 4] }),
+              el('name', 'label', { text: '§f#3 Rasputin88', size: ['default', 8], offset: [0, -16], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center' }),
+              el('stats', 'label', { text: '§7K:3 D:15 KDR: 2', size: ['default', 7], offset: [0, -4], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center' })
+            ])
+          ]),
+          el('list', 'stack_panel', { orientation: 'vertical', size: ['90%', '100%c'], offset: [0, 130], anchor_from: 'top_middle', anchor_to: 'top_middle' }, [
+            el('r4', 'panel', { size: ['100%', 24] }, [
+              el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.1, 0.1, 0.1, 1], anchor_from: 'center', anchor_to: 'center' }),
+              el('txt', 'label', { text: '§7#4 test  §8K:1 D:1 KDR: 1.0', size: ['default', 8], offset: [8, 0], anchor_from: 'left_middle', anchor_to: 'left_middle' })
+            ]),
+            el('r5', 'panel', { size: ['100%', 24] }, [
+              el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.08, 0.08, 0.08, 1], anchor_from: 'center', anchor_to: 'center' }),
+              el('txt', 'label', { text: '§7#5 test  §8K:1 D:1 KDR: 1.0', size: ['default', 8], offset: [8, 0], anchor_from: 'left_middle', anchor_to: 'left_middle' })
+            ]),
+            el('r6', 'panel', { size: ['100%', 24] }, [
+              el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.1, 0.1, 0.1, 1], anchor_from: 'center', anchor_to: 'center' }),
+              el('txt', 'label', { text: '§7#6 test  §8K:1 D:1 KDR: 1.0', size: ['default', 8], offset: [8, 0], anchor_from: 'left_middle', anchor_to: 'left_middle' })
+            ])
+          ])
+        ])
+      ])
+    },
+
+    // ==========================================
+    // 11) Party Menu
+    // ==========================================
+    {
+      id: 'party_menu',
+      name: 'Party Menu',
+      tag: 'menu',
+      desc: 'Menu de groupe avec créer/invitations',
+      thumb: tpl_party_menu,
+      build: () => root([
+        el('party_panel', 'panel', {
+          size: [360, 260], anchor_from: 'center', anchor_to: 'center'
+        }, [
+          el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.12, 0.12, 0.12, 0.95], anchor_from: 'center', anchor_to: 'center' }),
+          el('border', 'image', { size: ['100%', '100%'], texture: 'textures/ui/White', color: [0.9, 0.55, 0.1, 0.7], anchor_from: 'center', anchor_to: 'center' }),
+          el('inner', 'image', { size: ['97%', '95%'], texture: 'textures/ui/Black', color: [0.1, 0.1, 0.1, 1], anchor_from: 'center', anchor_to: 'center' }),
+          el('title', 'label', { text: '§l§6PARTY MENU', size: ['default', 14], offset: [0, 10], anchor_from: 'top_middle', anchor_to: 'top_middle', text_alignment: 'center', shadow: true }),
+          el('subtitle', 'label', { text: '§7Select one option', size: ['default', 10], offset: [0, 28], anchor_from: 'top_middle', anchor_to: 'top_middle', text_alignment: 'center' }),
+          el('options', 'stack_panel', { orientation: 'horizontal', size: ['100%c', 120], anchor_from: 'center', anchor_to: 'center', offset: [0, 10] }, [
+            el('create', 'button', { size: [140, 116] }, [
+              el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.15, 0.15, 0.15, 1], anchor_from: 'center', anchor_to: 'center' }),
+              el('icon', 'image', { size: [48, 48], texture: 'textures/items/gold_helmet', anchor_from: 'center', anchor_to: 'center', offset: [0, -10] }),
+              el('lbl', 'label', { text: '§fCreate Party', size: ['default', 10], offset: [0, -8], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center', shadow: true })
+            ]),
+            el('invites', 'button', { size: [140, 116] }, [
+              el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.15, 0.15, 0.15, 1], anchor_from: 'center', anchor_to: 'center' }),
+              el('icon', 'image', { size: [48, 48], texture: 'textures/items/paper', anchor_from: 'center', anchor_to: 'center', offset: [0, -10] }),
+              el('lbl', 'label', { text: '§fInvites', size: ['default', 10], offset: [0, -8], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center', shadow: true })
+            ])
+          ]),
+          el('close_btn', 'button', { size: ['80%', 28], offset: [0, -12], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle' }, [
+            el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/White', color: [0.6, 0.15, 0.15, 0.8], anchor_from: 'center', anchor_to: 'center' }),
+            el('lbl', 'label', { text: '§l§fCLOSE MENU', size: ['default', 10], anchor_from: 'center', anchor_to: 'center', text_alignment: 'center', shadow: true })
+          ])
+        ])
+      ])
+    },
+
+    // ==========================================
+    // 12) Color Picker
+    // ==========================================
+    {
+      id: 'color_picker',
+      name: 'Color Picker',
+      tag: 'menu',
+      desc: 'Sélecteur de couleur avec grille',
+      thumb: tpl_color_picker,
+      build: () => {
+        const colors = [
+          [0.85,0.85,0.85,1], [0.5,0.5,0.5,1], [0.3,0.3,0.3,1], [0.6,0.2,0.2,1],
+          [0.2,0.6,0.2,1], [0.2,0.5,0.9,1], [0.8,0.2,0.4,1], [0.8,0.4,0.8,1],
+          [0.9,0.4,0.6,1], [0.4,0.3,0.5,1], [0.3,0.6,0.3,1], [0.3,0.7,0.9,1]
+        ];
+        const colorEls = colors.map((c, i) =>
+          el('c'+i, 'button', { size: [28, 28] }, [
+            el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/White', color: c, anchor_from: 'center', anchor_to: 'center' })
+          ])
+        );
+        return root([
+          el('picker_panel', 'panel', {
+            size: [280, 220], anchor_from: 'center', anchor_to: 'center'
+          }, [
+            el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.15, 0.12, 0.1, 0.95], anchor_from: 'center', anchor_to: 'center' }),
+            el('border', 'image', { size: ['100%', '100%'], texture: 'textures/ui/White', color: [0.7, 0.5, 0.2, 0.8], anchor_from: 'center', anchor_to: 'center' }),
+            el('inner', 'image', { size: ['96%', '93%'], texture: 'textures/ui/Black', color: [0.12, 0.1, 0.08, 1], anchor_from: 'center', anchor_to: 'center' }),
+            el('title', 'label', { text: '§l§6COLOR PICKER', size: ['default', 12], offset: [0, 8], anchor_from: 'top_middle', anchor_to: 'top_middle', text_alignment: 'center', shadow: true }),
+            el('subtitle', 'label', { text: '§eSELECT A CHAT-RANK BACKGROUND COLOR!', size: ['default', 8], offset: [0, 24], anchor_from: 'top_middle', anchor_to: 'top_middle', text_alignment: 'center' }),
+            el('grid_wrap', 'panel', { size: [130, 130], offset: [-40, 44], anchor_from: 'top_middle', anchor_to: 'top_middle' }, [
+              el('grid', 'grid', { size: ['100%', '100%'], grid_dimensions: [4, 3], anchor_from: 'center', anchor_to: 'center' })
+            ]),
+            el('preview_panel', 'panel', { size: [80, 60], offset: [80, 60], anchor_from: 'top_middle', anchor_to: 'top_middle' }, [
+              el('preview_bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.15, 0.15, 0.15, 1], anchor_from: 'center', anchor_to: 'center' }),
+              el('lbl1', 'label', { text: '§fSELECTED COLOR', size: ['default', 7], offset: [0, 6], anchor_from: 'top_middle', anchor_to: 'top_middle', text_alignment: 'center' }),
+              el('color_swatch', 'image', { size: [30, 20], texture: 'textures/ui/White', color: [0.5, 0.5, 0.5, 1], anchor_from: 'center', anchor_to: 'center' }),
+              el('lbl2', 'label', { text: '§7> GRAY', size: ['default', 7], offset: [0, -6], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center' })
+            ]),
+            el('submit_btn', 'button', { size: [60, 20], offset: [0, -10], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle' }, [
+              el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/White', color: [0.8, 0.2, 0.2, 1], anchor_from: 'center', anchor_to: 'center' }),
+              el('lbl', 'label', { text: '§l§fSUBMIT', size: ['default', 8], anchor_from: 'center', anchor_to: 'center', text_alignment: 'center', shadow: true })
+            ])
+          ])
+        ]);
+      }
+    },
+
+    // ==========================================
+    // 13) Skill Tree
+    // ==========================================
+    {
+      id: 'skill_tree',
+      name: 'Skill Tree',
+      tag: 'hud',
+      desc: 'Arbre de compétences avec connexions',
+      thumb: tpl_skill_tree,
+      build: () => root([
+        el('tree_panel', 'panel', {
+          size: [500, 320], anchor_from: 'center', anchor_to: 'center'
+        }, [
+          el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/White', color: [0.05, 0.12, 0.12, 0.85], anchor_from: 'center', anchor_to: 'center' }),
+          el('border', 'image', { size: ['100%', '100%'], texture: 'textures/ui/White', color: [0, 0.9, 0.8, 0.6], anchor_from: 'center', anchor_to: 'center' }),
+          el('inner', 'image', { size: ['98%', '97%'], texture: 'textures/ui/White', color: [0.03, 0.08, 0.08, 0.95], anchor_from: 'center', anchor_to: 'center' }),
+          el('title', 'label', { text: '§l§bSKILLTREE', size: ['default', 16], offset: [0, 12], anchor_from: 'top_left', anchor_to: 'top_left', color: [0, 0.9, 0.8, 1], shadow: true }),
+          el('line_h', 'image', { size: [120, 2], texture: 'textures/ui/White', color: [0, 0.9, 0.8, 0.6], anchor_from: 'center', anchor_to: 'center', offset: [-60, 0] }),
+          el('line_v', 'image', { size: [2, 120], texture: 'textures/ui/White', color: [0.5, 0.5, 0.5, 0.4], anchor_from: 'center', anchor_to: 'center' }),
+          el('node_center', 'panel', { size: [52, 52], anchor_from: 'center', anchor_to: 'center' }, [
+            el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/White', color: [0, 0.9, 0.8, 0.3], anchor_from: 'center', anchor_to: 'center' }),
+            el('icon', 'image', { size: [32, 32], texture: 'textures/entity/enderman/enderman', anchor_from: 'center', anchor_to: 'center' })
+          ]),
+          el('node_left', 'panel', { size: [44, 44], anchor_from: 'center', anchor_to: 'center', offset: [-100, 0] }, [
+            el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/White', color: [0, 0.9, 0.8, 0.3], anchor_from: 'center', anchor_to: 'center' }),
+            el('icon', 'image', { size: [28, 28], texture: 'textures/blocks/fire_0', anchor_from: 'center', anchor_to: 'center' })
+          ]),
+          el('node_right', 'panel', { size: [44, 44], anchor_from: 'center', anchor_to: 'center', offset: [100, 0] }, [
+            el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/White', color: [0.5, 0.5, 0.5, 0.2], anchor_from: 'center', anchor_to: 'center' }),
+            el('icon', 'image', { size: [28, 28], texture: 'textures/items/iron_pickaxe', anchor_from: 'center', anchor_to: 'center' })
+          ]),
+          el('node_top', 'panel', { size: [44, 44], anchor_from: 'center', anchor_to: 'center', offset: [0, -70] }, [
+            el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/White', color: [0.5, 0.5, 0.5, 0.2], anchor_from: 'center', anchor_to: 'center' }),
+            el('icon', 'image', { size: [28, 28], texture: 'textures/items/bow_standby', anchor_from: 'center', anchor_to: 'center' })
+          ]),
+          el('node_bottom', 'panel', { size: [44, 44], anchor_from: 'center', anchor_to: 'center', offset: [0, 70] }, [
+            el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/White', color: [0.5, 0.5, 0.5, 0.2], anchor_from: 'center', anchor_to: 'center' }),
+            el('icon', 'image', { size: [28, 28], texture: 'textures/items/chorus_fruit', anchor_from: 'center', anchor_to: 'center' })
+          ])
+        ])
+      ])
+    },
+
+    // ==========================================
+    // 14) Casino Menu — Minesweeper style
+    // ==========================================
+    {
+      id: 'casino_menu',
+      name: 'Casino Menu',
+      tag: 'menu',
+      desc: 'Menu casino style minesweeper',
+      thumb: tpl_casino_menu,
+      build: () => root([
+        el('casino_panel', 'panel', {
+          size: [340, 320], anchor_from: 'center', anchor_to: 'center'
+        }, [
+          el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.06, 0.06, 0.06, 0.95], anchor_from: 'center', anchor_to: 'center' }),
+          el('title_bar', 'panel', { size: ['100%', 34], anchor_from: 'top_middle', anchor_to: 'top_middle' }, [
+            el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/White', color: [0.15, 0.1, 0.2, 1], anchor_from: 'center', anchor_to: 'center' }),
+            el('title', 'label', { text: '§l§eCASINO MENU', size: ['default', 14], anchor_from: 'center', anchor_to: 'center', text_alignment: 'center', shadow: true }),
+            el('close', 'button', { size: [22, 22], anchor_from: 'right_middle', anchor_to: 'right_middle', offset: [-6, 0] }, [
+              el('x', 'label', { text: '§fX', size: ['default', 12], anchor_from: 'center', anchor_to: 'center', text_alignment: 'center' })
+            ])
+          ]),
+          el('mine_grid', 'grid', { size: [200, 200], grid_dimensions: [5, 5], offset: [-40, 44], anchor_from: 'top_middle', anchor_to: 'top_middle' }),
+          el('info_panel', 'panel', { size: [100, 100], offset: [110, 80], anchor_from: 'top_middle', anchor_to: 'top_middle' }, [
+            el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/White', color: [0.2, 0.1, 0.35, 0.8], anchor_from: 'center', anchor_to: 'center' }),
+            el('win', 'label', { text: '§fWin: §a$1,800', size: ['default', 9], offset: [6, 6], anchor_from: 'top_left', anchor_to: 'top_left' }),
+            el('mult', 'label', { text: '§fMultiplier: §e1.8x', size: ['default', 9], offset: [6, 20], anchor_from: 'top_left', anchor_to: 'top_left' }),
+            el('score', 'label', { text: '§fScore: §b1/21', size: ['default', 9], offset: [6, 34], anchor_from: 'top_left', anchor_to: 'top_left' }),
+            el('cashout_hint', 'label', { text: '§a§l>> Can cashout <<', size: ['default', 8], offset: [0, -10], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center' })
+          ]),
+          el('cashout_btn', 'button', { size: [120, 30], offset: [-40, -16], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle' }, [
+            el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/White', color: [0.15, 0.15, 0.15, 1], anchor_from: 'center', anchor_to: 'center' }),
+            el('lbl', 'label', { text: '§l§fCASH OUT!', size: ['default', 10], anchor_from: 'center', anchor_to: 'center', text_alignment: 'center', shadow: true })
+          ])
+        ])
+      ])
+    },
+
+    // ==========================================
+    // 15) Spin Wheel — Roulette
+    // ==========================================
+    {
+      id: 'spin_wheel',
+      name: 'Spin Wheel',
+      tag: 'menu',
+      desc: 'Roulette avec items aléatoires',
+      thumb: tpl_spin_wheel,
+      build: () => root([
+        el('spin_panel', 'panel', {
+          size: [400, 200], anchor_from: 'center', anchor_to: 'center'
+        }, [
+          el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.08, 0.08, 0.08, 0.95], anchor_from: 'center', anchor_to: 'center' }),
+          el('title', 'label', { text: '§l§eSPIN WHEEL', size: ['default', 16], offset: [0, 8], anchor_from: 'top_middle', anchor_to: 'top_middle', text_alignment: 'center', shadow: true }),
+          el('arrow', 'label', { text: '§e▼', size: ['default', 18], offset: [0, 28], anchor_from: 'top_middle', anchor_to: 'top_middle', text_alignment: 'center' }),
+          el('reel', 'stack_panel', { orientation: 'horizontal', size: ['100%c', 64], anchor_from: 'center', anchor_to: 'center' }, [
+            el('slot1', 'panel', { size: [64, 64] }, [
+              el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.15, 0.15, 0.15, 1], anchor_from: 'center', anchor_to: 'center' }),
+              el('icon', 'image', { size: [40, 40], texture: 'textures/items/bone', anchor_from: 'center', anchor_to: 'center' })
+            ]),
+            el('slot2', 'panel', { size: [64, 64] }, [
+              el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.15, 0.15, 0.15, 1], anchor_from: 'center', anchor_to: 'center' }),
+              el('icon', 'image', { size: [40, 40], texture: 'textures/items/iron_sword', anchor_from: 'center', anchor_to: 'center' })
+            ]),
+            el('slot3', 'panel', { size: [64, 64] }, [
+              el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.15, 0.15, 0.15, 1], anchor_from: 'center', anchor_to: 'center' }),
+              el('icon', 'image', { size: [40, 40], texture: 'textures/items/bread', anchor_from: 'center', anchor_to: 'center' })
+            ]),
+            el('slot4', 'panel', { size: [64, 64] }, [
+              el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.15, 0.15, 0.15, 1], anchor_from: 'center', anchor_to: 'center' }),
+              el('icon', 'image', { size: [40, 40], texture: 'textures/items/apple', anchor_from: 'center', anchor_to: 'center' })
+            ]),
+            el('slot5', 'panel', { size: [64, 64] }, [
+              el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.15, 0.15, 0.15, 1], anchor_from: 'center', anchor_to: 'center' }),
+              el('icon', 'image', { size: [40, 40], texture: 'textures/items/stick', anchor_from: 'center', anchor_to: 'center' })
+            ])
+          ]),
+          el('spin_btn', 'button', { size: [140, 30], offset: [0, -12], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle' }, [
+            el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/White', color: [0.9, 0.6, 0.1, 0.9], anchor_from: 'center', anchor_to: 'center' }),
+            el('lbl', 'label', { text: '§l§fSPIN', size: ['default', 12], anchor_from: 'center', anchor_to: 'center', text_alignment: 'center', shadow: true })
+          ])
+        ])
+      ])
+    },
+
+    // ==========================================
+    // 16) Cosmetics Menu
+    // ==========================================
+    {
+      id: 'cosmetics_menu',
+      name: 'Cosmetics',
+      tag: 'menu',
+      desc: 'Menu cosmétiques avec catégories',
+      thumb: tpl_cosmetics_menu,
+      build: () => root([
+        el('cosm_panel', 'panel', {
+          size: [440, 280], anchor_from: 'center', anchor_to: 'center'
+        }, [
+          el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.1, 0.1, 0.1, 0.95], anchor_from: 'center', anchor_to: 'center' }),
+          el('border', 'image', { size: ['100%', '100%'], texture: 'textures/ui/White', color: [0.9, 0.55, 0.1, 0.7], anchor_from: 'center', anchor_to: 'center' }),
+          el('inner', 'image', { size: ['98%', '96%'], texture: 'textures/ui/Black', color: [0.08, 0.08, 0.08, 1], anchor_from: 'center', anchor_to: 'center' }),
+          el('title', 'label', { text: '§l§6COSMETICS', size: ['default', 14], offset: [0, 8], anchor_from: 'top_middle', anchor_to: 'top_middle', text_alignment: 'center', shadow: true }),
+          el('close', 'button', { size: [20, 20], anchor_from: 'top_right', anchor_to: 'top_right', offset: [-8, 8] }, [
+            el('x', 'label', { text: '§fX', size: ['default', 10], anchor_from: 'center', anchor_to: 'center', text_alignment: 'center' })
+          ]),
+          el('preview_area', 'panel', { size: [120, 200], offset: [16, 36], anchor_from: 'top_left', anchor_to: 'top_left' }, [
+            el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/White', color: [0.12, 0.12, 0.12, 1], anchor_from: 'center', anchor_to: 'center' }),
+            el('skin', 'image', { size: [80, 160], texture: 'textures/entity/steve', anchor_from: 'center', anchor_to: 'center' })
+          ]),
+          el('tabs', 'stack_panel', { orientation: 'horizontal', size: ['100%c', 22], offset: [150, 36], anchor_from: 'top_left', anchor_to: 'top_left' }, [
+            el('prev', 'button', { size: [20, 20] }, [
+              el('lbl', 'label', { text: '§f<', size: ['default', 10], anchor_from: 'center', anchor_to: 'center', text_alignment: 'center' })
+            ]),
+            el('tabA', 'button', { size: [22, 20] }, [
+              el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/White', color: [0.9, 0.55, 0.1, 0.8], anchor_from: 'center', anchor_to: 'center' }),
+              el('lbl', 'label', { text: '§lA', size: ['default', 9], anchor_from: 'center', anchor_to: 'center', text_alignment: 'center', shadow: true })
+            ]),
+            el('tabB', 'button', { size: [22, 20] }, [
+              el('lbl', 'label', { text: '§fB', size: ['default', 9], anchor_from: 'center', anchor_to: 'center', text_alignment: 'center' })
+            ]),
+            el('tabC', 'button', { size: [22, 20] }, [
+              el('lbl', 'label', { text: '§fC', size: ['default', 9], anchor_from: 'center', anchor_to: 'center', text_alignment: 'center' })
+            ]),
+            el('tabD', 'button', { size: [22, 20] }, [
+              el('lbl', 'label', { text: '§fD', size: ['default', 9], anchor_from: 'center', anchor_to: 'center', text_alignment: 'center' })
+            ]),
+            el('next', 'button', { size: [20, 20] }, [
+              el('lbl', 'label', { text: '§f>', size: ['default', 10], anchor_from: 'center', anchor_to: 'center', text_alignment: 'center' })
+            ])
+          ]),
+          el('items', 'stack_panel', { orientation: 'horizontal', size: ['100%c', 80], offset: [150, 66], anchor_from: 'top_left', anchor_to: 'top_left' }, [
+            el('empty_slot', 'panel', { size: [60, 76] }, [
+              el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.15, 0.15, 0.15, 1], anchor_from: 'center', anchor_to: 'center' }),
+              el('icon', 'image', { size: [32, 32], texture: 'textures/ui/cancel', anchor_from: 'center', anchor_to: 'center', offset: [0, -8], color: [1, 0.2, 0.2, 1] }),
+              el('lbl', 'label', { text: '§7empty', size: ['default', 8], offset: [0, -4], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center' })
+            ]),
+            el('item1', 'panel', { size: [60, 76] }, [
+              el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.15, 0.15, 0.15, 1], anchor_from: 'center', anchor_to: 'center' }),
+              el('icon', 'image', { size: [32, 32], texture: 'textures/items/diamond', anchor_from: 'center', anchor_to: 'center', offset: [0, -8] }),
+              el('lbl', 'label', { text: '§ftest1', size: ['default', 8], offset: [0, -4], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center' })
+            ]),
+            el('item2', 'panel', { size: [60, 76] }, [
+              el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.15, 0.15, 0.15, 1], anchor_from: 'center', anchor_to: 'center' }),
+              el('icon', 'image', { size: [32, 32], texture: 'textures/items/leather_chestplate', anchor_from: 'center', anchor_to: 'center', offset: [0, -8] }),
+              el('lbl', 'label', { text: '§ftest2', size: ['default', 8], offset: [0, -4], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center' })
+            ]),
+            el('item3', 'panel', { size: [60, 76] }, [
+              el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.15, 0.15, 0.15, 1], anchor_from: 'center', anchor_to: 'center' }),
+              el('icon', 'image', { size: [32, 32], texture: 'textures/items/paper', anchor_from: 'center', anchor_to: 'center', offset: [0, -8] }),
+              el('lbl', 'label', { text: '§ftest3', size: ['default', 8], offset: [0, -4], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center' })
+            ])
+          ])
+        ])
+      ])
+    },
+
+    // ==========================================
+    // 17) Equipment Selection
+    // ==========================================
+    {
+      id: 'equipment_select',
+      name: 'Equipment Select',
+      tag: 'menu',
+      desc: 'Sélection d\'équipement par catégorie',
+      thumb: tpl_equipment_select,
+      build: () => root([
+        el('equip_panel', 'panel', {
+          size: [420, 280], anchor_from: 'center', anchor_to: 'center'
+        }, [
+          el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/White', color: [0.12, 0.12, 0.15, 0.95], anchor_from: 'center', anchor_to: 'center' }),
+          el('border', 'image', { size: ['100%', '100%'], texture: 'textures/ui/White', color: [0.4, 0.4, 0.45, 0.5], anchor_from: 'center', anchor_to: 'center' }),
+          el('inner', 'image', { size: ['98%', '96%'], texture: 'textures/ui/White', color: [0.1, 0.1, 0.12, 1], anchor_from: 'center', anchor_to: 'center' }),
+          el('title', 'label', { text: '§fSeleccion de equipamiento', size: ['default', 12], offset: [0, 10], anchor_from: 'top_middle', anchor_to: 'top_middle', text_alignment: 'center' }),
+          el('close', 'button', { size: [20, 20], anchor_from: 'top_right', anchor_to: 'top_right', offset: [-8, 8] }, [
+            el('x', 'label', { text: '§fX', size: ['default', 10], anchor_from: 'center', anchor_to: 'center', text_alignment: 'center' })
+          ]),
+          el('categories', 'stack_panel', { orientation: 'horizontal', size: ['100%c', 110], anchor_from: 'center', anchor_to: 'center', offset: [0, -10] }, [
+            el('rifles', 'button', { size: [120, 106] }, [
+              el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.15, 0.15, 0.18, 1], anchor_from: 'center', anchor_to: 'center' }),
+              el('icon', 'image', { size: [64, 48], texture: 'textures/items/crossbow_standby', anchor_from: 'center', anchor_to: 'center', offset: [0, -10] }),
+              el('lbl', 'label', { text: '§fRifles', size: ['default', 10], offset: [0, -8], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center', shadow: true })
+            ]),
+            el('pistols', 'button', { size: [120, 106] }, [
+              el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.15, 0.15, 0.18, 1], anchor_from: 'center', anchor_to: 'center' }),
+              el('icon', 'image', { size: [64, 48], texture: 'textures/items/bow_standby', anchor_from: 'center', anchor_to: 'center', offset: [0, -10] }),
+              el('lbl', 'label', { text: '§fPistolas', size: ['default', 10], offset: [0, -8], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center', shadow: true })
+            ]),
+            el('knives', 'button', { size: [120, 106] }, [
+              el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.15, 0.15, 0.18, 1], anchor_from: 'center', anchor_to: 'center' }),
+              el('icon', 'image', { size: [64, 48], texture: 'textures/items/fishing_rod_uncast', anchor_from: 'center', anchor_to: 'center', offset: [0, -10] }),
+              el('lbl', 'label', { text: '§fCuchillos', size: ['default', 10], offset: [0, -8], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center', shadow: true })
+            ])
+          ]),
+          el('random_btn', 'button', { size: ['60%', 50], offset: [0, -14], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle' }, [
+            el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.15, 0.15, 0.18, 1], anchor_from: 'center', anchor_to: 'center' }),
+            el('icon', 'image', { size: [28, 28], texture: 'textures/items/gold_helmet', anchor_from: 'center', anchor_to: 'center', offset: [0, -4] }),
+            el('lbl', 'label', { text: '§e§lSET RANDOM', size: ['default', 10], offset: [0, -4], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center', shadow: true })
+          ])
+        ])
+      ])
+    },
+
+    // ==========================================
+    // 18) Daily Rewards — Chest opening
+    // ==========================================
+    {
+      id: 'daily_rewards',
+      name: 'Daily Rewards',
+      tag: 'menu',
+      desc: 'Coffres quotidien/hebdo/mensuel',
+      thumb: tpl_daily_rewards,
+      build: () => root([
+        el('rewards_panel', 'panel', {
+          size: [420, 200], anchor_from: 'center', anchor_to: 'center'
+        }, [
+          el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/White', color: [0.25, 0.2, 0.35, 0.9], anchor_from: 'center', anchor_to: 'center' }),
+          el('border', 'image', { size: ['100%', '100%'], texture: 'textures/ui/White', color: [0.9, 0.65, 0.1, 0.6], anchor_from: 'center', anchor_to: 'center' }),
+          el('inner', 'image', { size: ['96%', '92%'], texture: 'textures/ui/White', color: [0.2, 0.15, 0.3, 1], anchor_from: 'center', anchor_to: 'center' }),
+          el('chests', 'stack_panel', { orientation: 'horizontal', size: ['100%c', 140], anchor_from: 'center', anchor_to: 'center' }, [
+            el('daily', 'panel', { size: [110, 136] }, [
+              el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/White', color: [0.85, 0.65, 0.1, 0.9], anchor_from: 'center', anchor_to: 'center' }),
+              el('inner', 'image', { size: ['92%', '90%'], texture: 'textures/ui/White', color: [0.75, 0.55, 0.05, 0.9], anchor_from: 'center', anchor_to: 'center' }),
+              el('label', 'label', { text: '§l§fDAILY', size: ['default', 10], offset: [0, 8], anchor_from: 'top_middle', anchor_to: 'top_middle', text_alignment: 'center', shadow: true }),
+              el('chest_icon', 'image', { size: [48, 48], texture: 'textures/blocks/chest_front', anchor_from: 'center', anchor_to: 'center' }),
+              el('open_lbl', 'label', { text: '§l§fOPEN NOW', size: ['default', 9], offset: [0, -8], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center', shadow: true })
+            ]),
+            el('monthly', 'panel', { size: [110, 136] }, [
+              el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/White', color: [0.85, 0.65, 0.1, 0.9], anchor_from: 'center', anchor_to: 'center' }),
+              el('inner', 'image', { size: ['92%', '90%'], texture: 'textures/ui/White', color: [0.75, 0.55, 0.05, 0.9], anchor_from: 'center', anchor_to: 'center' }),
+              el('label', 'label', { text: '§l§fMONTHLY', size: ['default', 10], offset: [0, 8], anchor_from: 'top_middle', anchor_to: 'top_middle', text_alignment: 'center', shadow: true }),
+              el('chest_icon', 'image', { size: [48, 48], texture: 'textures/blocks/ender_chest_front', anchor_from: 'center', anchor_to: 'center' }),
+              el('open_lbl', 'label', { text: '§l§fOPEN NOW', size: ['default', 9], offset: [0, -8], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center', shadow: true })
+            ]),
+            el('weekly', 'panel', { size: [110, 136] }, [
+              el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/White', color: [0.85, 0.65, 0.1, 0.9], anchor_from: 'center', anchor_to: 'center' }),
+              el('inner', 'image', { size: ['92%', '90%'], texture: 'textures/ui/White', color: [0.75, 0.55, 0.05, 0.9], anchor_from: 'center', anchor_to: 'center' }),
+              el('label', 'label', { text: '§l§fWEEKLY', size: ['default', 10], offset: [0, 8], anchor_from: 'top_middle', anchor_to: 'top_middle', text_alignment: 'center', shadow: true }),
+              el('chest_icon', 'image', { size: [48, 48], texture: 'textures/blocks/trapped_chest_front', anchor_from: 'center', anchor_to: 'center' }),
+              el('open_lbl', 'label', { text: '§l§fOPEN NOW', size: ['default', 9], offset: [0, -8], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle', text_alignment: 'center', shadow: true })
+            ])
+          ])
+        ])
+      ])
+    },
+
+    // ==========================================
+    // 19) Market Shop — Buy/Sell items
+    // ==========================================
+    {
+      id: 'market_shop',
+      name: 'Market Shop',
+      tag: 'menu',
+      desc: 'Marché avec achat/vente et catégories',
+      thumb: tpl_market_shop,
+      build: () => root([
+        el('market_panel', 'panel', {
+          size: [480, 340], anchor_from: 'center', anchor_to: 'center'
+        }, [
+          el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.06, 0.06, 0.06, 0.95], anchor_from: 'center', anchor_to: 'center' }),
+          el('title', 'label', { text: '§l§fMARKET SHOP', size: ['default', 16], offset: [0, 8], anchor_from: 'top_middle', anchor_to: 'top_middle', text_alignment: 'center', shadow: true }),
+          el('player_info', 'panel', { size: [160, 16], offset: [-10, 10], anchor_from: 'top_right', anchor_to: 'top_right' }, [
+            el('name', 'label', { text: '§fPlayer: §aEKats01', size: ['default', 8], offset: [0, 0], anchor_from: 'top_left', anchor_to: 'top_left' }),
+            el('balance', 'label', { text: '§fBalance: §a$200.67K §7[MONEY]', size: ['default', 7], offset: [0, 10], anchor_from: 'top_left', anchor_to: 'top_left' })
+          ]),
+          el('categories_bar', 'stack_panel', { orientation: 'horizontal', size: ['100%c', 32], offset: [10, 30], anchor_from: 'top_left', anchor_to: 'top_left' }, [
+            el('cat1', 'button', { size: [32, 30] }, [
+              el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.15, 0.15, 0.15, 1], anchor_from: 'center', anchor_to: 'center' }),
+              el('icon', 'image', { size: [20, 20], texture: 'textures/blocks/grass_side', anchor_from: 'center', anchor_to: 'center' })
+            ]),
+            el('cat2', 'button', { size: [32, 30] }, [
+              el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.15, 0.15, 0.15, 1], anchor_from: 'center', anchor_to: 'center' }),
+              el('icon', 'image', { size: [20, 20], texture: 'textures/blocks/stone', anchor_from: 'center', anchor_to: 'center' })
+            ]),
+            el('cat3', 'button', { size: [32, 30] }, [
+              el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.15, 0.15, 0.15, 1], anchor_from: 'center', anchor_to: 'center' }),
+              el('icon', 'image', { size: [20, 20], texture: 'textures/blocks/diamond_ore', anchor_from: 'center', anchor_to: 'center' })
+            ]),
+            el('cat4', 'button', { size: [32, 30] }, [
+              el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.15, 0.15, 0.15, 1], anchor_from: 'center', anchor_to: 'center' }),
+              el('icon', 'image', { size: [20, 20], texture: 'textures/items/iron_pickaxe', anchor_from: 'center', anchor_to: 'center' })
+            ])
+          ]),
+          el('item_grid', 'grid', { size: [280, 220], grid_dimensions: [8, 5], offset: [10, 68], anchor_from: 'top_left', anchor_to: 'top_left' }),
+          el('detail_panel', 'panel', { size: [160, 220], offset: [-10, 68], anchor_from: 'top_right', anchor_to: 'top_right' }, [
+            el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.12, 0.12, 0.12, 1], anchor_from: 'center', anchor_to: 'center' }),
+            el('item_preview', 'image', { size: [80, 80], texture: 'textures/blocks/log_oak', anchor_from: 'top_middle', anchor_to: 'top_middle', offset: [0, 10] }),
+            el('item_name', 'label', { text: '§fOak Log', size: ['default', 10], offset: [0, 96], anchor_from: 'top_middle', anchor_to: 'top_middle', text_alignment: 'center' }),
+            el('price_info', 'label', { text: '§fx64  §a$3.84K  §7/  §a$768', size: ['default', 8], offset: [0, 112], anchor_from: 'top_middle', anchor_to: 'top_middle', text_alignment: 'center' }),
+            el('buy_btn', 'button', { size: ['80%', 24], offset: [0, 134], anchor_from: 'top_middle', anchor_to: 'top_middle' }, [
+              el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/White', color: [0.1, 0.6, 0.1, 0.9], anchor_from: 'center', anchor_to: 'center' }),
+              el('lbl', 'label', { text: '§l§fCOMPRAR', size: ['default', 9], anchor_from: 'center', anchor_to: 'center', text_alignment: 'center', shadow: true })
+            ]),
+            el('sell_btn', 'button', { size: ['80%', 24], offset: [0, 162], anchor_from: 'top_middle', anchor_to: 'top_middle' }, [
+              el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/White', color: [0.9, 0.6, 0.1, 0.9], anchor_from: 'center', anchor_to: 'center' }),
+              el('lbl', 'label', { text: '§l§fVENDER', size: ['default', 9], anchor_from: 'center', anchor_to: 'center', text_alignment: 'center', shadow: true })
+            ]),
+            el('exit_btn', 'button', { size: ['80%', 20], offset: [0, -8], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle' }, [
+              el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/White', color: [0.8, 0.15, 0.15, 0.9], anchor_from: 'center', anchor_to: 'center' }),
+              el('lbl', 'label', { text: '§l§fEXIT', size: ['default', 8], anchor_from: 'center', anchor_to: 'center', text_alignment: 'center', shadow: true })
+            ])
+          ])
+        ])
+      ])
+    },
+
+    // ==========================================
+    // 20) Add Friend
+    // ==========================================
+    {
+      id: 'friend_add',
+      name: 'Add Friend',
+      tag: 'menu',
+      desc: 'Formulaire d\'ajout d\'ami',
+      thumb: tpl_friend_add,
+      build: () => root([
+        el('friend_panel', 'panel', {
+          size: [300, 220], anchor_from: 'center', anchor_to: 'center'
+        }, [
+          el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.1, 0.1, 0.1, 0.95], anchor_from: 'center', anchor_to: 'center' }),
+          el('border', 'image', { size: ['100%', '100%'], texture: 'textures/ui/White', color: [0.9, 0.55, 0.1, 0.7], anchor_from: 'center', anchor_to: 'center' }),
+          el('inner', 'image', { size: ['96%', '94%'], texture: 'textures/ui/Black', color: [0.08, 0.08, 0.08, 1], anchor_from: 'center', anchor_to: 'center' }),
+          el('title', 'label', { text: '§l§6ADD FRIEND', size: ['default', 14], offset: [0, 10], anchor_from: 'top_middle', anchor_to: 'top_middle', text_alignment: 'center', shadow: true }),
+          el('online_label', 'label', { text: '§7Online Players', size: ['default', 10], offset: [16, 36], anchor_from: 'top_left', anchor_to: 'top_left' }),
+          el('dropdown_online', 'dropdown', { size: ['85%', 26], offset: [0, 52], anchor_from: 'top_middle', anchor_to: 'top_middle', dropdown_name: 'None' }),
+          el('or_label', 'label', { text: '§7Or type a username', size: ['default', 10], offset: [16, 90], anchor_from: 'top_left', anchor_to: 'top_left' }),
+          el('input_name', 'input_panel', { size: ['85%', 26], offset: [0, 106], anchor_from: 'top_middle', anchor_to: 'top_middle', placeholder_text: 'Player name' }),
+          el('add_btn', 'button', { size: ['85%', 30], offset: [0, -16], anchor_from: 'bottom_middle', anchor_to: 'bottom_middle' }, [
+            el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.15, 0.15, 0.15, 1], anchor_from: 'center', anchor_to: 'center' }),
+            el('lbl', 'label', { text: '§a§lAdd Friend', size: ['default', 10], anchor_from: 'center', anchor_to: 'center', text_alignment: 'center', shadow: true })
+          ])
+        ])
+      ])
+    },
+
+    // ==========================================
+    // 21) Scoreboard HUD
+    // ==========================================
+    {
+      id: 'scoreboard_hud',
+      name: 'Scoreboard',
+      tag: 'hud',
+      desc: 'Scoreboard HUD latéral',
+      thumb: tpl_scoreboard,
+      build: () => root([
+        el('scoreboard', 'panel', {
+          size: [140, 160], anchor_from: 'right_middle', anchor_to: 'right_middle', offset: [-6, -20]
+        }, [
+          el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/Black', color: [0.04, 0.04, 0.04, 0.75], anchor_from: 'center', anchor_to: 'center' }),
+          el('header', 'panel', { size: ['100%', 18], anchor_from: 'top_middle', anchor_to: 'top_middle' }, [
+            el('bg', 'image', { size: ['100%', '100%'], texture: 'textures/ui/White', color: [0.8, 0.3, 0, 0.9], anchor_from: 'center', anchor_to: 'center' }),
+            el('title', 'label', { text: '§l§f%server_name%', size: ['default', 9], anchor_from: 'center', anchor_to: 'center', text_alignment: 'center', shadow: true })
+          ]),
+          el('lines', 'stack_panel', { orientation: 'vertical', size: ['100%', '100%c'], offset: [0, 22], anchor_from: 'top_left', anchor_to: 'top_left' }, [
+            el('l1', 'label', { text: '§7Online: §f%online%', size: ['default', 8], offset: [6, 0], anchor_from: 'top_left', anchor_to: 'top_left' }),
+            el('l2', 'label', { text: '§7Map: §e%map%', size: ['default', 8], offset: [6, 0], anchor_from: 'top_left', anchor_to: 'top_left' }),
+            el('sep', 'image', { size: ['80%', 1], texture: 'textures/ui/White', color: [0.3, 0.3, 0.3, 0.5], anchor_from: 'top_middle', anchor_to: 'top_middle' }),
+            el('l3', 'label', { text: '§6Kills: §f%kills%', size: ['default', 8], offset: [6, 0], anchor_from: 'top_left', anchor_to: 'top_left' }),
+            el('l4', 'label', { text: '§cDeaths: §f%deaths%', size: ['default', 8], offset: [6, 0], anchor_from: 'top_left', anchor_to: 'top_left' }),
+            el('l5', 'label', { text: '§eCoins: §f%coins%', size: ['default', 8], offset: [6, 0], anchor_from: 'top_left', anchor_to: 'top_left' }),
+            el('sep2', 'image', { size: ['80%', 1], texture: 'textures/ui/White', color: [0.3, 0.3, 0.3, 0.5], anchor_from: 'top_middle', anchor_to: 'top_middle' }),
+            el('footer', 'label', { text: '§8play.server.gg', size: ['default', 7], anchor_from: 'top_middle', anchor_to: 'top_middle', text_alignment: 'center' })
+          ])
+        ])
+      ])
     }
+
   ];
 
   // ---------- THUMBNAIL HTML (small CSS replicas of templates) ----------
@@ -326,6 +962,190 @@ window.SW = window.SW || {};
           <div style="font-weight:700;color:#fff">Achievement</div>
           <div style="color:#8a8a8a">+50 coins</div>
         </div>
+      </div>
+    </div>`;
+  }
+  function tpl_shop_grid() {
+    return `<div style="display:flex;align-items:center;justify-content:center;height:100%;background:#0a0a0a;font-family:'Space Grotesk'">
+      <div style="background:#111;border:1px solid #b8860b;border-radius:3px;padding:4px;width:130px">
+        <div style="text-align:center;font:700 8px;color:#b8860b;margin-bottom:3px">SHOP</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px">
+          <div style="background:#1a1a1a;padding:3px;text-align:center;font-size:6px;color:#aaa;border-radius:2px">$128</div>
+          <div style="background:#1a1a1a;padding:3px;text-align:center;font-size:6px;color:#aaa;border-radius:2px">$256</div>
+          <div style="background:#1a1a1a;padding:3px;text-align:center;font-size:6px;color:#aaa;border-radius:2px">$512</div>
+          <div style="background:#1a1a1a;padding:3px;text-align:center;font-size:6px;color:#aaa;border-radius:2px">$384</div>
+        </div>
+      </div>
+    </div>`;
+  }
+  function tpl_leaderboard() {
+    return `<div style="display:flex;align-items:center;justify-content:center;height:100%;background:#0a0a0a;font-family:'Space Grotesk'">
+      <div style="background:#111;border:1px solid #b8860b;border-radius:3px;padding:5px;width:120px">
+        <div style="text-align:center;font:700 8px;color:#b8860b;margin-bottom:4px">TOP FFA</div>
+        <div style="font-size:6px;color:#fff;padding:2px 4px;background:#1a1a1a;border-radius:2px;margin-bottom:1px">#1 Player · 12K</div>
+        <div style="font-size:6px;color:#aaa;padding:2px 4px;background:#141414;border-radius:2px;margin-bottom:1px">#2 Player · 9K</div>
+        <div style="font-size:6px;color:#888;padding:2px 4px;background:#1a1a1a;border-radius:2px">#3 Player · 5K</div>
+      </div>
+    </div>`;
+  }
+  function tpl_party_menu() {
+    return `<div style="display:flex;align-items:center;justify-content:center;height:100%;background:#0a0a0a;font-family:'Space Grotesk'">
+      <div style="background:#111;border:1px solid #b8860b;border-radius:3px;padding:5px;width:120px">
+        <div style="text-align:center;font:700 8px;color:#b8860b;margin-bottom:4px">PARTY</div>
+        <div style="display:flex;gap:3px;justify-content:center">
+          <div style="background:#1a1a1a;padding:4px 8px;border-radius:2px;font-size:6px;color:#fff;text-align:center">Create</div>
+          <div style="background:#1a1a1a;padding:4px 8px;border-radius:2px;font-size:6px;color:#fff;text-align:center">Invites</div>
+        </div>
+      </div>
+    </div>`;
+  }
+  function tpl_color_picker() {
+    return `<div style="display:flex;align-items:center;justify-content:center;height:100%;background:#0a0a0a;font-family:'Space Grotesk'">
+      <div style="background:#1a1510;border:1px solid #b8860b;border-radius:3px;padding:5px;width:110px">
+        <div style="text-align:center;font:700 7px;color:#b8860b;margin-bottom:3px">COLORS</div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:4px">
+          <div style="width:14px;height:14px;background:#c44;border-radius:2px"></div>
+          <div style="width:14px;height:14px;background:#4c4;border-radius:2px"></div>
+          <div style="width:14px;height:14px;background:#44c;border-radius:2px"></div>
+          <div style="width:14px;height:14px;background:#cc4;border-radius:2px"></div>
+          <div style="width:14px;height:14px;background:#4cc;border-radius:2px"></div>
+          <div style="width:14px;height:14px;background:#c4c;border-radius:2px"></div>
+          <div style="width:14px;height:14px;background:#aaa;border-radius:2px"></div>
+          <div style="width:14px;height:14px;background:#555;border-radius:2px"></div>
+        </div>
+      </div>
+    </div>`;
+  }
+  function tpl_skill_tree() {
+    return `<div style="display:flex;align-items:center;justify-content:center;height:100%;background:#051515;font-family:'Space Grotesk'">
+      <div style="position:relative;width:120px;height:80px">
+        <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:24px;height:24px;background:rgba(0,230,200,0.3);border:1px solid #00e6c8;border-radius:3px"></div>
+        <div style="position:absolute;left:10px;top:50%;transform:translateY(-50%);width:18px;height:18px;background:rgba(0,230,200,0.15);border:1px solid rgba(0,230,200,0.4);border-radius:3px"></div>
+        <div style="position:absolute;right:10px;top:50%;transform:translateY(-50%);width:18px;height:18px;background:rgba(128,128,128,0.15);border:1px solid rgba(128,128,128,0.3);border-radius:3px"></div>
+        <div style="position:absolute;left:50%;top:6px;transform:translateX(-50%);width:18px;height:18px;background:rgba(128,128,128,0.15);border:1px solid rgba(128,128,128,0.3);border-radius:3px"></div>
+        <div style="position:absolute;left:50%;top:2px;width:1px;height:18px;background:rgba(128,128,128,0.3);transform:translateX(-50%)"></div>
+        <div style="position:absolute;top:50%;left:28px;width:22px;height:1px;background:rgba(0,230,200,0.4);transform:translateY(-50%)"></div>
+        <div style="position:absolute;top:50%;right:28px;width:22px;height:1px;background:rgba(128,128,128,0.3);transform:translateY(-50%)"></div>
+        <div style="position:absolute;left:4px;top:4px;font:700 7px;color:#00e6c8;letter-spacing:0.1em">SKILL</div>
+      </div>
+    </div>`;
+  }
+  function tpl_casino_menu() {
+    return `<div style="display:flex;align-items:center;justify-content:center;height:100%;background:#0a0a0a;font-family:'Space Grotesk'">
+      <div style="background:#1a1030;border:1px solid #b8860b;border-radius:3px;padding:4px;width:110px">
+        <div style="text-align:center;font:700 7px;color:#e8a820;margin-bottom:3px">CASINO</div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px">
+          <div style="background:#221838;padding:3px;text-align:center;font-size:6px;color:#444;border-radius:1px">?</div>
+          <div style="background:#221838;padding:3px;text-align:center;font-size:6px;color:#444;border-radius:1px">?</div>
+          <div style="background:#2a9;padding:3px;text-align:center;font-size:6px;color:#fff;border-radius:1px">★</div>
+          <div style="background:#221838;padding:3px;text-align:center;font-size:6px;color:#444;border-radius:1px">?</div>
+          <div style="background:#221838;padding:3px;text-align:center;font-size:6px;color:#444;border-radius:1px">?</div>
+          <div style="background:#221838;padding:3px;text-align:center;font-size:6px;color:#444;border-radius:1px">?</div>
+          <div style="background:#221838;padding:3px;text-align:center;font-size:6px;color:#444;border-radius:1px">?</div>
+          <div style="background:#221838;padding:3px;text-align:center;font-size:6px;color:#444;border-radius:1px">?</div>
+        </div>
+      </div>
+    </div>`;
+  }
+  function tpl_spin_wheel() {
+    return `<div style="display:flex;align-items:center;justify-content:center;height:100%;background:#0a0a0a;font-family:'Space Grotesk'">
+      <div style="text-align:center">
+        <div style="font:700 8px;color:#e8a820;margin-bottom:4px">▼ SPIN ▼</div>
+        <div style="display:flex;gap:2px;justify-content:center">
+          <div style="width:22px;height:22px;background:#1a1a1a;border:1px solid #333;border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:10px">🗡</div>
+          <div style="width:22px;height:22px;background:#1a1a1a;border:1px solid #333;border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:10px">🍎</div>
+          <div style="width:22px;height:22px;background:#1a1a1a;border:1px solid #333;border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:10px">🦴</div>
+          <div style="width:22px;height:22px;background:#1a1a1a;border:1px solid #333;border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:10px">🍞</div>
+        </div>
+        <div style="margin-top:3px;padding:3px 10px;background:#e8a820;border-radius:2px;font:700 7px;color:#fff;display:inline-block">SPIN</div>
+      </div>
+    </div>`;
+  }
+  function tpl_cosmetics_menu() {
+    return `<div style="display:flex;align-items:center;justify-content:center;height:100%;background:#0a0a0a;font-family:'Space Grotesk'">
+      <div style="background:#111;border:1px solid #b8860b;border-radius:3px;padding:4px;width:130px">
+        <div style="text-align:center;font:700 8px;color:#b8860b;margin-bottom:3px">COSMETICS</div>
+        <div style="display:flex;gap:3px">
+          <div style="width:30px;height:50px;background:#1a1a1a;border:1px solid #333;border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:6px;color:#888">SKIN</div>
+          <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:2px">
+            <div style="background:#1a1a1a;border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:6px;color:#888">A</div>
+            <div style="background:#1a1a1a;border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:6px;color:#888">B</div>
+            <div style="background:#1a1a1a;border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:6px;color:#888">C</div>
+            <div style="background:#1a1a1a;border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:6px;color:#888">D</div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  }
+  function tpl_equipment_select() {
+    return `<div style="display:flex;align-items:center;justify-content:center;height:100%;background:#0d0d10;font-family:'Space Grotesk'">
+      <div style="background:#121218;border:1px solid #555;border-radius:3px;padding:5px;width:120px">
+        <div style="text-align:center;font:600 7px;color:#ddd;margin-bottom:3px">Equipment</div>
+        <div style="display:flex;gap:2px;justify-content:center">
+          <div style="background:#1a1a20;padding:6px 4px;border-radius:2px;text-align:center;font-size:6px;color:#aaa;flex:1">Rifles</div>
+          <div style="background:#1a1a20;padding:6px 4px;border-radius:2px;text-align:center;font-size:6px;color:#aaa;flex:1">Pistols</div>
+          <div style="background:#1a1a20;padding:6px 4px;border-radius:2px;text-align:center;font-size:6px;color:#aaa;flex:1">Knives</div>
+        </div>
+      </div>
+    </div>`;
+  }
+  function tpl_daily_rewards() {
+    return `<div style="display:flex;align-items:center;justify-content:center;height:100%;background:#251830;font-family:'Space Grotesk'">
+      <div style="display:flex;gap:3px">
+        <div style="width:36px;height:48px;background:#b8860b;border-radius:3px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px">
+          <div style="font:700 6px;color:#fff">DAILY</div>
+          <div style="font-size:14px">📦</div>
+        </div>
+        <div style="width:36px;height:48px;background:#b8860b;border-radius:3px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px">
+          <div style="font:700 5px;color:#fff">MONTHLY</div>
+          <div style="font-size:14px">📦</div>
+        </div>
+        <div style="width:36px;height:48px;background:#b8860b;border-radius:3px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px">
+          <div style="font:700 6px;color:#fff">WEEKLY</div>
+          <div style="font-size:14px">📦</div>
+        </div>
+      </div>
+    </div>`;
+  }
+  function tpl_market_shop() {
+    return `<div style="display:flex;align-items:center;justify-content:center;height:100%;background:#0a0a0a;font-family:'Space Grotesk'">
+      <div style="display:flex;gap:3px">
+        <div style="width:80px">
+          <div style="font:700 7px;color:#fff;text-align:center;margin-bottom:2px">MARKET</div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px">
+            <div style="background:#1a1a1a;height:12px;border-radius:1px"></div>
+            <div style="background:#1a1a1a;height:12px;border-radius:1px"></div>
+            <div style="background:#1a1a1a;height:12px;border-radius:1px"></div>
+            <div style="background:#1a1a1a;height:12px;border-radius:1px"></div>
+            <div style="background:#1a1a1a;height:12px;border-radius:1px"></div>
+            <div style="background:#1a1a1a;height:12px;border-radius:1px"></div>
+          </div>
+        </div>
+        <div style="width:40px;background:#111;border-radius:2px;padding:3px;font-size:5px;color:#888">
+          <div style="text-align:center;margin-bottom:2px">Oak Log</div>
+          <div style="padding:2px;background:#1a1;border-radius:1px;text-align:center;color:#fff;font-size:5px;margin-bottom:1px">BUY</div>
+          <div style="padding:2px;background:#b81;border-radius:1px;text-align:center;color:#fff;font-size:5px">SELL</div>
+        </div>
+      </div>
+    </div>`;
+  }
+  function tpl_friend_add() {
+    return `<div style="display:flex;align-items:center;justify-content:center;height:100%;background:#0a0a0a;font-family:'Space Grotesk'">
+      <div style="background:#111;border:1px solid #b8860b;border-radius:3px;padding:5px;width:100px">
+        <div style="text-align:center;font:700 7px;color:#b8860b;margin-bottom:3px">ADD FRIEND</div>
+        <div style="background:#1a1a1a;border:1px solid #333;border-radius:2px;padding:3px;margin-bottom:2px;font-size:6px;color:#555">▼ None</div>
+        <div style="background:#1a1a1a;border:1px solid #333;border-radius:2px;padding:3px;margin-bottom:3px;font-size:6px;color:#555">Player name</div>
+        <div style="background:#1a1a1a;border-radius:2px;padding:3px;text-align:center;font:600 6px;color:#5c5">Add Friend</div>
+      </div>
+    </div>`;
+  }
+  function tpl_scoreboard() {
+    return `<div style="position:absolute;right:6px;top:50%;transform:translateY(-50%);width:70px;padding:4px;background:rgba(10,10,10,0.8);border-radius:2px;font-family:'Space Grotesk'">
+      <div style="background:#cc5500;padding:2px;text-align:center;font:700 6px;color:#fff;border-radius:1px;margin-bottom:2px">SERVER</div>
+      <div style="font-size:5px;color:#aaa;line-height:1.5;padding:0 2px">
+        <div>Online: <span style="color:#fff">24</span></div>
+        <div>Kills: <span style="color:#fff">14</span></div>
+        <div>Coins: <span style="color:#fff">1.2k</span></div>
       </div>
     </div>`;
   }
